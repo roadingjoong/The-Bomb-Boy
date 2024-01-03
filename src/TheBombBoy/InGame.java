@@ -8011,7 +8011,7 @@ public class InGame extends JFrame {
 				DarkPanel();
 				
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -8047,7 +8047,7 @@ public class InGame extends JFrame {
 				}
 				
 				try {
-					Thread.sleep(2000);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -8055,7 +8055,7 @@ public class InGame extends JFrame {
 				ProjectGuidPanel();
 				
 				try {
-					Thread.sleep(3000);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
