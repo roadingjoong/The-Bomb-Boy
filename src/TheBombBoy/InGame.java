@@ -1311,15 +1311,22 @@ public class InGame extends JFrame {
 	}
 	
 	class villainsLairThread implements Runnable{
+		
+		Boolean Thread_ToF = true;
 
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
 				
 				villainsLair.setIcon(new ImageIcon(vla.makeLair1()));
 				
-				if(Stage1EASYPane.isVisible() == true) {
+				if(Stage1EASYPane.isVisible() == true ) {
 					
 					if(Villain1.isVisible() == false && Villain2.isVisible() == false) {
 						if(villainsLair.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
@@ -1333,13 +1340,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1359,13 +1362,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1385,13 +1384,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1399,14 +1394,16 @@ public class InGame extends JFrame {
 					
 				}
 				
-				
-				
-				
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				villainsLair.setIcon(new ImageIcon(vla.makeLair2()));
 				
 				if(Stage1EASYPane.isVisible() == true) {
@@ -1423,13 +1420,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1449,13 +1442,31 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
+								
+								Thread_ToF = false;
+								return;
+							}
+							
+						}
+					}
+					
+				}else if(Stage1HARDPane.isVisible() == true) {
+					
+					if(Villain1.isVisible() == false && Villain2.isVisible() == false && Villain3.isVisible() == false && Stage1Boss.isVisible() == false) {
+						if(villainsLair.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
+							villainsLair.setIcon(new ImageIcon(vla.makeLair_damage()));
+							LairDamageNum += 1;
+							
+							if(LairDamageNum == 5) {
+								try {
+									Thread.sleep(500);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
 								}
+								villainsLair.setVisible(false);
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1468,6 +1479,11 @@ public class InGame extends JFrame {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				villainsLair.setIcon(new ImageIcon(vla.makeLair3()));
 				
 				if(Stage1EASYPane.isVisible() == true) {
@@ -1484,13 +1500,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1510,13 +1522,31 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
+								
+								Thread_ToF = false;
+								return;
+							}
+							
+						}
+					}
+					
+				}else if(Stage1HARDPane.isVisible() == true) {
+					
+					if(Villain1.isVisible() == false && Villain2.isVisible() == false && Villain3.isVisible() == false && Stage1Boss.isVisible() == false) {
+						if(villainsLair.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
+							villainsLair.setIcon(new ImageIcon(vla.makeLair_damage()));
+							LairDamageNum += 1;
+							
+							if(LairDamageNum == 5) {
+								try {
+									Thread.sleep(500);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
 								}
+								villainsLair.setVisible(false);
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1529,6 +1559,12 @@ public class InGame extends JFrame {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				villainsLair.setIcon(new ImageIcon(vla.makeLair4()));
 				
 				if(Stage1EASYPane.isVisible() == true) {
@@ -1545,13 +1581,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1571,13 +1603,31 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
+								
+								Thread_ToF = false;
+								return;
+							}
+							
+						}
+					}
+					
+				}else if(Stage1HARDPane.isVisible() == true) {
+					
+					if(Villain1.isVisible() == false && Villain2.isVisible() == false && Villain3.isVisible() == false && Stage1Boss.isVisible() == false) {
+						if(villainsLair.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
+							villainsLair.setIcon(new ImageIcon(vla.makeLair_damage()));
+							LairDamageNum += 1;
+							
+							if(LairDamageNum == 5) {
+								try {
+									Thread.sleep(500);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
 								}
+								villainsLair.setVisible(false);
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1590,6 +1640,12 @@ public class InGame extends JFrame {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				villainsLair.setIcon(new ImageIcon(vla.makeLair5()));
 				
 				if(Stage1EASYPane.isVisible() == true) {
@@ -1606,13 +1662,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1632,13 +1684,31 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
+								
+								Thread_ToF = false;
+								return;
+							}
+							
+						}
+					}
+					
+				}else if(Stage1HARDPane.isVisible() == true) {
+					
+					if(Villain1.isVisible() == false && Villain2.isVisible() == false && Villain3.isVisible() == false && Stage1Boss.isVisible() == false) {
+						if(villainsLair.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
+							villainsLair.setIcon(new ImageIcon(vla.makeLair_damage()));
+							LairDamageNum += 1;
+							
+							if(LairDamageNum == 5) {
+								try {
+									Thread.sleep(500);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
 								}
+								villainsLair.setVisible(false);
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1651,6 +1721,12 @@ public class InGame extends JFrame {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				villainsLair.setIcon(new ImageIcon(vla.makeLair6()));
 				
 				if(Stage1EASYPane.isVisible() == true) {
@@ -1667,13 +1743,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1693,13 +1765,31 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
+								
+								Thread_ToF = false;
+								return;
+							}
+							
+						}
+					}
+					
+				}else if(Stage1HARDPane.isVisible() == true) {
+					
+					if(Villain1.isVisible() == false && Villain2.isVisible() == false && Villain3.isVisible() == false && Stage1Boss.isVisible() == false) {
+						if(villainsLair.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
+							villainsLair.setIcon(new ImageIcon(vla.makeLair_damage()));
+							LairDamageNum += 1;
+							
+							if(LairDamageNum == 5) {
+								try {
+									Thread.sleep(500);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
 								}
+								villainsLair.setVisible(false);
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1712,6 +1802,12 @@ public class InGame extends JFrame {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				villainsLair.setIcon(new ImageIcon(vla.makeLair7()));
 				
 				if(Stage1EASYPane.isVisible() == true) {
@@ -1728,13 +1824,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1754,13 +1846,31 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
+								
+								Thread_ToF = false;
+								return;
+							}
+							
+						}
+					}
+					
+				}else if(Stage1HARDPane.isVisible() == true) {
+					
+					if(Villain1.isVisible() == false && Villain2.isVisible() == false && Villain3.isVisible() == false && Stage1Boss.isVisible() == false) {
+						if(villainsLair.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
+							villainsLair.setIcon(new ImageIcon(vla.makeLair_damage()));
+							LairDamageNum += 1;
+							
+							if(LairDamageNum == 5) {
+								try {
+									Thread.sleep(500);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
 								}
+								villainsLair.setVisible(false);
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1773,6 +1883,12 @@ public class InGame extends JFrame {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				villainsLair.setIcon(new ImageIcon(vla.makeLair8()));
 				
 				if(Stage1EASYPane.isVisible() == true) {
@@ -1789,13 +1905,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1815,13 +1927,31 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
+								
+								Thread_ToF = false;
+								return;
+							}
+							
+						}
+					}
+					
+				}else if(Stage1HARDPane.isVisible() == true) {
+					
+					if(Villain1.isVisible() == false && Villain2.isVisible() == false && Villain3.isVisible() == false && Stage1Boss.isVisible() == false) {
+						if(villainsLair.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
+							villainsLair.setIcon(new ImageIcon(vla.makeLair_damage()));
+							LairDamageNum += 1;
+							
+							if(LairDamageNum == 5) {
+								try {
+									Thread.sleep(500);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
 								}
+								villainsLair.setVisible(false);
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1834,6 +1964,12 @@ public class InGame extends JFrame {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				villainsLair.setIcon(new ImageIcon(vla.makeLair9()));
 				
 				if(Stage1EASYPane.isVisible() == true) {
@@ -1850,13 +1986,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1876,13 +2008,31 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
+								
+								Thread_ToF = false;
+								return;
+							}
+							
+						}
+					}
+					
+				}else if(Stage1HARDPane.isVisible() == true) {
+					
+					if(Villain1.isVisible() == false && Villain2.isVisible() == false && Villain3.isVisible() == false && Stage1Boss.isVisible() == false) {
+						if(villainsLair.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
+							villainsLair.setIcon(new ImageIcon(vla.makeLair_damage()));
+							LairDamageNum += 1;
+							
+							if(LairDamageNum == 5) {
+								try {
+									Thread.sleep(500);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
 								}
+								villainsLair.setVisible(false);
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1895,6 +2045,12 @@ public class InGame extends JFrame {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				villainsLair.setIcon(new ImageIcon(vla.makeLair10()));
 				
 				if(Stage1EASYPane.isVisible() == true) {
@@ -1911,13 +2067,9 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
-								}
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
@@ -1937,13 +2089,31 @@ public class InGame extends JFrame {
 									e.printStackTrace();
 								}
 								villainsLair.setVisible(false);
-								while(true) {
-									try {
-										Thread.sleep(2000);
-									} catch (InterruptedException e) {
-										e.printStackTrace();
-									}
+								
+								Thread_ToF = false;
+								return;
+							}
+							
+						}
+					}
+					
+				}else if(Stage1HARDPane.isVisible() == true) {
+					
+					if(Villain1.isVisible() == false && Villain2.isVisible() == false && Villain3.isVisible() == false && Stage1Boss.isVisible() == false) {
+						if(villainsLair.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
+							villainsLair.setIcon(new ImageIcon(vla.makeLair_damage()));
+							LairDamageNum += 1;
+							
+							if(LairDamageNum == 5) {
+								try {
+									Thread.sleep(500);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
 								}
+								villainsLair.setVisible(false);
+								
+								Thread_ToF = false;
+								return;
 							}
 							
 						}
