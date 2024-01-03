@@ -335,7 +335,7 @@ public class InGame extends JFrame {
 		GuidText2.setSize(1000,100);
 		GuidText2.setLocation(200,200);
 		
-		JLabel GuidText3 = new JLabel("2002110920 / Kim - Gwon Hyeok");
+		JLabel GuidText3 = new JLabel("********** / Kim - Gwon Hyeok");
 		GuidText3.setForeground(Color.WHITE);
 		GuidText3.setFont(GuidFont);
 		GuidText3.setSize(700,100);
