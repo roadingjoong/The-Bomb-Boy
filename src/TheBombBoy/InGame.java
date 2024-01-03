@@ -1988,14 +1988,9 @@ public class InGame extends JFrame {
 			
 			while(Thread_ToF) {
 				
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					
-					Villain1.setLocation(0,0);
-					Villain1.setVisible(false);
-					
+				if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
 					Thread_ToF = false;
 					return;
-					
 				}
 				
 				Villain1.setIcon(new ImageIcon(vl1g.makeVillain1()));
@@ -2080,6 +2075,11 @@ public class InGame extends JFrame {
 						return;
 					}
 					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
+					
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {
@@ -2128,6 +2128,11 @@ public class InGame extends JFrame {
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
 						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
 						Thread_ToF = false;
 						return;
 					}
@@ -2183,6 +2188,11 @@ public class InGame extends JFrame {
 						return;
 					}
 					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
+					
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {
@@ -2230,6 +2240,11 @@ public class InGame extends JFrame {
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
 						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
 						Thread_ToF = false;
 						return;
 					}
