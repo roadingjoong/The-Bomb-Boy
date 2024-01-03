@@ -2281,25 +2281,17 @@ public class InGame extends JFrame {
 	}
 	
 	class Villain2Thread implements Runnable{
+		
+		Boolean Thread_ToF = true;
+		
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
 				
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					
-					while(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-						
-						Villain2.setLocation(0,0);
-						Villain2.setVisible(false);
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						
-					}
-					
+				if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				Villain2.setIcon(new ImageIcon(vl2g.makeVillain2()));
@@ -2317,13 +2309,9 @@ public class InGame extends JFrame {
 					}
 					Villain2.setVisible(false);
 					Villain2.setLocation(0,0);
-					while(true) {
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
+					
+					Thread_ToF = false;
+					return;
 				}
 				
 				if(Villain2.getBounds().intersects(UserAvatar.getBounds())) {
@@ -2336,6 +2324,9 @@ public class InGame extends JFrame {
 					}
 					UserAvatar.setVisible(false);
 					UserAvatar.setLocation(0, 200);
+					
+					Thread_ToF = false;
+					return;
 				}
 				
 				try {
@@ -2361,13 +2352,9 @@ public class InGame extends JFrame {
 						}
 						Villain2.setVisible(false);
 						Villain2.setLocation(0,0);
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain2.getBounds().intersects(UserAvatar.getBounds())) {
@@ -2380,6 +2367,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -2413,13 +2408,9 @@ public class InGame extends JFrame {
 						}
 						Villain2.setVisible(false);
 						Villain2.setLocation(0,0);
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain2.getBounds().intersects(UserAvatar.getBounds())) {
@@ -2432,6 +2423,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -2465,13 +2464,9 @@ public class InGame extends JFrame {
 						}
 						Villain2.setVisible(false);
 						Villain2.setLocation(0,0);
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain2.getBounds().intersects(UserAvatar.getBounds())) {
@@ -2484,6 +2479,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -2517,13 +2520,9 @@ public class InGame extends JFrame {
 						}
 						Villain2.setVisible(false);
 						Villain2.setLocation(0,0);
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain2.getBounds().intersects(UserAvatar.getBounds())) {
@@ -2536,6 +2535,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -2569,13 +2576,9 @@ public class InGame extends JFrame {
 						}
 						Villain2.setVisible(false);
 						Villain2.setLocation(0,0);
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain2.getBounds().intersects(UserAvatar.getBounds())) {
@@ -2588,6 +2591,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -2621,13 +2632,9 @@ public class InGame extends JFrame {
 						}
 						Villain2.setVisible(false);
 						Villain2.setLocation(0,0);
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain2.getBounds().intersects(UserAvatar.getBounds())) {
@@ -2640,6 +2647,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -2673,13 +2688,9 @@ public class InGame extends JFrame {
 						}
 						Villain2.setVisible(false);
 						Villain2.setLocation(0,0);
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain2.getBounds().intersects(UserAvatar.getBounds())) {
@@ -2692,6 +2703,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -2725,13 +2744,9 @@ public class InGame extends JFrame {
 						}
 						Villain2.setVisible(false);
 						Villain2.setLocation(0,0);
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain2.getBounds().intersects(UserAvatar.getBounds())) {
@@ -2744,6 +2759,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -2777,13 +2800,9 @@ public class InGame extends JFrame {
 						}
 						Villain2.setVisible(false);
 						Villain2.setLocation(0,0);
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain2.getBounds().intersects(UserAvatar.getBounds())) {
@@ -2796,6 +2815,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -2829,13 +2856,9 @@ public class InGame extends JFrame {
 						}
 						Villain2.setVisible(false);
 						Villain2.setLocation(0,0);
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain2.getBounds().intersects(UserAvatar.getBounds())) {
@@ -2848,6 +2871,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
