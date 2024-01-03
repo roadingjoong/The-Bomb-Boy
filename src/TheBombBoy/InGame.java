@@ -1319,13 +1319,26 @@ public class InGame extends JFrame {
 	}
 	
 	class UserBombThread implements Runnable{
+		
+		Boolean Thread_ToF = true;
 
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
 				
 				while(BombTime == 0) {
+					
+					if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
+					
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {
@@ -1342,6 +1355,11 @@ public class InGame extends JFrame {
 					e.printStackTrace();
 				}
 				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				UserBomb.setIcon(new ImageIcon(mb.makeBomb2()));
 				BombTime = 2;
 				
@@ -1349,6 +1367,11 @@ public class InGame extends JFrame {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
+				}
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				UserBomb.setVisible(false);
