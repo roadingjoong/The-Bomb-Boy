@@ -4737,18 +4737,30 @@ public class InGame extends JFrame {
 	}
 	
 	class Stage1SkyThread implements Runnable {
+		
+		Boolean Thread_ToF = true;
 
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
 				
 				Stage1Sky.setIcon(new ImageIcon(ssg.makeSky1()));
 				
 				try {
-					Thread.sleep(3500);
+					Thread.sleep(2000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
+				}
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				Stage1Sky.setIcon(new ImageIcon(ssg.makeSky2()));
@@ -4759,12 +4771,22 @@ public class InGame extends JFrame {
 					e.printStackTrace();
 				}
 				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				Stage1Sky.setIcon(new ImageIcon(ssg.makeSky1()));
 				
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
+				}
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				Stage1Sky.setIcon(new ImageIcon(ssg.makeSky2()));
