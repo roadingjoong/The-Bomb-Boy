@@ -1043,18 +1043,36 @@ public class InGame extends JFrame {
 	}
 	
 	class UserAvatarThread implements Runnable{
+		
+		Boolean Thread_ToF = true;
 
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
 				
 				if(InformationAvatar == 1) {
 					UserAvatar.setIcon(new ImageIcon(mav.makeAvatar1()));
 					
 					while(true) {
 						
+						if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+							Thread_ToF = false;
+							return;
+						}
+						
 						while(AvatarMove == 0) {
+							
+							if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+								Thread_ToF = false;
+								return;
+							}
+							
 							try {
 								Thread.sleep(100);
 							} catch (InterruptedException e) {
@@ -1092,7 +1110,18 @@ public class InGame extends JFrame {
 					
 					while(true) {
 						
+						if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+							Thread_ToF = false;
+							return;
+						}
+						
 						while(AvatarMove == 0) {
+							
+							if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+								Thread_ToF = false;
+								return;
+							}
+							
 							try {
 								Thread.sleep(100);
 							} catch (InterruptedException e) {
@@ -1129,7 +1158,18 @@ public class InGame extends JFrame {
 					
 					while(true) {
 						
+						if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+							Thread_ToF = false;
+							return;
+						}
+						
 						while(AvatarMove == 0) {
+							
+							if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+								Thread_ToF = false;
+								return;
+							}
+							
 							try {
 								Thread.sleep(100);
 							} catch (InterruptedException e) {
@@ -1166,7 +1206,18 @@ public class InGame extends JFrame {
 					
 					while(true) {
 						
+						if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+							Thread_ToF = false;
+							return;
+						}
+						
 						while(AvatarMove == 0) {
+							
+							if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+								Thread_ToF = false;
+								return;
+							}
+							
 							try {
 								Thread.sleep(100);
 							} catch (InterruptedException e) {
@@ -1203,7 +1254,18 @@ public class InGame extends JFrame {
 					
 					while(true) {
 						
+						if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+							Thread_ToF = false;
+							return;
+						}
+						
 						while(AvatarMove == 0) {
+							
+							if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+								Thread_ToF = false;
+								return;
+							}
+							
 							try {
 								Thread.sleep(100);
 							} catch (InterruptedException e) {
