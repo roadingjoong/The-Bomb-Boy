@@ -3174,26 +3174,19 @@ public class InGame extends JFrame {
 	}
 	
 	class Villain3Thread implements Runnable{
+		
+		Boolean Thread_ToF = true;
+		
 		@Override
 		public void run() {
 			
-			if(medium1start == 0 && hard1start == 0) {
+			while(Thread_ToF) {
 				
-				while(medium1start == 0 && hard1start == 0) {
-					
-					Villain3.setLocation(0,0);
-					Villain3.setVisible(false);
-					try {
-						Thread.sleep(2000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-					
+				if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
-			}
-			
-			while(true) {
 				Villain3.setIcon(new ImageIcon(vl3g.makeVillain3()));
 				Villain3_Shot = 0;
 				
@@ -3211,13 +3204,9 @@ public class InGame extends JFrame {
 					Villain3.setVisible(false);
 					Villain3.setLocation(0,0);
 					Villain3_Shot = 0;
-					while(true) {
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
+					
+					Thread_ToF = false;
+					return;
 				}
 				
 				if(Villain3.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3230,6 +3219,14 @@ public class InGame extends JFrame {
 					}
 					UserAvatar.setVisible(false);
 					UserAvatar.setLocation(0, 200);
+					
+					Thread_ToF = false;
+					return;
+				}
+				
+				if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				try {
@@ -3257,13 +3254,9 @@ public class InGame extends JFrame {
 						Villain3.setVisible(false);
 						Villain3.setLocation(0,0);
 						Villain3_Shot = 0;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain3.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3276,6 +3269,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -3302,13 +3303,9 @@ public class InGame extends JFrame {
 					Villain3.setVisible(false);
 					Villain3.setLocation(0,0);
 					Villain3_Shot = 0;
-					while(true) {
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
+					
+					Thread_ToF = false;
+					return;
 				}
 				
 				if(Villain3.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3321,6 +3318,14 @@ public class InGame extends JFrame {
 					}
 					UserAvatar.setVisible(false);
 					UserAvatar.setLocation(0, 200);
+					
+					Thread_ToF = false;
+					return;
+				}
+				
+				if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				try {
@@ -3348,13 +3353,9 @@ public class InGame extends JFrame {
 						Villain3.setVisible(false);
 						Villain3.setLocation(0,0);
 						Villain3_Shot = 0;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain3.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3367,6 +3368,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -3393,13 +3402,9 @@ public class InGame extends JFrame {
 					Villain3.setVisible(false);
 					Villain3.setLocation(0,0);
 					Villain3_Shot = 0;
-					while(true) {
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
+					
+					Thread_ToF = false;
+					return;
 				}
 				
 				if(Villain3.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3412,6 +3417,14 @@ public class InGame extends JFrame {
 					}
 					UserAvatar.setVisible(false);
 					UserAvatar.setLocation(0, 200);
+					
+					Thread_ToF = false;
+					return;
+				}
+				
+				if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				try {
@@ -3437,13 +3450,9 @@ public class InGame extends JFrame {
 					Villain3.setVisible(false);
 					Villain3.setLocation(0,0);
 					Villain3_Shot = 0;
-					while(true) {
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
+					
+					Thread_ToF = false;
+					return;
 				}
 				
 				if(Villain3.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3456,6 +3465,14 @@ public class InGame extends JFrame {
 					}
 					UserAvatar.setVisible(false);
 					UserAvatar.setLocation(0, 200);
+					
+					Thread_ToF = false;
+					return;
+				}
+				
+				if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				try {
@@ -3483,13 +3500,9 @@ public class InGame extends JFrame {
 						Villain3.setVisible(false);
 						Villain3.setLocation(0,0);
 						Villain3_Shot = 0;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain3.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3502,6 +3515,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -3528,13 +3549,9 @@ public class InGame extends JFrame {
 					Villain3.setVisible(false);
 					Villain3.setLocation(0,0);
 					Villain3_Shot = 0;
-					while(true) {
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
+					
+					Thread_ToF = false;
+					return;
 				}
 				
 				if(Villain3.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3547,6 +3564,14 @@ public class InGame extends JFrame {
 					}
 					UserAvatar.setVisible(false);
 					UserAvatar.setLocation(0, 200);
+					
+					Thread_ToF = false;
+					return;
+				}
+				
+				if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				try {
@@ -3574,13 +3599,9 @@ public class InGame extends JFrame {
 						Villain3.setVisible(false);
 						Villain3.setLocation(0,0);
 						Villain3_Shot = 0;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Villain3.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3593,6 +3614,14 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
+					}
+					
+					if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+						Thread_ToF = false;
+						return;
 					}
 					
 					try {
@@ -3619,13 +3648,9 @@ public class InGame extends JFrame {
 					Villain3.setVisible(false);
 					Villain3.setLocation(0,0);
 					Villain3_Shot = 0;
-					while(true) {
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
+					
+					Thread_ToF = false;
+					return;
 				}
 				
 				if(Villain3.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3638,6 +3663,14 @@ public class InGame extends JFrame {
 					}
 					UserAvatar.setVisible(false);
 					UserAvatar.setLocation(0, 200);
+					
+					Thread_ToF = false;
+					return;
+				}
+				
+				if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				try {
