@@ -3806,7 +3806,7 @@ public class InGame extends JFrame {
 		Stage1Boss = new JLabel();
 		Stage1Boss.setSize(300, 110);
 		Stage1Boss.setOpaque(false);
-		Stage1Boss.setVisible(true);
+		Stage1Boss.setVisible(false);
 		
 		Stage1BossThread s1bt = new Stage1BossThread();
 		Thread Stage1BossT = new Thread(s1bt);
@@ -3815,29 +3815,29 @@ public class InGame extends JFrame {
 	}
 	
 	class Stage1BossThread implements Runnable {
+		
+		Boolean Thread_ToF = true;
 
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
 				
 				Stage1Boss_dead = 0;
 				
 				if(hard1start == 0) {
-					while(hard1start == 0) {
-						Stage1Boss.setLocation(0,0);
-						Stage1Boss.setVisible(false);
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
+					Thread_ToF = false;
+					return;
 				}
 				
 				if(Villain1.isVisible() == true || Villain2.isVisible() == true || Villain3.isVisible() == true) {
-					
 					while(Villain1.isVisible() == true || Villain2.isVisible() == true || Villain3.isVisible() == true) {
+						
+						if(hard1start == 0) {
+							Thread_ToF = false;
+							return;
+						}
+						
 						Stage1Boss.setVisible(false);
 						Stage1Boss.setLocation(0,0);
 						try {
@@ -3846,7 +3846,6 @@ public class InGame extends JFrame {
 							e.printStackTrace();
 						}
 					}
-					
 				}
 				
 				try {
@@ -3860,7 +3859,6 @@ public class InGame extends JFrame {
 				while(Stage1Boss.getLocation().x >= -300) {
 					
 					Stage1Boss.setLocation(Stage1Boss.getLocation().x - 10, Stage1Boss.getLocation().y);
-					
 					
 					if(Stage1Boss.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
 						Stage1Boss.setIcon(new ImageIcon(s1b.makeBoss_left_die()));
@@ -3876,13 +3874,9 @@ public class InGame extends JFrame {
 						Stage1Boss.setVisible(false);
 						Stage1Boss.setLocation(0,0);
 						Stage1Boss_dead = 1;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3895,8 +3889,15 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
 					}
 					
+					if(hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
 					
 					try {
 						Thread.sleep(50);
@@ -3933,13 +3934,9 @@ public class InGame extends JFrame {
 						Stage1Boss.setVisible(false);
 						Stage1Boss.setLocation(0,0);
 						Stage1Boss_dead = 1;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
@@ -3952,8 +3949,15 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
 					}
 					
+					if(hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
 					
 					try {
 						Thread.sleep(50);
@@ -3990,13 +3994,9 @@ public class InGame extends JFrame {
 						Stage1Boss.setVisible(false);
 						Stage1Boss.setLocation(0,0);
 						Stage1Boss_dead = 1;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
@@ -4009,8 +4009,15 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
 					}
 					
+					if(hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
 					
 					try {
 						Thread.sleep(50);
@@ -4047,13 +4054,9 @@ public class InGame extends JFrame {
 						Stage1Boss.setVisible(false);
 						Stage1Boss.setLocation(0,0);
 						Stage1Boss_dead = 1;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
@@ -4066,8 +4069,15 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
 					}
 					
+					if(hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
 					
 					try {
 						Thread.sleep(50);
@@ -4104,13 +4114,9 @@ public class InGame extends JFrame {
 						Stage1Boss.setVisible(false);
 						Stage1Boss.setLocation(0,0);
 						Stage1Boss_dead = 1;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
@@ -4123,8 +4129,15 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
 					}
 					
+					if(hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
 					
 					try {
 						Thread.sleep(50);
@@ -4161,13 +4174,9 @@ public class InGame extends JFrame {
 						Stage1Boss.setVisible(false);
 						Stage1Boss.setLocation(0,0);
 						Stage1Boss_dead = 1;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
@@ -4180,8 +4189,15 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
 					}
 					
+					if(hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
 					
 					try {
 						Thread.sleep(50);
@@ -4218,13 +4234,9 @@ public class InGame extends JFrame {
 						Stage1Boss.setVisible(false);
 						Stage1Boss.setLocation(0,0);
 						Stage1Boss_dead = 1;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
@@ -4237,8 +4249,15 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
 					}
 					
+					if(hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
 					
 					try {
 						Thread.sleep(50);
@@ -4275,13 +4294,9 @@ public class InGame extends JFrame {
 						Stage1Boss.setVisible(false);
 						Stage1Boss.setLocation(0,0);
 						Stage1Boss_dead = 1;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
@@ -4294,8 +4309,15 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
 					}
 					
+					if(hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
 					
 					try {
 						Thread.sleep(50);
@@ -4317,7 +4339,6 @@ public class InGame extends JFrame {
 					
 					Stage1Boss.setLocation(Stage1Boss.getLocation().x - 10, Stage1Boss.getLocation().y);
 					
-					
 					if(Stage1Boss.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
 						Stage1Boss.setIcon(new ImageIcon(s1b.makeBoss_left_die()));
 						
@@ -4332,13 +4353,9 @@ public class InGame extends JFrame {
 						Stage1Boss.setVisible(false);
 						Stage1Boss.setLocation(0,0);
 						Stage1Boss_dead = 1;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
@@ -4351,8 +4368,15 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
 					}
 					
+					if(hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
 					
 					try {
 						Thread.sleep(50);
@@ -4374,7 +4398,6 @@ public class InGame extends JFrame {
 					
 					Stage1Boss.setLocation(Stage1Boss.getLocation().x + 10, Stage1Boss.getLocation().y);
 					
-					
 					if(Stage1Boss.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
 						Stage1Boss.setIcon(new ImageIcon(s1b.makeBoss_right_die()));
 						
@@ -4389,13 +4412,9 @@ public class InGame extends JFrame {
 						Stage1Boss.setVisible(false);
 						Stage1Boss.setLocation(0,0);
 						Stage1Boss_dead = 1;
-						while(true) {
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
+						
+						Thread_ToF = false;
+						return;
 					}
 					
 					if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
@@ -4408,8 +4427,15 @@ public class InGame extends JFrame {
 						}
 						UserAvatar.setVisible(false);
 						UserAvatar.setLocation(0, 200);
+						
+						Thread_ToF = false;
+						return;
 					}
 					
+					if(hard1start == 0) {
+						Thread_ToF = false;
+						return;
+					}
 					
 					try {
 						Thread.sleep(50);
