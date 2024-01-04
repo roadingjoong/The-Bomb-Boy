@@ -3738,6 +3738,14 @@ public class InGame extends JFrame {
 							return;
 						}
 						
+						if(Villain3.isVisible() == false) {
+							Villain3_bullet.setVisible(false);
+							Villain3_bullet.setLocation(0,0);
+							
+							Thread_ToF = false;
+							return;
+						}
+						
 						Villain3_bullet.setLocation(Villain3_bullet.getLocation().x - 10, Villain3_bullet.getLocation().y);
 						
 						if(Villain3_bullet.getBounds().intersects(UserAvatar.getBounds())) {
