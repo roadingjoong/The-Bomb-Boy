@@ -4901,6 +4901,7 @@ public class InGame extends JFrame {
 			while(Thread_ToF) {
 				
 				if(hard1start == 0) {
+					Stage1Boss_dead = 0;
 					Thread_ToF = false;
 					return;
 				}
