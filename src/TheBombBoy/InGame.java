@@ -4742,24 +4742,18 @@ public class InGame extends JFrame {
 	}
 	
 	class GoldCoin3Thread2 implements Runnable{
+		
+		Boolean Thread_ToF = true;
 
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
 				
 				if(medium1start == 0 && hard1start == 0) {
-					while(medium1start == 0 && hard1start == 0) {
-						GoldCoin3.setLocation(0,0);
-						GoldCoin3.setVisible(false);
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
+					Thread_ToF = false;
+					return;
 				}
-				
 				
 				if(Villain3.isVisible() == false) {
 					GoldCoin3.setLocation(SaveVillain3_x+50, SaveVillain3_y+50);
@@ -4785,7 +4779,8 @@ public class InGame extends JFrame {
 						InformationAvatar = gu.getUseravatar();
 					}
 					
-					break;
+					Thread_ToF = false;
+					return;
 					
 				}
 				
