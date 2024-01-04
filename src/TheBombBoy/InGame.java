@@ -4892,33 +4892,20 @@ public class InGame extends JFrame {
 	}
 	
 	class GoldBox1Thread2 implements Runnable{
+		
+		Boolean Thread_ToF = true;
 
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
 				
 				if(hard1start == 0) {
-					while(hard1start == 0) {
-						GoldBox1.setLocation(0,0);
-						GoldBox1.setVisible(false);
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
+					Thread_ToF = false;
+					return;
 				}
 				
-				while(Stage1Boss_dead == 0) {
-					try {
-						Thread.sleep(200);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-				
-				if(Stage1Boss.isVisible() == false) {
+				if(Stage1Boss_dead == 1) {
 					GoldBox1.setLocation(Stage1Boss_x+50, Stage1Boss_y+50);
 					GoldBox1.setVisible(true);
 				}
@@ -4944,7 +4931,8 @@ public class InGame extends JFrame {
 						InformationAvatar = gu.getUseravatar();
 					}
 					
-					break;
+					Thread_ToF = false;
+					return;
 					
 				}
 				
