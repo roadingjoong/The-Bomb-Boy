@@ -4841,11 +4841,18 @@ public class InGame extends JFrame {
 	}
 	
 	class GoldBox1Thread implements Runnable{
+		
+		Boolean Thread_ToF = true;
 
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
+				
+				if(hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
 				
 				GoldBox1.setIcon(new ImageIcon(gb1g.makeGoldBox1()));
 				try {
@@ -4854,11 +4861,21 @@ public class InGame extends JFrame {
 					e.printStackTrace();
 				}
 				
+				if(hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				GoldBox1.setIcon(new ImageIcon(gb1g.makeGoldBox2()));
 				try {
 					Thread.sleep(210);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
+				}
+				
+				if(hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				GoldBox1.setIcon(new ImageIcon(gb1g.makeGoldBox3()));
