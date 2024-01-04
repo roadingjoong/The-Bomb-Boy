@@ -1001,29 +1001,40 @@ public class InGame extends JFrame {
 		Thread AvatarT = new Thread(uat);
 		AvatarT.start();
 		
-		
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_LEFT) {
 					AvatarMove = 4;
-					UserAvatar.setLocation(UserAvatar.getLocation().x-10, UserAvatar.getLocation().y);
+					if(UserAvatar.getLocation().x >= 20) {
+						UserAvatar.setLocation(UserAvatar.getLocation().x-5, UserAvatar.getLocation().y);
+					}else if(UserAvatar.getLocation().x <= 20) {
+						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+					}
 					
 				}else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
 					AvatarMove = 3;
-					UserAvatar.setLocation(UserAvatar.getLocation().x+10, UserAvatar.getLocation().y);
+					if(UserAvatar.getLocation().x <= 1180) {
+						UserAvatar.setLocation(UserAvatar.getLocation().x+5, UserAvatar.getLocation().y);
+					}else if(UserAvatar.getLocation().x >= 1180) {
+						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+					}
 					
 				}else if(e.getKeyCode() == KeyEvent.VK_UP) {
 					AvatarMove = 2;
 					if(UserAvatar.getLocation().y >= 175) {
-						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-10);
+						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
 					}else if(UserAvatar.getLocation().y <= 175){
 						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 					}
 					
 				}else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
 					AvatarMove = 1;
-					UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+10);
+					if(UserAvatar.getLocation().y <= 500) {
+						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
+					}else if(UserAvatar.getLocation().y >= 500) {
+						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+					}
 										
 				}
 				
@@ -1482,7 +1493,7 @@ public class InGame extends JFrame {
 					}
 					
 				}
-
+				
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
