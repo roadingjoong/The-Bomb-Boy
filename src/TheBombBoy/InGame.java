@@ -4444,11 +4444,18 @@ public class InGame extends JFrame {
 	}
 	
 	class GoldCoinThread implements Runnable{
+		
+		Boolean Thread_ToF = true;
 
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
 				
 				GoldCoin.setIcon(new ImageIcon(gcg.makeGoldCoin()));
 				try {
@@ -4457,11 +4464,21 @@ public class InGame extends JFrame {
 					e.printStackTrace();
 				}
 				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				GoldCoin.setIcon(new ImageIcon(gcg.makeGoldCoin2()));
 				try {
 					Thread.sleep(200);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
+				}
+				
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					Thread_ToF = false;
+					return;
 				}
 				
 				GoldCoin.setIcon(new ImageIcon(gcg.makeGoldCoin3()));
