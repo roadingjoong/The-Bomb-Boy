@@ -3699,20 +3699,28 @@ public class InGame extends JFrame {
 	}
 	
 	class Villain3_bulletThread implements Runnable{
+		
+		Boolean Thread_ToF = true;
 
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
 				
-				while(Villain3.isVisible() == false) {
+				if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+					Villain3_bullet.setVisible(false);
 					Villain3_bullet.setLocation(0,0);
-					try {
-						Thread.sleep(2100);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
 					
+					Thread_ToF = false;
+					return;
+				}
+				
+				if(Villain3.isVisible() == false) {
+					Villain3_bullet.setVisible(false);
+					Villain3_bullet.setLocation(0,0);
+					
+					Thread_ToF = false;
+					return;
 				}
 				
 				if(Villain3_Shot == 1) {
@@ -3721,6 +3729,14 @@ public class InGame extends JFrame {
 					Villain3_bullet.setVisible(true);
 					
 					while(Villain3_bullet.getLocation().x > 200) {
+						
+						if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+							Villain3_bullet.setVisible(false);
+							Villain3_bullet.setLocation(0,0);
+							
+							Thread_ToF = false;
+							return;
+						}
 						
 						Villain3_bullet.setLocation(Villain3_bullet.getLocation().x - 10, Villain3_bullet.getLocation().y);
 						
@@ -3736,6 +3752,11 @@ public class InGame extends JFrame {
 							UserAvatar.setVisible(false);
 							UserAvatar.setLocation(0, 200);
 							
+							Villain3_bullet.setVisible(false);
+							Villain3_bullet.setLocation(0,0);
+							Thread_ToF = false;
+							return;
+							
 						}
 						
 						try {
@@ -3749,8 +3770,17 @@ public class InGame extends JFrame {
 					Villain3_bullet.setLocation(0,0);
 					Villain3_bullet.setVisible(false);
 					while(Villain3_Shot == 0) {
+						
+						if(UserAvatar.isVisible() == false || medium1start == 0 && hard1start == 0) {
+							Villain3_bullet.setVisible(false);
+							Villain3_bullet.setLocation(0,0);
+							
+							Thread_ToF = false;
+							return;
+						}
+						
 						try {
-							Thread.sleep(2000);
+							Thread.sleep(100);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
