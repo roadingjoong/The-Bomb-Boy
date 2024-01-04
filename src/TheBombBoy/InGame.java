@@ -1405,6 +1405,7 @@ public class InGame extends JFrame {
 			while(Thread_ToF) {
 				
 				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					LairDamageNum = 0;
 					Thread_ToF = false;
 					return;
 				}
@@ -1426,6 +1427,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1448,6 +1450,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1470,6 +1473,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1478,13 +1482,14 @@ public class InGame extends JFrame {
 					}
 					
 				}
-				
+
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					LairDamageNum = 0;
 					Thread_ToF = false;
 					return;
 				}
@@ -1506,6 +1511,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1528,6 +1534,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1550,6 +1557,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1565,6 +1573,7 @@ public class InGame extends JFrame {
 					e.printStackTrace();
 				}
 				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					LairDamageNum = 0;
 					Thread_ToF = false;
 					return;
 				}
@@ -1586,6 +1595,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1608,6 +1618,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1630,6 +1641,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1646,6 +1658,7 @@ public class InGame extends JFrame {
 				}
 				
 				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					LairDamageNum = 0;
 					Thread_ToF = false;
 					return;
 				}
@@ -1667,6 +1680,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1689,6 +1703,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1711,6 +1726,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1727,6 +1743,7 @@ public class InGame extends JFrame {
 				}
 				
 				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					LairDamageNum = 0;
 					Thread_ToF = false;
 					return;
 				}
@@ -1748,6 +1765,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1770,6 +1788,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1792,6 +1811,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1808,6 +1828,7 @@ public class InGame extends JFrame {
 				}
 				
 				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					LairDamageNum = 0;
 					Thread_ToF = false;
 					return;
 				}
@@ -1829,6 +1850,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1851,6 +1873,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1873,6 +1896,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1889,6 +1913,7 @@ public class InGame extends JFrame {
 				}
 				
 				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					LairDamageNum = 0;
 					Thread_ToF = false;
 					return;
 				}
@@ -1910,6 +1935,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1932,6 +1958,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1954,6 +1981,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -1970,6 +1998,7 @@ public class InGame extends JFrame {
 				}
 				
 				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					LairDamageNum = 0;
 					Thread_ToF = false;
 					return;
 				}
@@ -1991,6 +2020,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -2013,6 +2043,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -2035,6 +2066,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -2051,6 +2083,7 @@ public class InGame extends JFrame {
 				}
 				
 				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					LairDamageNum = 0;
 					Thread_ToF = false;
 					return;
 				}
@@ -2072,6 +2105,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -2094,6 +2128,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -2116,6 +2151,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -2132,6 +2168,7 @@ public class InGame extends JFrame {
 				}
 				
 				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					LairDamageNum = 0;
 					Thread_ToF = false;
 					return;
 				}
@@ -2153,6 +2190,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -2175,6 +2213,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
@@ -2197,6 +2236,7 @@ public class InGame extends JFrame {
 								}
 								villainsLair.setVisible(false);
 								
+								LairDamageNum = 0;
 								Thread_ToF = false;
 								return;
 							}
