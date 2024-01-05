@@ -582,6 +582,33 @@ public class InGame extends JFrame {
 			}
 		});
 		
+		signIdField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					signNum = 1;
+				}
+			}
+		});
+		
+		signPwField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					signNum = 1;
+				}
+			}
+		});
+		
+		signNameField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					signNum = 1;
+				}
+			}
+		});
+		
 	}
 	
 	void StartGamePanel() {
