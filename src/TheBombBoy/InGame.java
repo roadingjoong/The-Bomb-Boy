@@ -436,25 +436,35 @@ public class InGame extends JFrame {
 		LoginPane.setVisible(true);
 		
 		LoginButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				LoginNum = 1;
-				
 			}
-			
 		});
 		
 		SignUpButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				LoginNum = 2;
-				
 			}
-			
+		});
+		
+		Idfield.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					LoginNum = 1;
+				}
+			}
+		});
+		
+		Pwfield.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					LoginNum = 1;
+				}
+			}
 		});
 		
 	}
