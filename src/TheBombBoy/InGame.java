@@ -68,6 +68,7 @@ public class InGame extends JFrame {
 	int LoginNum = 0;
 	int signNum = 0;
 	int joinNum = 0;
+	int ChangeNameNum = 0;
 	
 	JTextField signIdField;  //회원가입
 	JPasswordField signPwField;
@@ -5545,39 +5546,23 @@ public class InGame extends JFrame {
 		ChangeNameButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				if(ChangeNamefield.getText().length() != 0) {
-					
-					String newName = ChangeNamefield.getText();
-					
-					GUD.updateName(newName, InformationId);
-					
-					ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
-					
-					for(GameUser gu : GUList ) {
-						InformationId = gu.getUserid();
-						InformationPw = gu.getUserpw();
-						InformationName = gu.getUsername();
-						InformationLevel = gu.getUserlevel();
-						InformationAlias = gu.getUseralias();
-						InformationStage = gu.getUserStage();
-						InformationCoin = gu.getUsercoin();
-						InformationAvatar = gu.getUseravatar();
-					}
-					
-				}else {
-					System.out.println("문자를 입력하지 않음");
-				}
-				
+				ChangeNameNum = 2;
 			}
 		});
 		
 		CNExiteButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				joinNum = 3;
-
+				ChangeNameNum = 1;
+			}
+		});
+		
+		ChangeNamefield.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					ChangeNameNum = 2;
+				}
 			}
 		});
 		
@@ -9119,7 +9104,7 @@ public class InGame extends JFrame {
 							
 							ChangeNamePanel();
 							
-							while(joinNum == 0) {
+							while(ChangeNameNum == 0) {
 								try {
 									Thread.sleep(2000);
 								} catch (InterruptedException e) {
@@ -9127,6 +9112,39 @@ public class InGame extends JFrame {
 								}
 							}
 							
+							if(ChangeNameNum == 2) {
+								ChangeNameNum = 0;
+								
+								if(ChangeNamefield.getText().length() != 0) {
+									
+									String newName = ChangeNamefield.getText();
+									
+									GUD.updateName(newName, InformationId);
+									
+									ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
+									
+									for(GameUser gu : GUList ) {
+										InformationId = gu.getUserid();
+										InformationPw = gu.getUserpw();
+										InformationName = gu.getUsername();
+										InformationLevel = gu.getUserlevel();
+										InformationAlias = gu.getUseralias();
+										InformationStage = gu.getUserStage();
+										InformationCoin = gu.getUsercoin();
+										InformationAvatar = gu.getUseravatar();
+									}
+									
+									joinNum = 3;
+									
+								}else {
+									System.out.println("문자를 입력하지 않음");
+								}
+								
+							}else if(ChangeNameNum == 1) {
+								ChangeNameNum = 0;
+								joinNum = 3;
+							}
+														
 							continue;
 							
 						}else if(joinNum == 7) {
