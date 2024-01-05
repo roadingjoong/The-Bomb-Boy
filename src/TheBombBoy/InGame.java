@@ -9098,37 +9098,47 @@ public class InGame extends JFrame {
 								}
 							}
 							
-							if(ChangeNameNum == 2) {
-								ChangeNameNum = 0;
+							while(joinNum == 0) {
 								
-								if(ChangeNamefield.getText().length() != 0) {
+								if(ChangeNameNum == 2) {
+									ChangeNameNum = 0;
 									
-									String newName = ChangeNamefield.getText();
-									
-									GUD.updateName(newName, InformationId);
-									
-									ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
-									
-									for(GameUser gu : GUList ) {
-										InformationId = gu.getUserid();
-										InformationPw = gu.getUserpw();
-										InformationName = gu.getUsername();
-										InformationLevel = gu.getUserlevel();
-										InformationAlias = gu.getUseralias();
-										InformationStage = gu.getUserStage();
-										InformationCoin = gu.getUsercoin();
-										InformationAvatar = gu.getUseravatar();
+									if(ChangeNamefield.getText().length() != 0) {
+										
+										String newName = ChangeNamefield.getText();
+										
+										GUD.updateName(newName, InformationId);
+										
+										ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
+										
+										for(GameUser gu : GUList ) {
+											InformationId = gu.getUserid();
+											InformationPw = gu.getUserpw();
+											InformationName = gu.getUsername();
+											InformationLevel = gu.getUserlevel();
+											InformationAlias = gu.getUseralias();
+											InformationStage = gu.getUserStage();
+											InformationCoin = gu.getUsercoin();
+											InformationAvatar = gu.getUseravatar();
+										}
+										
+										joinNum = 3;
+										
+									}else {
+										System.out.println("문자를 입력하지 않음");
 									}
 									
+								}else if(ChangeNameNum == 1) {
+									ChangeNameNum = 0;
 									joinNum = 3;
-									
-								}else {
-									System.out.println("문자를 입력하지 않음");
 								}
 								
-							}else if(ChangeNameNum == 1) {
-								ChangeNameNum = 0;
-								joinNum = 3;
+								try {
+									Thread.sleep(100);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+								
 							}
 														
 							continue;
@@ -9148,43 +9158,53 @@ public class InGame extends JFrame {
 								}
 							}
 							
-							if(ChangePwNum == 2) {
-								ChangePwNum = 0;
+							while(joinNum == 0) {
 								
-								char[] getcheckChangePw = ChangeCurrentPwfield.getPassword();
-								String checkChangePw = new String(getcheckChangePw);
-								
-								boolean checkChangeThisPw = GUD.LoginUser(InformationId, checkChangePw);
-								
-								if(checkChangeThisPw == true) {
+								if(ChangePwNum == 2) {
+									ChangePwNum = 0;
 									
-									char[] getChangeNewPw = ChangePwfield.getPassword();
-									String ChangeNewPw = new String(getChangeNewPw);
+									char[] getcheckChangePw = ChangeCurrentPwfield.getPassword();
+									String checkChangePw = new String(getcheckChangePw);
 									
-									GUD.updatePw(ChangeNewPw, InformationId);
+									boolean checkChangeThisPw = GUD.LoginUser(InformationId, checkChangePw);
 									
-									ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
-									
-									for(GameUser gu : GUList ) {
-										InformationId = gu.getUserid();
-										InformationPw = gu.getUserpw();
-										InformationName = gu.getUsername();
-										InformationLevel = gu.getUserlevel();
-										InformationAlias = gu.getUseralias();
-										InformationStage = gu.getUserStage();
-										InformationCoin = gu.getUsercoin();
-										InformationAvatar = gu.getUseravatar();
+									if(checkChangeThisPw == true) {
+										
+										char[] getChangeNewPw = ChangePwfield.getPassword();
+										String ChangeNewPw = new String(getChangeNewPw);
+										
+										GUD.updatePw(ChangeNewPw, InformationId);
+										
+										ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
+										
+										for(GameUser gu : GUList ) {
+											InformationId = gu.getUserid();
+											InformationPw = gu.getUserpw();
+											InformationName = gu.getUsername();
+											InformationLevel = gu.getUserlevel();
+											InformationAlias = gu.getUseralias();
+											InformationStage = gu.getUserStage();
+											InformationCoin = gu.getUsercoin();
+											InformationAvatar = gu.getUseravatar();
+										}
+										
+										joinNum = 3;
+										
+									}else {
+										System.out.println("현재 비밀번호가 맞지 않습니다.");
 									}
 									
+								}else if(ChangePwNum == 1) {
+									ChangePwNum = 0;
 									joinNum = 3;
 									
-								}else {
-									System.out.println("현재 비밀번호가 맞지 않습니다.");
 								}
 								
-							}else if(ChangePwNum == 1) {
-								ChangePwNum = 0;
-								joinNum = 3;
+								try {
+									Thread.sleep(100);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
 								
 							}
 														
