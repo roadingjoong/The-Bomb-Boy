@@ -171,6 +171,8 @@ public class InGame extends JFrame {
 		this.setTitle("The Bomb Boy");
 		this.setBackground(Color.BLACK);
 		this.setSize(1300,750);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 
 		Stage1HARDPanel();
 		Stage1MEDIUMPanel();
