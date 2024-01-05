@@ -76,10 +76,10 @@ public class InGame extends JFrame {
 	JTextField Idfield; //로그인
 	JPasswordField Pwfield;
 	
-	JLabel MyPageIdText; //마페
-	JLabel MyPageNameText;
-	JLabel MyPageLevelText;
-	JLabel MyPageAliasText;
+	JTextField MyPageIdText; //마페
+	JTextField MyPageNameText;
+	JTextField MyPageLevelText;
+	JTextField MyPageAliasText;
 	JTextField MyPageCoinfield;
 	JLabel MyPageAvatar;
 	
@@ -5344,49 +5344,57 @@ public class InGame extends JFrame {
 		MyPageIdlabel.setVerticalAlignment(JLabel.CENTER);
 		MyPageIdlabel.setFont(MyPageFont2);
 		
-		MyPageIdText = new JLabel("");
+		MyPageIdText = new JTextField("");
+		MyPageIdText.setEditable(false);
 		MyPageIdText.setHorizontalAlignment(JLabel.CENTER);
-		MyPageIdText.setVerticalAlignment(JLabel.CENTER);
 		MyPageIdText.setFont(MyPageFont2);
+		JScrollPane MyPageIdScroll = new JScrollPane(MyPageIdText);
+		MyPageIdScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		
 		JLabel MyPageNamelabel = new JLabel("NAME :");
 		MyPageNamelabel.setHorizontalAlignment(JLabel.CENTER);
 		MyPageNamelabel.setVerticalAlignment(JLabel.CENTER);
 		MyPageNamelabel.setFont(MyPageFont2);
 		
-		MyPageNameText = new JLabel("");
+		MyPageNameText = new JTextField("");
+		MyPageNameText.setEditable(false);
 		MyPageNameText.setHorizontalAlignment(JLabel.CENTER);
-		MyPageNameText.setVerticalAlignment(JLabel.CENTER);
 		MyPageNameText.setFont(MyPageFont2);
+		JScrollPane MyPageNameScroll = new JScrollPane(MyPageNameText);
+		MyPageNameScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		
 		JLabel MyPageLevellabel = new JLabel("LEVEL :");
 		MyPageLevellabel.setHorizontalAlignment(JLabel.CENTER);
 		MyPageLevellabel.setVerticalAlignment(JLabel.CENTER);
 		MyPageLevellabel.setFont(MyPageFont2);
 		
-		MyPageLevelText = new JLabel("");
+		MyPageLevelText = new JTextField("");
+		MyPageLevelText.setEditable(false);
 		MyPageLevelText.setHorizontalAlignment(JLabel.CENTER);
-		MyPageLevelText.setVerticalAlignment(JLabel.CENTER);
 		MyPageLevelText.setFont(MyPageFont2);
+		JScrollPane MyPageLevelScroll = new JScrollPane(MyPageLevelText);
+		MyPageLevelScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		
 		JLabel MyPageAliaslabel = new JLabel("ALIAS :");
 		MyPageAliaslabel.setHorizontalAlignment(JLabel.CENTER);
 		MyPageAliaslabel.setVerticalAlignment(JLabel.CENTER);
 		MyPageAliaslabel.setFont(MyPageFont2);
 		
-		MyPageAliasText = new JLabel("");
+		MyPageAliasText = new JTextField("");
+		MyPageAliasText.setEditable(false);
 		MyPageAliasText.setHorizontalAlignment(JLabel.CENTER);
-		MyPageAliasText.setVerticalAlignment(JLabel.CENTER);
 		MyPageAliasText.setFont(MyPageFont2);
+		JScrollPane MyPageAliasScroll = new JScrollPane(MyPageAliasText);
+		MyPageAliasScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		
 		MyPageInformation.add(MyPageIdlabel);
-		MyPageInformation.add(MyPageIdText);
+		MyPageInformation.add(MyPageIdScroll);
 		MyPageInformation.add(MyPageNamelabel);
-		MyPageInformation.add(MyPageNameText);
+		MyPageInformation.add(MyPageNameScroll);
 		MyPageInformation.add(MyPageLevellabel);
-		MyPageInformation.add(MyPageLevelText);
+		MyPageInformation.add(MyPageLevelScroll);
 		MyPageInformation.add(MyPageAliaslabel);
-		MyPageInformation.add(MyPageAliasText);
+		MyPageInformation.add(MyPageAliasScroll);
 		
 		MyPagePane.add(MyPageInformation);
 		
