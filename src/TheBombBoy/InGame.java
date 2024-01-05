@@ -69,6 +69,7 @@ public class InGame extends JFrame {
 	int signNum = 0;
 	int joinNum = 0;
 	int ChangeNameNum = 0;
+	int ChangePwNum = 0;
 	
 	JTextField signIdField;  //회원가입
 	JPasswordField signPwField;
@@ -5662,44 +5663,29 @@ public class InGame extends JFrame {
 		ChangePwButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				char[] getcheckChangePw = ChangeCurrentPwfield.getPassword();
-				String checkChangePw = new String(getcheckChangePw);
-				
-				boolean checkChangeThisPw = GUD.LoginUser(InformationId, checkChangePw);
-				
-				if(checkChangeThisPw == true) {
-					
-					char[] getChangeNewPw = ChangePwfield.getPassword();
-					String ChangeNewPw = new String(getChangeNewPw);
-					
-					GUD.updatePw(ChangeNewPw, InformationId);
-					
-					ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
-					
-					for(GameUser gu : GUList ) {
-						InformationId = gu.getUserid();
-						InformationPw = gu.getUserpw();
-						InformationName = gu.getUsername();
-						InformationLevel = gu.getUserlevel();
-						InformationAlias = gu.getUseralias();
-						InformationStage = gu.getUserStage();
-						InformationCoin = gu.getUsercoin();
-						InformationAvatar = gu.getUseravatar();
-					}
-					
-				}else {
-					System.out.println("현재 비밀번호가 맞지 않습니다.");
-				}
+				ChangePwNum = 2;
 			}
 		});
-		
 		CPExiteButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				joinNum = 3;
-				
+				ChangePwNum = 1;
+			}
+		});
+		ChangePwfield.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					ChangePwNum = 2;
+				}
+			}
+		});
+		ChangeCurrentPwfield.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					ChangePwNum = 2;
+				}
 			}
 		});
 		
@@ -9154,7 +9140,7 @@ public class InGame extends JFrame {
 							
 							ChangePwPanel();
 							
-							while(joinNum == 0) {
+							while(ChangePwNum == 0) {
 								try {
 									Thread.sleep(2000);
 								} catch (InterruptedException e) {
@@ -9162,6 +9148,46 @@ public class InGame extends JFrame {
 								}
 							}
 							
+							if(ChangePwNum == 2) {
+								ChangePwNum = 0;
+								
+								char[] getcheckChangePw = ChangeCurrentPwfield.getPassword();
+								String checkChangePw = new String(getcheckChangePw);
+								
+								boolean checkChangeThisPw = GUD.LoginUser(InformationId, checkChangePw);
+								
+								if(checkChangeThisPw == true) {
+									
+									char[] getChangeNewPw = ChangePwfield.getPassword();
+									String ChangeNewPw = new String(getChangeNewPw);
+									
+									GUD.updatePw(ChangeNewPw, InformationId);
+									
+									ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
+									
+									for(GameUser gu : GUList ) {
+										InformationId = gu.getUserid();
+										InformationPw = gu.getUserpw();
+										InformationName = gu.getUsername();
+										InformationLevel = gu.getUserlevel();
+										InformationAlias = gu.getUseralias();
+										InformationStage = gu.getUserStage();
+										InformationCoin = gu.getUsercoin();
+										InformationAvatar = gu.getUseravatar();
+									}
+									
+									joinNum = 3;
+									
+								}else {
+									System.out.println("현재 비밀번호가 맞지 않습니다.");
+								}
+								
+							}else if(ChangePwNum == 1) {
+								ChangePwNum = 0;
+								joinNum = 3;
+								
+							}
+														
 							continue;
 							
 						}
