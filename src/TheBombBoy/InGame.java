@@ -69,6 +69,11 @@ public class InGame extends JFrame {
 	JButton QuitGameButton;
 	int QuitGameNum = 0;
 	
+	JButton InGameButton;
+	JButton MyPageButton;
+	JButton ShopButton;
+	JButton MessengerButton;
+	
 	JFrame Gameframe;
 	
 	int LoginNum = 0;
@@ -214,13 +219,26 @@ public class InGame extends JFrame {
 	
 	void BarPanel() {
 		BarPane = new JPanel();
-		BarPane.setBackground(Color.ORANGE);
+		BarPane.setBackground(Color.DARK_GRAY);
 		BarPane.setLayout(new GridLayout(1, 4));
 		
-		JButton InGameButton = new JButton("In Game");
-		JButton MyPageButton = new JButton("My Page");
-		JButton ShopButton = new JButton("Shop");
-		JButton MessengerButton = new JButton("Messenger");
+		Font BarButtonFont = new Font("Arial", Font.BOLD, 25);
+		
+		InGameButton = new JButton("Home");
+		InGameButton.setForeground(Color.DARK_GRAY);
+		InGameButton.setFont(BarButtonFont);
+		
+		MyPageButton = new JButton("My Page");
+		MyPageButton.setForeground(Color.DARK_GRAY);
+		MyPageButton.setFont(BarButtonFont);
+		
+		ShopButton = new JButton("Shop");
+		ShopButton.setForeground(Color.DARK_GRAY);
+		ShopButton.setFont(BarButtonFont);
+		
+		MessengerButton = new JButton("Messenger");
+		MessengerButton.setForeground(Color.DARK_GRAY);
+		MessengerButton.setFont(BarButtonFont);
 		
 		BarPane.add(InGameButton);
 		BarPane.add(MyPageButton);
@@ -232,36 +250,28 @@ public class InGame extends JFrame {
 		InGameButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				joinNum = 1;
-				
 			}
 		});
 		
 		MyPageButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				joinNum = 3;
-				
 			}
 		});
 		
 		ShopButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				joinNum = 4;
-				
 			}
 		});
 		
 		MessengerButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				joinNum = 5;
-				
 			}
 		});
 		
@@ -8702,6 +8712,7 @@ public class InGame extends JFrame {
 					BarPane.setVisible(true);
 					closePane();
 					StartGamePanel();
+					InGameButton.setForeground(Color.RED);
 					
 					while(joinNum == 0) {
 						
@@ -8719,9 +8730,11 @@ public class InGame extends JFrame {
 							e.printStackTrace();
 						}
 					}
+					InGameButton.setForeground(Color.DARK_GRAY);
 					
 					if(joinNum == 1) {
 						joinNum = 0;
+						InGameButton.setForeground(Color.RED);
 						
 						while(joinNum == 0) {
 							
@@ -8739,7 +8752,7 @@ public class InGame extends JFrame {
 								e.printStackTrace();
 							}
 						}
-						
+						InGameButton.setForeground(Color.DARK_GRAY);
 						continue;
 						
 					}
@@ -9069,6 +9082,7 @@ public class InGame extends JFrame {
 						
 						closePane();
 						MyPagePanel();
+						MyPageButton.setForeground(Color.RED);
 						
 						MyPageIdText.setText(InformationId);
 						MyPageNameText.setText(InformationName);
@@ -9103,13 +9117,14 @@ public class InGame extends JFrame {
 								e.printStackTrace();
 							}
 						}
+						MyPageButton.setForeground(Color.DARK_GRAY);
 						
 						if(joinNum == 6) {
 							joinNum = 0;
 							
 							closePane();
-							
 							ChangeNamePanel();
+							MyPageButton.setForeground(Color.RED);
 							
 							while(ChangeNameNum == 0) {
 								
@@ -9185,8 +9200,8 @@ public class InGame extends JFrame {
 							joinNum = 0;
 							
 							closePane();
-							
 							ChangePwPanel();
+							MyPageButton.setForeground(Color.RED);
 							
 							while(ChangePwNum == 0) {
 								
@@ -9275,6 +9290,7 @@ public class InGame extends JFrame {
 						
 						closePane();
 						ShopPanel();
+						ShopButton.setForeground(Color.RED);
 						
 						while(joinNum == 0) {
 							
@@ -9346,6 +9362,7 @@ public class InGame extends JFrame {
 								e.printStackTrace();
 							}
 						}
+						ShopButton.setForeground(Color.DARK_GRAY);
 						
 						continue;
 						
@@ -9354,6 +9371,7 @@ public class InGame extends JFrame {
 						
 						closePane();
 						MessengerPanel();
+						MessengerButton.setForeground(Color.RED);
 						
 						String message = "join/c;"+"[ Level : "+InformationLevel+" ] "+InformationName;
 						writer.println(message);
@@ -9377,6 +9395,7 @@ public class InGame extends JFrame {
 						String message2 = "left/c;"+"[ Level : "+InformationLevel+" ] "+InformationName;
 						writer.println(message2);
 						
+						MessengerButton.setForeground(Color.DARK_GRAY);
 						continue;
 						
 					}
