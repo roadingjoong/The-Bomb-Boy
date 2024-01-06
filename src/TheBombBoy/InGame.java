@@ -35,6 +35,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingUtilities;
 
 import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 
@@ -64,6 +65,11 @@ public class InGame extends JFrame {
 	
 	JPanel StageClearPane = new JPanel();
 	JPanel StageFailePane = new JPanel();
+	
+	JButton QuitGameButton;
+	int QuitGameNum = 0;
+	
+	JFrame Gameframe;
 	
 	int LoginNum = 0;
 	int signNum = 0;
@@ -176,6 +182,7 @@ public class InGame extends JFrame {
 		this.setSize(1300,750);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
+		Gameframe = this;
 
 		Stage1HARDPanel();
 		Stage1MEDIUMPanel();
@@ -433,6 +440,10 @@ public class InGame extends JFrame {
 		LoginTool.add(nolabel8);
 		
 		LoginPane.add(LoginTool);
+		
+		QuitGameButtonM();
+		LoginPane.add(QuitGameButton);
+		
 		add(LoginPane);
 		
 		closePane();
@@ -565,8 +576,10 @@ public class InGame extends JFrame {
 		
 		SignUpPane.add(SignUpTool);
 		
-		add(SignUpPane);
+		QuitGameButtonM();
+		SignUpPane.add(QuitGameButton);
 		
+		add(SignUpPane);
 		
 		closePane();
 		SignUpPane.setVisible(true);
@@ -651,6 +664,9 @@ public class InGame extends JFrame {
 		StartGameButton.setText("Game Start");
 		StartGamePane.add(StartGameButton);
 		
+		QuitGameButtonM();
+		StartGamePane.add(QuitGameButton);
+		
 		add(StartGamePane);
 		
 		closePane();
@@ -733,7 +749,6 @@ public class InGame extends JFrame {
 		GamePlayStageType.add(Stage3Type);
 		
 		GamePlayPane.add(GamePlayStageType);
-		
 		
 		JPanel GamePlaySelect = new JPanel();
 		GamePlaySelect.setSize(300, 400);
@@ -916,6 +931,9 @@ public class InGame extends JFrame {
 		GamePlayExiteButton.setLocation(600,600);
 		GamePlayExiteButton.setFont(GamePlayFont1);
 		GamePlayPane.add(GamePlayExiteButton);
+		
+		QuitGameButtonM();
+		GamePlayPane.add(QuitGameButton);
 		
 		add(GamePlayPane);
 		
@@ -5435,6 +5453,9 @@ public class InGame extends JFrame {
 		MyPagePwChangeButton.setFont(MyPageFont2);
 		MyPagePane.add(MyPagePwChangeButton);
 		
+		QuitGameButtonM();
+		MyPagePane.add(QuitGameButton);
+		
 		add(MyPagePane);
 		
 		closePane();
@@ -5538,6 +5559,9 @@ public class InGame extends JFrame {
 		CNExiteButton.setLocation(600,450);
 		CNExiteButton.setFont(CNFont1);
 		ChangeNamePane.add(CNExiteButton);
+		
+		QuitGameButtonM();
+		ChangeNamePane.add(QuitGameButton);
 		
 		add(ChangeNamePane);
 		
@@ -5654,6 +5678,9 @@ public class InGame extends JFrame {
 		CPExiteButton.setLocation(600,450);
 		CPExiteButton.setFont(CPFont1);
 		ChangePwPane.add(CPExiteButton);
+		
+		QuitGameButtonM();
+		ChangePwPane.add(QuitGameButton);
 		
 		add(ChangePwPane);
 		
@@ -8243,6 +8270,9 @@ public class InGame extends JFrame {
 		
 		ShopPane.add(ShopAvatar4);
 		
+		QuitGameButtonM();
+		ShopPane.add(QuitGameButton);
+		
 		add(ShopPane);
 		
 		closePane();
@@ -8377,6 +8407,9 @@ public class InGame extends JFrame {
 		MessengerAvatar5.setIcon(new ImageIcon(mav.makeAvatar5_left()));
 		MessengerPane.add(MessengerAvatar5);
 		
+		QuitGameButtonM();
+		MessengerPane.add(QuitGameButton);
+		
 		add(MessengerPane);
 		closePane();
 		MessengerPane.setVisible(true);
@@ -8424,13 +8457,39 @@ public class InGame extends JFrame {
 			}
 		}
 	}
+	
+	void QuitGameButtonM() {
+		QuitGameButton = new JButton("Quit Game");
+		QuitGameButton.setSize(100, 50);
+		QuitGameButton.setLocation(1190, 10);
+		QuitGameButton.setForeground(Color.RED);
+		Font QuitGameButtonFont = new Font("Arial", Font.BOLD, 15 );
+		QuitGameButton.setFont(QuitGameButtonFont);
+		
+		QuitGameButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				QuitGameNum = 1;
+			}
+		});
+	}
 
 	class GameThread implements Runnable{
+		
+		Boolean Thread_ToF = true;
 
 		@Override
 		public void run() {
 			
-			while(true) {
+			while(Thread_ToF) {
+				
+				if(QuitGameNum == 1) {
+					QuitGameNum = 0;
+					Thread_ToF = false;
+					System.exit(0);
+					Gameframe.dispose();
+					return;
+				}
 				
 				BarPane.setVisible(false);
 				closePane();
@@ -8500,6 +8559,15 @@ public class InGame extends JFrame {
 					LoginPanel();
 					
 					while(LoginNum == 0){
+						
+						if(QuitGameNum == 1) {
+							QuitGameNum = 0;
+							Thread_ToF = false;
+							Gameframe.dispose();
+							System.exit(0);
+							return;
+						}
+						
 						try {
 							Thread.sleep(2000);
 						} catch (InterruptedException e) {
@@ -8516,6 +8584,15 @@ public class InGame extends JFrame {
 							SignUpPanel();
 							
 							while(signNum == 0) {
+								
+								if(QuitGameNum == 1) {
+									QuitGameNum = 0;
+									Thread_ToF = false;
+									System.exit(0);
+									Gameframe.dispose();
+									return;
+								}
+								
 								try {
 									Thread.sleep(2000);
 								} catch (InterruptedException e) {
@@ -8627,6 +8704,15 @@ public class InGame extends JFrame {
 					StartGamePanel();
 					
 					while(joinNum == 0) {
+						
+						if(QuitGameNum == 1) {
+							QuitGameNum = 0;
+							Thread_ToF = false;
+							System.exit(0);
+							Gameframe.dispose();
+							return;
+						}
+						
 						try {
 							Thread.sleep(2000);
 						} catch (InterruptedException e) {
@@ -8638,6 +8724,15 @@ public class InGame extends JFrame {
 						joinNum = 0;
 						
 						while(joinNum == 0) {
+							
+							if(QuitGameNum == 1) {
+								QuitGameNum = 0;
+								Thread_ToF = false;
+								System.exit(0);
+								Gameframe.dispose();
+								return;
+							}
+							
 							try {
 								Thread.sleep(2000);
 							} catch (InterruptedException e) {
@@ -8655,6 +8750,15 @@ public class InGame extends JFrame {
 						GamePlayPanel();
 						
 						while(joinNum == 0) {
+							
+							if(QuitGameNum == 1) {
+								QuitGameNum = 0;
+								Thread_ToF = false;
+								System.exit(0);
+								Gameframe.dispose();
+								return;
+							}
+							
 							try {
 								Thread.sleep(2000);
 							} catch (InterruptedException e) {
@@ -8985,6 +9089,14 @@ public class InGame extends JFrame {
 						
 						while(joinNum == 0) {
 							
+							if(QuitGameNum == 1) {
+								QuitGameNum = 0;
+								Thread_ToF = false;
+								System.exit(0);
+								Gameframe.dispose();
+								return;
+							}
+							
 							try {
 								Thread.sleep(2000);
 							} catch (InterruptedException e) {
@@ -9000,6 +9112,15 @@ public class InGame extends JFrame {
 							ChangeNamePanel();
 							
 							while(ChangeNameNum == 0) {
+								
+								if(QuitGameNum == 1) {
+									QuitGameNum = 0;
+									Thread_ToF = false;
+									System.exit(0);
+									Gameframe.dispose();
+									return;
+								}
+								
 								try {
 									Thread.sleep(2000);
 								} catch (InterruptedException e) {
@@ -9008,6 +9129,14 @@ public class InGame extends JFrame {
 							}
 							
 							while(joinNum == 0) {
+								
+								if(QuitGameNum == 1) {
+									QuitGameNum = 0;
+									Thread_ToF = false;
+									System.exit(0);
+									Gameframe.dispose();
+									return;
+								}
 								
 								if(ChangeNameNum == 2) {
 									ChangeNameNum = 0;
@@ -9060,6 +9189,15 @@ public class InGame extends JFrame {
 							ChangePwPanel();
 							
 							while(ChangePwNum == 0) {
+								
+								if(QuitGameNum == 1) {
+									QuitGameNum = 0;
+									Thread_ToF = false;
+									System.exit(0);
+									Gameframe.dispose();
+									return;
+								}
+								
 								try {
 									Thread.sleep(2000);
 								} catch (InterruptedException e) {
@@ -9068,6 +9206,14 @@ public class InGame extends JFrame {
 							}
 							
 							while(joinNum == 0) {
+								
+								if(QuitGameNum == 1) {
+									QuitGameNum = 0;
+									Thread_ToF = false;
+									System.exit(0);
+									Gameframe.dispose();
+									return;
+								}
 								
 								if(ChangePwNum == 2) {
 									ChangePwNum = 0;
@@ -9131,6 +9277,14 @@ public class InGame extends JFrame {
 						ShopPanel();
 						
 						while(joinNum == 0) {
+							
+							if(QuitGameNum == 1) {
+								QuitGameNum = 0;
+								Thread_ToF = false;
+								System.exit(0);
+								Gameframe.dispose();
+								return;
+							}
 							
 							if(BuyAvatarNum != 0) {
 								if(BuyAvatarNum == 1) {
@@ -9205,6 +9359,15 @@ public class InGame extends JFrame {
 						writer.println(message);
 						
 						while(joinNum == 0) {
+							
+							if(QuitGameNum == 1) {
+								QuitGameNum = 0;
+								Thread_ToF = false;
+								System.exit(0);
+								Gameframe.dispose();
+								return;
+							}
+							
 							try {
 								Thread.sleep(2000);
 							} catch (InterruptedException e) {
