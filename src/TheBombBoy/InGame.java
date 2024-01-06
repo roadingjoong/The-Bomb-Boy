@@ -70,6 +70,7 @@ public class InGame extends JFrame {
 	int joinNum = 0;
 	int ChangeNameNum = 0;
 	int ChangePwNum = 0;
+	int BuyAvatarNum = 0;
 	
 	JTextField signIdField;  //회원가입
 	JPasswordField signPwField;
@@ -8250,120 +8251,28 @@ public class InGame extends JFrame {
 		ShopAvatar1BuyButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				if(InformationCoin >= 1000) {
-					
-					GUD.updateAvatar(2, InformationCoin, 1000, InformationId);
-					
-					System.out.println("구매성공");
-					
-					ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
-					
-					for(GameUser gu : GUList ) {
-						InformationId = gu.getUserid();
-						InformationPw = gu.getUserpw();
-						InformationName = gu.getUsername();
-						InformationLevel = gu.getUserlevel();
-						InformationAlias = gu.getUseralias();
-						InformationStage = gu.getUserStage();
-						InformationCoin = gu.getUsercoin();
-						InformationAvatar = gu.getUseravatar();
-					}
-					
-				}else {
-					System.out.println("코인 부족");
-				}
-				
+				BuyAvatarNum = 1;
 			}
 		});
 		
 		ShopAvatar2BuyButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				if(InformationCoin >= 2000) {
-					
-					GUD.updateAvatar(3, InformationCoin, 2000, InformationId);
-					
-					System.out.println("구매성공");
-					
-					ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
-					
-					for(GameUser gu : GUList ) {
-						InformationId = gu.getUserid();
-						InformationPw = gu.getUserpw();
-						InformationName = gu.getUsername();
-						InformationLevel = gu.getUserlevel();
-						InformationAlias = gu.getUseralias();
-						InformationStage = gu.getUserStage();
-						InformationCoin = gu.getUsercoin();
-						InformationAvatar = gu.getUseravatar();
-					}
-					
-				}else {
-					System.out.println("코인 부족");
-				}
-				
+				BuyAvatarNum = 2;
 			}
 		});
 		
 		ShopAvatar3BuyButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				if(InformationCoin >= 3000) {
-					
-					GUD.updateAvatar(4, InformationCoin, 3000, InformationId);
-					
-					System.out.println("구매성공");
-					
-					ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
-					
-					for(GameUser gu : GUList ) {
-						InformationId = gu.getUserid();
-						InformationPw = gu.getUserpw();
-						InformationName = gu.getUsername();
-						InformationLevel = gu.getUserlevel();
-						InformationAlias = gu.getUseralias();
-						InformationStage = gu.getUserStage();
-						InformationCoin = gu.getUsercoin();
-						InformationAvatar = gu.getUseravatar();
-					}
-					
-				}else {
-					System.out.println("코인 부족");
-				}
-				
+				BuyAvatarNum = 3;
 			}
 		});
 		
 		ShopAvatar4BuyButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				if(InformationCoin >= 4000) {
-					
-					GUD.updateAvatar(5, InformationCoin, 4000, InformationId);
-					
-					System.out.println("구매성공");
-					
-					ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
-					
-					for(GameUser gu : GUList ) {
-						InformationId = gu.getUserid();
-						InformationPw = gu.getUserpw();
-						InformationName = gu.getUsername();
-						InformationLevel = gu.getUserlevel();
-						InformationAlias = gu.getUseralias();
-						InformationStage = gu.getUserStage();
-						InformationCoin = gu.getUsercoin();
-						InformationAvatar = gu.getUseravatar();
-					}
-					
-				}else {
-					System.out.println("코인 부족");
-				}
-				
+				BuyAvatarNum = 4;
 			}
 		});
 		
@@ -9222,8 +9131,63 @@ public class InGame extends JFrame {
 						ShopPanel();
 						
 						while(joinNum == 0) {
+							
+							if(BuyAvatarNum != 0) {
+								if(BuyAvatarNum == 1) {
+									if(InformationCoin >= 1000) {
+										BuyAvatarNum = 0;
+										GUD.updateAvatar(2, InformationCoin, 1000, InformationId);
+										System.out.println("구매성공");
+									}else {
+										System.out.println("코인부족");
+									}
+								}else if(BuyAvatarNum == 2) {
+									if(InformationCoin >= 2000) {
+										BuyAvatarNum = 0;
+										GUD.updateAvatar(3, InformationCoin, 2000, InformationId);
+										System.out.println("구매성공");
+									}else {
+										System.out.println("코인부족");
+									}
+								}else if(BuyAvatarNum == 3) {
+									if(InformationCoin >= 3000) {
+										BuyAvatarNum = 0;
+										GUD.updateAvatar(4, InformationCoin, 3000, InformationId);
+										System.out.println("구매성공");
+									}else {
+										System.out.println("코인부족");
+									}
+								}else if(BuyAvatarNum == 4) {
+									if(InformationCoin >= 4000) {
+										BuyAvatarNum = 0;
+										GUD.updateAvatar(5, InformationCoin, 4000, InformationId);
+										System.out.println("구매성공");
+									}else {
+										System.out.println("코인부족");
+									}
+								}
+								
+								if(BuyAvatarNum == 0) {
+									ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
+									for(GameUser gu : GUList ) {
+										InformationId = gu.getUserid();
+										InformationPw = gu.getUserpw();
+										InformationName = gu.getUsername();
+										InformationLevel = gu.getUserlevel();
+										InformationAlias = gu.getUseralias();
+										InformationStage = gu.getUserStage();
+										InformationCoin = gu.getUsercoin();
+										InformationAvatar = gu.getUseravatar();
+									}
+									System.out.println("구매 성공");
+								}else {
+									BuyAvatarNum = 0;
+									System.out.println("구매실패");
+								}
+							}
+							
 							try {
-								Thread.sleep(2000);
+								Thread.sleep(100);
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
