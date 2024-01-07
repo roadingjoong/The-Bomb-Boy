@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -166,6 +169,9 @@ public class InGame extends JFrame {
 	int Stage1Boss_x;
 	int Stage1Boss_y;
 	int Stage1Boss_dead;
+	
+	JLabel ExitGameButton;
+	int ExitGameNum = 0;
 	
 
 	//-----------------------------------
@@ -5150,6 +5156,20 @@ public class InGame extends JFrame {
 		
 	}
 	
+	void ExitGameButtonM() {
+		ExitGameButton = new JLabel();
+		ExitGameButton.setSize(80, 80);
+		ExitGameButton.setLocation(1210, 630);
+		ExitGameButton.setOpaque(true);
+		
+		ExitGameButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ExitGameNum = 1;
+			}
+		});
+	}
+	
 	
 	void Stage1EASYPanel() {
 		
@@ -5178,6 +5198,9 @@ public class InGame extends JFrame {
 		
 		Stage1EASYPane.add(GoldCoin);
 		Stage1EASYPane.add(GoldCoin2);
+		
+		ExitGameButtonM();
+		Stage1EASYPane.add(ExitGameButton);
 		
 		add(Stage1EASYPane);
 		
@@ -5221,6 +5244,9 @@ public class InGame extends JFrame {
 		Stage1MEDIUMPane.add(GoldCoin);
 		Stage1MEDIUMPane.add(GoldCoin2);
 		Stage1MEDIUMPane.add(GoldCoin3);
+		
+		ExitGameButtonM();
+		Stage1MEDIUMPane.add(ExitGameButton);
 		
 		add(Stage1MEDIUMPane);
 		
@@ -5267,6 +5293,9 @@ public class InGame extends JFrame {
 		Stage1HARDPane.add(GoldCoin2);
 		Stage1HARDPane.add(GoldCoin3);
 		Stage1HARDPane.add(GoldBox1);
+		
+		ExitGameButtonM();
+		Stage1HARDPane.add(ExitGameButton);
 		
 		add(Stage1HARDPane);
 		
@@ -8800,7 +8829,7 @@ public class InGame extends JFrame {
 							
 							Stage1EASYPanel();
 
-							while(villainsLair.isVisible() == true && UserAvatar.isVisible() == true){
+							while(villainsLair.isVisible() == true && UserAvatar.isVisible() == true && ExitGameNum == 0){
 								try {
 									Thread.sleep(2000);
 								} catch (InterruptedException e) {
@@ -8809,14 +8838,14 @@ public class InGame extends JFrame {
 							}
 							
 							try {
-								Thread.sleep(2000);
+								Thread.sleep(100);
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
 							
 							closePane();
 							
-							if(UserAvatar.isVisible() == true) {
+							if(UserAvatar.isVisible() == true && ExitGameNum == 0) {
 								StageClearPanel();
 								easy1start = 0;
 								
@@ -8841,9 +8870,10 @@ public class InGame extends JFrame {
 									InformationAvatar = gu.getUseravatar();
 								}
 								
-							}else {
+							}else{
 								StageFailePanel();
 								easy1start = 0;
+								ExitGameNum = 0;
 							}
 							
 							try {
@@ -8879,7 +8909,7 @@ public class InGame extends JFrame {
 								
 								Stage1MEDIUMPanel();
 
-								while(villainsLair.isVisible() == true && UserAvatar.isVisible() == true){
+								while(villainsLair.isVisible() == true && UserAvatar.isVisible() == true && ExitGameNum == 0){
 									try {
 										Thread.sleep(2000);
 									} catch (InterruptedException e) {
@@ -8888,14 +8918,14 @@ public class InGame extends JFrame {
 								}
 								
 								try {
-									Thread.sleep(2000);
+									Thread.sleep(100);
 								} catch (InterruptedException e) {
 									e.printStackTrace();
 								}
 								
 								closePane();
 								
-								if(UserAvatar.isVisible() == true) {
+								if(UserAvatar.isVisible() == true && ExitGameNum == 0) {
 									StageClearPanel();
 									medium1start = 0;
 									
@@ -8925,6 +8955,7 @@ public class InGame extends JFrame {
 								}else {
 									StageFailePanel();
 									medium1start = 0;
+									ExitGameNum = 0;
 								}
 								
 								try {
@@ -8963,7 +8994,7 @@ public class InGame extends JFrame {
 								
 								Stage1HARDPanel();
 
-								while(villainsLair.isVisible() == true && UserAvatar.isVisible() == true){
+								while(villainsLair.isVisible() == true && UserAvatar.isVisible() == true && ExitGameNum == 0){
 									try {
 										Thread.sleep(2000);
 									} catch (InterruptedException e) {
@@ -8972,14 +9003,14 @@ public class InGame extends JFrame {
 								}
 								
 								try {
-									Thread.sleep(2000);
+									Thread.sleep(100);
 								} catch (InterruptedException e) {
 									e.printStackTrace();
 								}
 								
 								closePane();
 								
-								if(UserAvatar.isVisible() == true) {
+								if(UserAvatar.isVisible() == true && ExitGameNum == 0) {
 									StageClearPanel();
 									hard1start = 0;
 									
@@ -9009,6 +9040,7 @@ public class InGame extends JFrame {
 								}else {
 									StageFailePanel();
 									hard1start = 0;
+									ExitGameNum = 0;
 								}
 								
 								try {
