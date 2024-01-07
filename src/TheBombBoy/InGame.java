@@ -5206,6 +5206,7 @@ public class InGame extends JFrame {
 		GameTimer.setOpaque(false);
 		GameTimer.setHorizontalAlignment(JLabel.CENTER);
 		GameTimer.setVerticalAlignment(JLabel.CENTER);
+		GameTimer.setForeground(Color.WHITE);
 		Font GameTimerFont = new Font("Arial", Font.BOLD, 70);
 		GameTimer.setFont(GameTimerFont);
 		
@@ -5240,7 +5241,7 @@ public class InGame extends JFrame {
 						second += 59;
 					}else if(minute == 0 && second == 0) {
 						TimeOverNum = 1;
-						GameTimer.setForeground(Color.BLACK);
+						GameTimer.setForeground(Color.WHITE);
 						Thread_ToF = false;
 						return;
 					}
