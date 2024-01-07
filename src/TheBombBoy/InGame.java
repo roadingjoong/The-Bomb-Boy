@@ -105,6 +105,7 @@ public class InGame extends JFrame {
 	JPasswordField ChangePwfield;
 	JPasswordField ChangeCurrentPwfield;
 	
+	ExitGameButtonG egb = new ExitGameButtonG();
 	MyAvatar mav = new MyAvatar();
 	vLair vla = new vLair();
 	MyBomb mb = new MyBomb();
@@ -5160,7 +5161,8 @@ public class InGame extends JFrame {
 		ExitGameButton = new JLabel();
 		ExitGameButton.setSize(80, 80);
 		ExitGameButton.setLocation(1210, 630);
-		ExitGameButton.setOpaque(true);
+		ExitGameButton.setOpaque(false);
+		ExitGameButton.setIcon(new ImageIcon(egb.makeButton1()));
 		
 		ExitGameButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -5168,8 +5170,32 @@ public class InGame extends JFrame {
 				ExitGameNum = 1;
 			}
 		});
+		ExitGameButtonThread egbt = new ExitGameButtonThread();
+		Thread ExitBTT = new Thread(egbt);
+		ExitBTT.start();
 	}
 	
+	class ExitGameButtonThread implements Runnable{
+		Boolean Thread_ToF = true;
+		@Override
+		public void run() {
+			while(Thread_ToF) {
+				if(ExitGameNum == 1) {
+					ExitGameButton.setIcon(new ImageIcon(egb.makeButton2()));
+				}
+				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
+					ExitGameButton.setIcon(new ImageIcon(egb.makeButton1()));
+					Thread_ToF = false;
+					return;
+				}
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 	
 	void Stage1EASYPanel() {
 		
@@ -5755,6 +5781,50 @@ public class InGame extends JFrame {
 				}
 			}
 		});
+		
+	}
+	
+	class ExitGameButtonG {
+		
+		public Image makeButton1() {
+			
+			Image newButton = new BufferedImage(80,80,BufferedImage.TYPE_INT_ARGB);
+			Graphics g = newButton.getGraphics();
+			
+			g.setColor(Color.BLACK);
+			g.fillOval(0, 0, 80, 80);
+			
+			g.setColor(Color.RED);
+			g.fillOval(5, 5, 70, 70);
+			
+			Font buttonFont = new Font("Arial", Font.BOLD, 30);
+			g.setFont(buttonFont);
+			
+			g.setColor(Color.BLACK);
+			g.drawString("EXIT", 7, 52);
+			
+			return newButton;
+		}
+		
+		public Image makeButton2() {
+			
+			Image newButton = new BufferedImage(80,80,BufferedImage.TYPE_INT_ARGB);
+			Graphics g = newButton.getGraphics();
+			
+			g.setColor(Color.WHITE);
+			g.fillOval(0, 0, 80, 80);
+			
+			g.setColor(Color.RED);
+			g.fillOval(5, 5, 70, 70);
+			
+			Font buttonFont = new Font("Arial", Font.BOLD, 30);
+			g.setFont(buttonFont);
+			
+			g.setColor(Color.WHITE);
+			g.drawString("EXIT", 7, 52);
+			
+			return newButton;
+		}
 		
 	}
 	
