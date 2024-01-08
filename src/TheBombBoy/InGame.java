@@ -682,13 +682,23 @@ public class InGame extends JFrame {
 		StartGameText.setForeground(Color.LIGHT_GRAY);
 		StartGamePane.add(StartGameText);
 		
-		JButton StartGameButton = new JButton();
-		StartGameButton.setSize(400, 200);
-		StartGameButton.setLocation(450,250);
-		StartGameButton.setForeground(Color.BLACK);
-		StartGameButton.setFont(StartGameFont2);
-		StartGameButton.setText("Game Start");
-		StartGamePane.add(StartGameButton);
+		JButton StartGameButton1 = new JButton();
+		StartGameButton1.setSize(400, 100);
+		StartGameButton1.setLocation(450,240);
+		StartGameButton1.setForeground(Color.BLACK);
+		StartGameButton1.setFont(StartGameFont2);
+		StartGameButton1.setText("Adventure");
+		StartGameButton1.setForeground(Color.GREEN);
+		StartGamePane.add(StartGameButton1);
+		
+		JButton StartGameButton2 = new JButton();
+		StartGameButton2.setSize(400, 100);
+		StartGameButton2.setLocation(450,360);
+		StartGameButton2.setForeground(Color.BLACK);
+		StartGameButton2.setFont(StartGameFont2);
+		StartGameButton2.setText("Bomb Pass");
+		StartGameButton2.setForeground(Color.BLUE);
+		StartGamePane.add(StartGameButton2);
 		
 		QuitGameButtonM();
 		StartGamePane.add(QuitGameButton);
@@ -702,7 +712,7 @@ public class InGame extends JFrame {
 		StartGamePane.setVisible(true);
 		
 		
-		StartGameButton.addActionListener(new ActionListener() {
+		StartGameButton1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
@@ -4164,7 +4174,7 @@ public class InGame extends JFrame {
 	class GoldCoinThread implements Runnable{
 		
 		Boolean Thread_ToF = true;
-
+		
 		@Override
 		public void run() {
 			
