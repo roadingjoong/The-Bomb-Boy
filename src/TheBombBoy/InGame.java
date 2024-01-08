@@ -72,6 +72,9 @@ public class InGame extends JFrame {
 	JButton QuitGameButton;
 	int QuitGameNum = 0;
 	
+	JButton LogoutButton;
+	int LogoutNum = 0;
+	
 	JButton InGameButton;
 	JButton MyPageButton;
 	JButton ShopButton;
@@ -689,6 +692,9 @@ public class InGame extends JFrame {
 		QuitGameButtonM();
 		StartGamePane.add(QuitGameButton);
 		
+		LogoutButtonM();
+		StartGamePane.add(LogoutButton);
+		
 		add(StartGamePane);
 		
 		closePane();
@@ -956,6 +962,9 @@ public class InGame extends JFrame {
 		
 		QuitGameButtonM();
 		GamePlayPane.add(QuitGameButton);
+		
+		LogoutButtonM();
+		GamePlayPane.add(LogoutButton);
 		
 		add(GamePlayPane);
 		
@@ -5607,6 +5616,9 @@ public class InGame extends JFrame {
 		QuitGameButtonM();
 		MyPagePane.add(QuitGameButton);
 		
+		LogoutButtonM();
+		MyPagePane.add(LogoutButton);
+		
 		add(MyPagePane);
 		
 		closePane();
@@ -5983,7 +5995,6 @@ public class InGame extends JFrame {
 				g.setFont(ProfileBoxFont2);
 				g.drawString(InformationAlias, 525, 60);
 				g.drawString(InformationName, 175, 55);
-				Font ProfileBoxFont3 = new Font("Arial", Font.BOLD, 20);
 				g.setFont(ProfileBoxFont2);
 				g.setColor(Color.BLUE);
 				g.drawString(InformationLevel+"", 782, 55);
@@ -8547,6 +8558,9 @@ public class InGame extends JFrame {
 		QuitGameButtonM();
 		ShopPane.add(QuitGameButton);
 		
+		LogoutButtonM();
+		ShopPane.add(LogoutButton);
+		
 		add(ShopPane);
 		
 		closePane();
@@ -8684,6 +8698,9 @@ public class InGame extends JFrame {
 		QuitGameButtonM();
 		MessengerPane.add(QuitGameButton);
 		
+		LogoutButtonM();
+		MessengerPane.add(LogoutButton);
+		
 		add(MessengerPane);
 		closePane();
 		MessengerPane.setVisible(true);
@@ -8747,6 +8764,22 @@ public class InGame extends JFrame {
 			}
 		});
 	}
+	
+	void LogoutButtonM() {
+		LogoutButton = new JButton("Logout");
+		LogoutButton.setSize(100, 50);
+		LogoutButton.setLocation(1085, 10);
+		LogoutButton.setForeground(Color.BLACK);
+		Font LogoutButtonFont = new Font("Arial", Font.BOLD, 15 );
+		LogoutButton.setFont(LogoutButtonFont);
+		
+		LogoutButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				LogoutNum = 1;
+			}
+		});
+	}
 
 	class GameThread implements Runnable{
 		
@@ -8756,15 +8789,7 @@ public class InGame extends JFrame {
 		public void run() {
 			
 			while(Thread_ToF) {
-				
-				if(QuitGameNum == 1) {
-					QuitGameNum = 0;
-					Thread_ToF = false;
-					System.exit(0);
-					Gameframe.dispose();
-					return;
-				}
-				
+								
 				BarPane.setVisible(false);
 				closePane();
 				
@@ -8980,6 +9005,10 @@ public class InGame extends JFrame {
 					
 					while(joinNum == 0) {
 						
+						if(LogoutNum == 1) {
+							break;
+						}
+						
 						if(QuitGameNum == 1) {
 							QuitGameNum = 0;
 							Thread_ToF = false;
@@ -8994,13 +9023,24 @@ public class InGame extends JFrame {
 							e.printStackTrace();
 						}
 					}
+					
 					InGameButton.setForeground(Color.DARK_GRAY);
+					
+					if(LogoutNum == 1) {
+						joinNum = 0;
+						LogoutNum = 0;
+						break;
+					}
 					
 					if(joinNum == 1) {
 						joinNum = 0;
 						InGameButton.setForeground(Color.RED);
 						
 						while(joinNum == 0) {
+							
+							if(LogoutNum == 1) {
+								break;
+							}
 							
 							if(QuitGameNum == 1) {
 								QuitGameNum = 0;
@@ -9017,6 +9057,11 @@ public class InGame extends JFrame {
 							}
 						}
 						InGameButton.setForeground(Color.DARK_GRAY);
+						
+						if(LogoutNum == 1) {
+							LogoutNum = 0;
+							break;
+						}
 						continue;
 						
 					}
@@ -9027,6 +9072,10 @@ public class InGame extends JFrame {
 						GamePlayPanel();
 						
 						while(joinNum == 0) {
+							
+							if(LogoutNum == 1) {
+								break;
+							}
 							
 							if(QuitGameNum == 1) {
 								QuitGameNum = 0;
@@ -9041,6 +9090,11 @@ public class InGame extends JFrame {
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
+						}
+						
+						if(LogoutNum == 1) {
+							LogoutNum = 0;
+							break;
 						}
 						
 						if(joinNum == 8) {
@@ -9373,6 +9427,10 @@ public class InGame extends JFrame {
 						
 						while(joinNum == 0) {
 							
+							if(LogoutNum == 1) {
+								break;
+							}
+							
 							if(QuitGameNum == 1) {
 								QuitGameNum = 0;
 								Thread_ToF = false;
@@ -9387,7 +9445,13 @@ public class InGame extends JFrame {
 								e.printStackTrace();
 							}
 						}
+						
 						MyPageButton.setForeground(Color.DARK_GRAY);
+						
+						if(LogoutNum == 1) {
+							LogoutNum = 0;
+							break;
+						}
 						
 						if(joinNum == 6) {
 							joinNum = 0;
@@ -9397,6 +9461,10 @@ public class InGame extends JFrame {
 							MyPageButton.setForeground(Color.RED);
 							
 							while(ChangeNameNum == 0) {
+								
+								if(LogoutNum == 1) {
+									break;
+								}
 								
 								if(QuitGameNum == 1) {
 									QuitGameNum = 0;
@@ -9414,6 +9482,10 @@ public class InGame extends JFrame {
 							}
 							
 							while(joinNum == 0) {
+								
+								if(LogoutNum == 1) {
+									break;
+								}
 								
 								if(QuitGameNum == 1) {
 									QuitGameNum = 0;
@@ -9463,7 +9535,12 @@ public class InGame extends JFrame {
 								}
 								
 							}
-														
+							
+							if(LogoutNum == 1) {
+								LogoutNum = 0;
+								break;
+							}
+							
 							continue;
 							
 						}else if(joinNum == 7) {
@@ -9474,6 +9551,10 @@ public class InGame extends JFrame {
 							MyPageButton.setForeground(Color.RED);
 							
 							while(ChangePwNum == 0) {
+								
+								if(LogoutNum == 1) {
+									break;
+								}
 								
 								if(QuitGameNum == 1) {
 									QuitGameNum = 0;
@@ -9491,6 +9572,10 @@ public class InGame extends JFrame {
 							}
 							
 							while(joinNum == 0) {
+								
+								if(LogoutNum == 1) {
+									break;
+								}
 								
 								if(QuitGameNum == 1) {
 									QuitGameNum = 0;
@@ -9547,6 +9632,11 @@ public class InGame extends JFrame {
 								}
 								
 							}
+							
+							if(LogoutNum == 1) {
+								LogoutNum = 0;
+								break;
+							}
 														
 							continue;
 							
@@ -9563,6 +9653,10 @@ public class InGame extends JFrame {
 						ShopButton.setForeground(Color.RED);
 						
 						while(joinNum == 0) {
+							
+							if(LogoutNum == 1) {
+								break;
+							}
 							
 							if(QuitGameNum == 1) {
 								QuitGameNum = 0;
@@ -9634,6 +9728,11 @@ public class InGame extends JFrame {
 						}
 						ShopButton.setForeground(Color.DARK_GRAY);
 						
+						if(LogoutNum == 1) {
+							LogoutNum = 0;
+							break;
+						}
+						
 						continue;
 						
 					}else if(joinNum == 5) {
@@ -9647,6 +9746,10 @@ public class InGame extends JFrame {
 						writer.println(message);
 						
 						while(joinNum == 0) {
+							
+							if(LogoutNum == 1) {
+								break;
+							}
 							
 							if(QuitGameNum == 1) {
 								QuitGameNum = 0;
@@ -9666,6 +9769,12 @@ public class InGame extends JFrame {
 						writer.println(message2);
 						
 						MessengerButton.setForeground(Color.DARK_GRAY);
+						
+						if(LogoutNum == 1) {
+							LogoutNum = 0;
+							break;
+						}
+						
 						continue;
 						
 					}
