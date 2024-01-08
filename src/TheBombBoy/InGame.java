@@ -5205,7 +5205,7 @@ public class InGame extends JFrame {
 	void GameTimerM() {
 		GameTimer = new JLabel();
 		GameTimer.setSize(200, 80);
-		GameTimer.setLocation(1000,630);
+		GameTimer.setLocation(985,630);
 		GameTimer.setOpaque(false);
 		GameTimer.setHorizontalAlignment(JLabel.CENTER);
 		GameTimer.setVerticalAlignment(JLabel.CENTER);
