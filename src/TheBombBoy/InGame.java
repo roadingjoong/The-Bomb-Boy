@@ -1301,72 +1301,19 @@ public class InGame extends JFrame {
 	}
 	
 	void GoldBox1M() {
-		
 		GoldBox1 = new JLabel();
 		GoldBox1.setSize(100,100);
 		GoldBox1.setLocation(0,0);
 		GoldBox1.setOpaque(false);
 		GoldBox1.setVisible(false);
 		
-		GoldBox1Thread gb1t = new GoldBox1Thread();
+		GoldBox1Thread gb1t = new GoldBox1Thread(this);
 		Thread GoldBox1T = new Thread(gb1t);
 		GoldBox1T.start();
 		
 		GoldBox1Thread2 gb1t2 = new GoldBox1Thread2();
 		Thread GoldBox1T2 = new Thread(gb1t2);
 		GoldBox1T2.start();
-		
-	}
-	
-	class GoldBox1Thread implements Runnable{
-		
-		Boolean Thread_ToF = true;
-
-		@Override
-		public void run() {
-			
-			while(Thread_ToF) {
-				
-				if(hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				GoldBox1.setIcon(new ImageIcon(gb1g.makeGoldBox1()));
-				try {
-					Thread.sleep(210);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				if(hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				GoldBox1.setIcon(new ImageIcon(gb1g.makeGoldBox2()));
-				try {
-					Thread.sleep(210);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				if(hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				GoldBox1.setIcon(new ImageIcon(gb1g.makeGoldBox3()));
-				try {
-					Thread.sleep(210);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-			}
-			
-		}
-		
 	}
 	
 	class GoldBox1Thread2 implements Runnable{
