@@ -1285,72 +1285,19 @@ public class InGame extends JFrame {
 	}
 	
 	void GoldCoin3M() {
-		
 		GoldCoin3 = new JLabel();
 		GoldCoin3.setSize(30,30);
 		GoldCoin3.setLocation(0,0);
 		GoldCoin3.setOpaque(false);
 		GoldCoin3.setVisible(false);
 		
-		GoldCoin3Thread gct3 = new GoldCoin3Thread();
+		GoldCoin3Thread gct3 = new GoldCoin3Thread(this);
 		Thread GoldCoin3T = new Thread(gct3);
 		GoldCoin3T.start();
 		
 		GoldCoin3Thread2 gc3t2 = new GoldCoin3Thread2();
 		Thread GoldCoin3T2 = new Thread(gc3t2);
 		GoldCoin3T2.start();
-		
-	}
-	
-	class GoldCoin3Thread implements Runnable{
-		
-		Boolean Thread_ToF = true;
-
-		@Override
-		public void run() {
-			
-			while(Thread_ToF) {
-				
-				if(medium1start == 0 && hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				GoldCoin3.setIcon(new ImageIcon(gc3g.makeGoldCoin()));
-				try {
-					Thread.sleep(210);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				if(medium1start == 0 && hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				GoldCoin3.setIcon(new ImageIcon(gc3g.makeGoldCoin2()));
-				try {
-					Thread.sleep(210);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				if(medium1start == 0 && hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				GoldCoin3.setIcon(new ImageIcon(gc3g.makeGoldCoin3()));
-				try {
-					Thread.sleep(210);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-			}
-			
-		}
-		
 	}
 	
 	class GoldCoin3Thread2 implements Runnable{
