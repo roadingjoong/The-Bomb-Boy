@@ -1311,67 +1311,9 @@ public class InGame extends JFrame {
 		Thread GoldBox1T = new Thread(gb1t);
 		GoldBox1T.start();
 		
-		GoldBox1Thread2 gb1t2 = new GoldBox1Thread2();
+		GoldBox1Thread2 gb1t2 = new GoldBox1Thread2(this);
 		Thread GoldBox1T2 = new Thread(gb1t2);
 		GoldBox1T2.start();
-	}
-	
-	class GoldBox1Thread2 implements Runnable{
-		
-		Boolean Thread_ToF = true;
-
-		@Override
-		public void run() {
-			
-			while(Thread_ToF) {
-				
-				if(hard1start == 0) {
-					Stage1Boss_dead = 0;
-					Thread_ToF = false;
-					return;
-				}
-				
-				if(Stage1Boss_dead == 1) {
-					GoldBox1.setLocation(Stage1Boss_x+50, Stage1Boss_y+50);
-					GoldBox1.setVisible(true);
-				}
-				
-				if(UserAvatar.getBounds().intersects(GoldBox1.getBounds())) {
-					Stage1Boss_dead = 0;
-					
-					GoldBox1.setVisible(false);
-					GoldBox1.setLocation(0,0);
-					
-					GUD.updateCoin(InformationCoin, 1000, InformationId);
-					
-					ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
-					
-					for(GameUser gu : GUList ) {
-						InformationId = gu.getUserid();
-						InformationPw = gu.getUserpw();
-						InformationName = gu.getUsername();
-						InformationLevel = gu.getUserlevel();
-						InformationAlias = gu.getUseralias();
-						InformationStage = gu.getUserStage();
-						InformationCoin = gu.getUsercoin();
-						InformationAvatar = gu.getUseravatar();
-					}
-					
-					Thread_ToF = false;
-					return;
-					
-				}
-				
-				try {
-					Thread.sleep(210);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-			}
-			
-		}
-		
 	}
 	
 	void Stage1SkyM() {
