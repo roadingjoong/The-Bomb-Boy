@@ -1156,82 +1156,15 @@ public class InGame extends JFrame {
 	}
 		
 	void UserBombM() {
-		
 		UserBomb = new JLabel();
 		UserBomb.setSize(50,50);
 		UserBomb.setLocation(0,0);
 		UserBomb.setOpaque(false);
 		UserBomb.setVisible(false);
 		
-		UserBombThread ubt = new UserBombThread();
+		UserBombThread ubt = new UserBombThread(this);
 		Thread UserBombT = new Thread(ubt);
 		UserBombT.start();
-		
-	}
-	
-	class UserBombThread implements Runnable{
-		
-		Boolean Thread_ToF = true;
-
-		@Override
-		public void run() {
-			
-			while(Thread_ToF) {
-				
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				while(BombTime == 0) {
-					
-					if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-						Thread_ToF = false;
-						return;
-					}
-					
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-				
-				UserBomb.setIcon(new ImageIcon(mb.makeBomb1()));
-				UserBomb.setVisible(true);
-				
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				UserBomb.setIcon(new ImageIcon(mb.makeBomb2()));
-				BombTime = 2;
-				
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				UserBomb.setVisible(false);
-				BombTime = 0;
-				
-			}
-			
-		}
-		
 	}
 	
 	void villainsLairM() {
