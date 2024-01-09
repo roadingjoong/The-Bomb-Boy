@@ -1356,50 +1356,9 @@ public class InGame extends JFrame {
 		Font GameTimerFont = new Font("Arial", Font.BOLD, 70);
 		GameTimer.setFont(GameTimerFont);
 		
-		GameTimerThread gtt = new GameTimerThread();
+		GameTimerThread gtt = new GameTimerThread(this);
 		Thread TimerT = new Thread(gtt);
 		TimerT.start();
-	}
-	
-	class GameTimerThread implements Runnable{
-		Boolean Thread_ToF = true;
-		int minute = 1;
-		int second = 59;
-		@Override
-		public void run() {
-			while(Thread_ToF) {
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					minute = 1;
-					second = 59;
-					Thread_ToF = false;
-					return;
-				}
-				GameTimer.setText("0"+minute+":"+second);
-				if(second < 10) {
-					GameTimer.setText("0"+minute+":"+"0"+second);
-				}
-				if(minute == 0 && second <= 30) {
-					GameTimer.setForeground(Color.RED);
-				}
-				if(second == 0) {
-					if(minute == 1) {
-						minute -= 1;
-						second += 59;
-					}else if(minute == 0 && second == 0) {
-						TimeOverNum = 1;
-						GameTimer.setForeground(Color.WHITE);
-						Thread_ToF = false;
-						return;
-					}
-				}
-				second -= 1;
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		}
 	}
 	
 	void GameProfileBoxM() {
