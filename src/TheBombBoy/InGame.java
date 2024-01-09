@@ -229,7 +229,8 @@ public class InGame extends JFrame {
 		this.setVisible(true);
 		
 		GameThread gt = new GameThread(this);
-		gt.start();
+		Thread gt_Thread = new Thread(gt);
+		gt_Thread.start();
 	}
 	
 	void BarPanel() {

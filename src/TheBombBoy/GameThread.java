@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-public class GameThread extends Thread{
+public class GameThread implements Runnable{
 	InGame ingame;
 	Boolean Thread_ToF = true;
 	
