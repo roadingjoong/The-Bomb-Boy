@@ -1317,83 +1317,14 @@ public class InGame extends JFrame {
 	}
 	
 	void Stage1SkyM() {
-		
 		Stage1Sky = new JLabel();
 		Stage1Sky.setSize(800, 150);
 		Stage1Sky.setLocation(100,0);
 		Stage1Sky.setOpaque(false);
 		
-		Stage1SkyThread s1st = new Stage1SkyThread();
+		Stage1SkyThread s1st = new Stage1SkyThread(this);
 		Thread Stage1SkyT = new Thread(s1st);
 		Stage1SkyT.start();
-		
-	}
-	
-	class Stage1SkyThread implements Runnable {
-		
-		Boolean Thread_ToF = true;
-
-		@Override
-		public void run() {
-			
-			while(Thread_ToF) {
-				
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				Stage1Sky.setIcon(new ImageIcon(ssg.makeSky1()));
-				
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				Stage1Sky.setIcon(new ImageIcon(ssg.makeSky2()));
-				
-				try {
-					Thread.sleep(300);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				Stage1Sky.setIcon(new ImageIcon(ssg.makeSky1()));
-				
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				Stage1Sky.setIcon(new ImageIcon(ssg.makeSky2()));
-				
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-			}
-			
-		}
-		
 	}
 	
 	void ExitGameButtonM() {
