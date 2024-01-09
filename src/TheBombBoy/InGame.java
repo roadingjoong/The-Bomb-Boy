@@ -1263,63 +1263,9 @@ public class InGame extends JFrame {
 		Thread GoldCoinT = new Thread(gct);
 		GoldCoinT.start();
 		
-		GoldCoinThread2 gct2 = new GoldCoinThread2();
+		GoldCoinThread2 gct2 = new GoldCoinThread2(this);
 		Thread GoldCoinT2 = new Thread(gct2);
 		GoldCoinT2.start();
-	}
-	
-	class GoldCoinThread2 implements Runnable{
-		
-		Boolean Thread_ToF = true;
-
-		@Override
-		public void run() {
-			
-			while(Thread_ToF) {
-				
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				if(Villain1.isVisible() == false) {
-					GoldCoin.setLocation(SaveVillain1_x+50, SaveVillain1_y+50);
-					GoldCoin.setVisible(true);
-				}
-				
-				if(UserAvatar.getBounds().intersects(GoldCoin.getBounds())) {
-					GoldCoin.setVisible(false);
-					GoldCoin.setLocation(0,0);
-					
-					GUD.updateCoin(InformationCoin, 100, InformationId);
-					
-					ArrayList<GameUser> GUList = GUD.InputUser(InformationId);
-					
-					for(GameUser gu : GUList ) {
-						InformationId = gu.getUserid();
-						InformationPw = gu.getUserpw();
-						InformationName = gu.getUsername();
-						InformationLevel = gu.getUserlevel();
-						InformationAlias = gu.getUseralias();
-						InformationStage = gu.getUserStage();
-						InformationCoin = gu.getUsercoin();
-						InformationAvatar = gu.getUseravatar();
-					}
-					
-					Thread_ToF = false;
-					return;
-				}
-				
-				try {
-					Thread.sleep(200);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-			}
-			
-		}
-		
 	}
 	
 	void GoldCoin2M() {
