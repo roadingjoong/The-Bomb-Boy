@@ -1340,31 +1340,9 @@ public class InGame extends JFrame {
 				ExitGameNum = 1;
 			}
 		});
-		ExitGameButtonThread egbt = new ExitGameButtonThread();
+		ExitGameButtonThread egbt = new ExitGameButtonThread(this);
 		Thread ExitBTT = new Thread(egbt);
 		ExitBTT.start();
-	}
-	
-	class ExitGameButtonThread implements Runnable{
-		Boolean Thread_ToF = true;
-		@Override
-		public void run() {
-			while(Thread_ToF) {
-				if(ExitGameNum == 1) {
-					ExitGameButton.setIcon(new ImageIcon(egb.makeButton2()));
-				}
-				if(easy1start == 0 && medium1start == 0 && hard1start == 0) {
-					ExitGameButton.setIcon(new ImageIcon(egb.makeButton1()));
-					Thread_ToF = false;
-					return;
-				}
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		}
 	}
 	
 	void GameTimerM() {
