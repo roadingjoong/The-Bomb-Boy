@@ -1215,9 +1215,7 @@ public class InGame extends JFrame {
 	}
 	
 	void Villain3M() {
-		
 		Villain3 = new JLabel();
-		
 		Villain3.setSize(100,110);
 		
 		int v1x = 1100;
@@ -1229,11 +1227,9 @@ public class InGame extends JFrame {
 		Villain3Thread vl3t = new Villain3Thread(this);
 		Thread Villain3T = new Thread(vl3t);
 		Villain3T.start();
-		
 	}
 	
 	void Villain3_bulletM() {
-		
 		Villain3_bullet = new JLabel();
 		Villain3_bullet.setSize(30,30);
 		Villain3_bullet.setOpaque(false);
@@ -1243,206 +1239,17 @@ public class InGame extends JFrame {
 		Villain3_bulletThread Villain3_BT = new Villain3_bulletThread(this);
 		Thread v3bt = new Thread(Villain3_BT);
 		v3bt.start();
-		
 	}
 	
 	void Stage1BossM() {
-		
 		Stage1Boss = new JLabel();
 		Stage1Boss.setSize(300, 110);
 		Stage1Boss.setOpaque(false);
 		Stage1Boss.setVisible(false);
 		
-		Stage1BossThread s1bt = new Stage1BossThread();
+		Stage1BossThread s1bt = new Stage1BossThread(this);
 		Thread Stage1BossT = new Thread(s1bt);
 		Stage1BossT.start();
-		
-	}
-	
-	class Stage1BossThread implements Runnable {
-		
-		Boolean Thread_ToF = true;
-		
-		Random random = new Random();
-		int BossRandomNum = 0;
-
-		@Override
-		public void run() {
-			
-			while(Thread_ToF) {
-				
-				Stage1Boss_dead = 0;
-				
-				if(hard1start == 0) {
-					Thread_ToF = false;
-					return;
-				}
-				
-				if(Villain1.isVisible() == true || Villain2.isVisible() == true || Villain3.isVisible() == true) {
-					while(Villain1.isVisible() == true || Villain2.isVisible() == true || Villain3.isVisible() == true) {
-						
-						if(hard1start == 0) {
-							Thread_ToF = false;
-							return;
-						}
-						
-						Stage1Boss.setVisible(false);
-						Stage1Boss.setLocation(0,0);
-						try {
-							Thread.sleep(100);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-				}
-				
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				BossRandomNum = random.nextInt(8)+1;
-				if(BossRandomNum == 1) {
-					Stage1Boss.setLocation(1300,500);
-				}else if(BossRandomNum == 2) {
-					Stage1Boss.setLocation(1300,400);
-				}else if(BossRandomNum == 3) {
-					Stage1Boss.setLocation(1300,300);
-				}else if(BossRandomNum == 4) {
-					Stage1Boss.setLocation(1300,180);
-				}else if(BossRandomNum == 5) {
-					Stage1Boss.setLocation(-300,500);
-				}else if(BossRandomNum == 6) {
-					Stage1Boss.setLocation(-300,400);
-				}else if(BossRandomNum == 7) {
-					Stage1Boss.setLocation(-300,300);
-				}else if(BossRandomNum == 8) {
-					Stage1Boss.setLocation(-300,180);
-				}
-				
-				Stage1Boss.setVisible(true);
-				if(BossRandomNum == 1 || BossRandomNum == 2 || BossRandomNum == 3 || BossRandomNum == 4) {
-					
-					Stage1Boss.setIcon(new ImageIcon(s1b.makeBoss_left()));
-					while(Stage1Boss.getLocation().x >= -300) {
-						
-						Stage1Boss.setLocation(Stage1Boss.getLocation().x - 10, Stage1Boss.getLocation().y);
-						
-						if(Stage1Boss.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
-							Stage1Boss.setIcon(new ImageIcon(s1b.makeBoss_left_die()));
-							
-							Stage1Boss_x = Stage1Boss.getLocation().x;
-							Stage1Boss_y = Stage1Boss.getLocation().y;
-							
-							try {
-								Thread.sleep(1000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-							Stage1Boss.setVisible(false);
-							Stage1Boss.setLocation(0,0);
-							Stage1Boss_dead = 1;
-							
-							Thread_ToF = false;
-							return;
-						}
-						
-						if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
-							setFocusable(false);
-							UserAvatar.setIcon(new ImageIcon(mav.makeAvatar_die()));
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-							UserAvatar.setVisible(false);
-							UserAvatar.setLocation(0, 200);
-							
-							Thread_ToF = false;
-							return;
-						}
-						
-						if(hard1start == 0) {
-							Thread_ToF = false;
-							return;
-						}
-						
-						try {
-							Thread.sleep(50);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						
-					}
-					
-				}else if(BossRandomNum == 5 || BossRandomNum == 6 || BossRandomNum == 7 || BossRandomNum == 8) {
-					
-					Stage1Boss.setIcon(new ImageIcon(s1b.makeBoss_right()));
-					
-					while(Stage1Boss.getLocation().x <= 1300) {
-						
-						Stage1Boss.setLocation(Stage1Boss.getLocation().x + 10, Stage1Boss.getLocation().y);
-						
-						
-						if(Stage1Boss.getBounds().intersects(UserBomb.getBounds()) && BombTime == 2 ) {
-							Stage1Boss.setIcon(new ImageIcon(s1b.makeBoss_right_die()));
-							
-							Stage1Boss_x = Stage1Boss.getLocation().x;
-							Stage1Boss_y = Stage1Boss.getLocation().y;
-							
-							try {
-								Thread.sleep(1000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-							Stage1Boss.setVisible(false);
-							Stage1Boss.setLocation(0,0);
-							Stage1Boss_dead = 1;
-							
-							Thread_ToF = false;
-							return;
-						}
-						
-						if(Stage1Boss.getBounds().intersects(UserAvatar.getBounds())) {
-							setFocusable(false);
-							UserAvatar.setIcon(new ImageIcon(mav.makeAvatar_die()));
-							try {
-								Thread.sleep(2000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-							UserAvatar.setVisible(false);
-							UserAvatar.setLocation(0, 200);
-							
-							Thread_ToF = false;
-							return;
-						}
-						
-						if(hard1start == 0) {
-							Thread_ToF = false;
-							return;
-						}
-						
-						try {
-							Thread.sleep(50);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						
-					}
-				}
-				
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-			}
-			
-		}
-		
 	}
 	
 	void GoldCoinM() {
