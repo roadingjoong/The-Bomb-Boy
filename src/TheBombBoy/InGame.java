@@ -71,6 +71,8 @@ public class InGame extends JFrame {
 	JPanel StageClearPane = new JPanel();
 	JPanel StageFailePane = new JPanel();
 	
+	JLabel GameTitleText;
+	
 	JButton QuitGameButton;
 	int QuitGameNum = 0;
 	
@@ -656,14 +658,9 @@ public class InGame extends JFrame {
 		
 	}
 	
-	void StartGamePanel() {
-		
-		StartGamePane = new JPanel();
-		StartGamePane.setBackground(Color.DARK_GRAY);
-		StartGamePane.setLayout(null);
-		
+	void GameTitleTextM() {
 		Font GameTitlefont = new Font("Alial", Font.ITALIC, 50);
-		JLabel GameTitleText = new JLabel("The Bomb Boy");
+		GameTitleText = new JLabel("The Bomb Boy");
 		GameTitleText.setBackground(Color.BLACK);
 		GameTitleText.setOpaque(true);
 		GameTitleText.setForeground(Color.RED);
@@ -672,6 +669,15 @@ public class InGame extends JFrame {
 		GameTitleText.setLocation(30, 30);
 		GameTitleText.setHorizontalAlignment(JLabel.CENTER);
 		GameTitleText.setVerticalAlignment(JLabel.CENTER);
+	}
+	
+	void StartGamePanel() {
+		
+		StartGamePane = new JPanel();
+		StartGamePane.setBackground(Color.DARK_GRAY);
+		StartGamePane.setLayout(null);
+		
+		GameTitleTextM();
 		StartGamePane.add(GameTitleText);
 		
 		Font StartGameFont1 = new Font("Alial", Font.ITALIC, 20);
@@ -736,16 +742,7 @@ public class InGame extends JFrame {
 		GamePlayPane.setBackground(Color.DARK_GRAY);
 		GamePlayPane.setLayout(null);
 		
-		Font GameTitlefont = new Font("Alial", Font.ITALIC, 50);
-		JLabel GameTitleText = new JLabel("The Bomb Boy");
-		GameTitleText.setBackground(Color.BLACK);
-		GameTitleText.setOpaque(true);
-		GameTitleText.setForeground(Color.RED);
-		GameTitleText.setFont(GameTitlefont);
-		GameTitleText.setSize(400, 100);
-		GameTitleText.setLocation(30, 30);
-		GameTitleText.setHorizontalAlignment(JLabel.CENTER);
-		GameTitleText.setVerticalAlignment(JLabel.CENTER);
+		GameTitleTextM();
 		GamePlayPane.add(GameTitleText);
 		
 		Font GamePlayFont1 = new Font("Arial", Font.BOLD, 20);
@@ -1588,16 +1585,7 @@ public class InGame extends JFrame {
 		MyPagePane.setBackground(Color.DARK_GRAY);
 		MyPagePane.setLayout(null);
 		
-		Font GameTitlefont = new Font("Alial", Font.ITALIC, 50);
-		JLabel GameTitleText = new JLabel("The Bomb Boy");
-		GameTitleText.setBackground(Color.BLACK);
-		GameTitleText.setOpaque(true);
-		GameTitleText.setForeground(Color.RED);
-		GameTitleText.setFont(GameTitlefont);
-		GameTitleText.setSize(400, 100);
-		GameTitleText.setLocation(30, 30);
-		GameTitleText.setHorizontalAlignment(JLabel.CENTER);
-		GameTitleText.setVerticalAlignment(JLabel.CENTER);
+		GameTitleTextM();
 		MyPagePane.add(GameTitleText);
 		
 		Font MyPageFont1 = new Font("Arial", Font.BOLD, 60);
@@ -1760,16 +1748,7 @@ public class InGame extends JFrame {
 		ChangeNamePane.setBackground(Color.DARK_GRAY);
 		ChangeNamePane.setLayout(null);
 		
-		Font GameTitlefont = new Font("Alial", Font.ITALIC, 50);
-		JLabel GameTitleText = new JLabel("The Bomb Boy");
-		GameTitleText.setBackground(Color.BLACK);
-		GameTitleText.setOpaque(true);
-		GameTitleText.setForeground(Color.RED);
-		GameTitleText.setFont(GameTitlefont);
-		GameTitleText.setSize(400, 100);
-		GameTitleText.setLocation(30, 30);
-		GameTitleText.setHorizontalAlignment(JLabel.CENTER);
-		GameTitleText.setVerticalAlignment(JLabel.CENTER);
+		GameTitleTextM();
 		ChangeNamePane.add(GameTitleText);
 		
 		JPanel ChangeNameTool = new JPanel();
@@ -1873,16 +1852,7 @@ public class InGame extends JFrame {
 		ChangePwPane.setBackground(Color.DARK_GRAY);
 		ChangePwPane.setLayout(null);
 		
-		Font GameTitlefont = new Font("Alial", Font.ITALIC, 50);
-		JLabel GameTitleText = new JLabel("The Bomb Boy");
-		GameTitleText.setBackground(Color.BLACK);
-		GameTitleText.setOpaque(true);
-		GameTitleText.setForeground(Color.RED);
-		GameTitleText.setFont(GameTitlefont);
-		GameTitleText.setSize(400, 100);
-		GameTitleText.setLocation(30, 30);
-		GameTitleText.setHorizontalAlignment(JLabel.CENTER);
-		GameTitleText.setVerticalAlignment(JLabel.CENTER);
+		GameTitleTextM();
 		ChangePwPane.add(GameTitleText);
 		
 		JPanel ChangePwTool = new JPanel();
@@ -1998,16 +1968,7 @@ public class InGame extends JFrame {
 		ShopPane.setBackground(Color.DARK_GRAY);
 		ShopPane.setLayout(null);
 		
-		Font GameTitlefont = new Font("Alial", Font.ITALIC, 50);
-		JLabel GameTitleText = new JLabel("The Bomb Boy");
-		GameTitleText.setBackground(Color.BLACK);
-		GameTitleText.setOpaque(true);
-		GameTitleText.setForeground(Color.RED);
-		GameTitleText.setFont(GameTitlefont);
-		GameTitleText.setSize(400, 100);
-		GameTitleText.setLocation(30, 30);
-		GameTitleText.setHorizontalAlignment(JLabel.CENTER);
-		GameTitleText.setVerticalAlignment(JLabel.CENTER);
+		GameTitleTextM();
 		ShopPane.add(GameTitleText);
 		
 		Font ShopFont1 = new Font("Arial", Font.BOLD, 60);
@@ -2246,16 +2207,7 @@ public class InGame extends JFrame {
 		MessengerPane.setBackground(Color.DARK_GRAY);
 		MessengerPane.setLayout(null);
 		
-		Font GameTitlefont = new Font("Alial", Font.ITALIC, 50);
-		JLabel GameTitleText = new JLabel("The Bomb Boy");
-		GameTitleText.setBackground(Color.BLACK);
-		GameTitleText.setOpaque(true);
-		GameTitleText.setForeground(Color.RED);
-		GameTitleText.setFont(GameTitlefont);
-		GameTitleText.setSize(400, 100);
-		GameTitleText.setLocation(30, 30);
-		GameTitleText.setHorizontalAlignment(JLabel.CENTER);
-		GameTitleText.setVerticalAlignment(JLabel.CENTER);
+		GameTitleTextM();
 		MessengerPane.add(GameTitleText);
 		
 		Font MessengerFont1 = new Font("Arial", Font.BOLD, 50);
