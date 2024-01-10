@@ -1571,7 +1571,8 @@ public class InGame extends JFrame {
 		BombPassLobbyPane.setBackground(Color.DARK_GRAY);
 		BombPassLobbyPane.setLayout(null);
 		
-		
+		GameTitleTextM();
+		BombPassLobbyPane.add(GameTitleText);
 		
 		add(BombPassLobbyPane);
 		closePane();
