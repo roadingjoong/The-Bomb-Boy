@@ -633,6 +633,22 @@ public class GameThread implements Runnable{
 					
 					continue;
 					
+				}else if(ingame.joinNum == 17) {
+					ingame.joinNum = 0;
+					
+					ingame.closePane();
+					ingame.BombPassLobbyPanel();
+					
+					while(ingame.joinNum == 0) {
+						try {
+							Thread.sleep(100);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					
+					continue;
+					
 				}
 				else if(ingame.joinNum == 3) {
 					ingame.joinNum = 0;

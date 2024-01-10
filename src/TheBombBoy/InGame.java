@@ -55,6 +55,7 @@ public class InGame extends JFrame {
 	JPanel SignUpPane = new JPanel();
 	JPanel StartGamePane = new JPanel();
 	JPanel GamePlayPane = new JPanel();
+	JPanel BombPassLobbyPane = new JPanel();
 	JPanel MyPagePane = new JPanel();
 	JPanel ChangeNamePane = new JPanel();
 	JPanel ChangePwPane = new JPanel();
@@ -218,6 +219,7 @@ public class InGame extends JFrame {
 		ChangePwPanel();
 		ChangeNamePanel();
 		MyPagePanel();
+		BombPassLobbyPanel();
 		GamePlayPanel();
 		StartGamePanel();
 		SignUpPanel();
@@ -301,6 +303,7 @@ public class InGame extends JFrame {
 		SignUpPane.setVisible(false);
 		StartGamePane.setVisible(false);
 		GamePlayPane.setVisible(false);
+		BombPassLobbyPane.setVisible(false);
 		MyPagePane.setVisible(false);
 		ChangeNamePane.setVisible(false);
 		ChangePwPane.setVisible(false);
@@ -715,12 +718,16 @@ public class InGame extends JFrame {
 		StartGameButton1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				joinNum = 2;
-				
 			}
 		});
 		
+		StartGameButton2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				joinNum = 17;
+			}
+		});
 	}
 	
 	void GamePlayPanel() {
@@ -1542,7 +1549,6 @@ public class InGame extends JFrame {
 	}
 	
 	void StageFailePanel() {
-		
 		StageFailePane = new JPanel();
 		StageFailePane.setBackground(Color.BLACK);
 		StageFailePane.setLayout(null);
@@ -1561,7 +1567,18 @@ public class InGame extends JFrame {
 		
 		closePane();
 		StageFailePane.setVisible(true);
+	}
+	
+	void BombPassLobbyPanel() {
+		BombPassLobbyPane = new JPanel();
+		BombPassLobbyPane.setBackground(Color.DARK_GRAY);
+		BombPassLobbyPane.setLayout(null);
 		
+		
+		
+		add(BombPassLobbyPane);
+		closePane();
+		BombPassLobbyPane.setVisible(true);
 	}
 	
 	
