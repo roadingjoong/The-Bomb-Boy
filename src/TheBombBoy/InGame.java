@@ -1672,9 +1672,18 @@ public class InGame extends JFrame {
 		BPUserListTitle.setOpaque(true);
 		BombPassLobbyPane.add(BPUserListTitle);
 		
+		Font BPFont3 = new Font("Arial", Font.BOLD, 20);
+		
+		JButton BPExiteButton = new JButton("BACK");
+		BPExiteButton.setSize(100,50);
+		BPExiteButton.setLocation(600,600);
+		BPExiteButton.setFont(BPFont3);
+		BombPassLobbyPane.add(BPExiteButton);
+		
 		add(BombPassLobbyPane);
 		closePane();
 		BombPassLobbyPane.setVisible(true);
+		
 	}
 	
 	
