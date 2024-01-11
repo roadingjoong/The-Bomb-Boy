@@ -1627,6 +1627,22 @@ public class InGame extends JFrame {
 		BPListFrame4.setOpaque(true);
 		BombPassLobbyPane.add(BPListFrame4);
 		
+		Font BPFont2 = new Font("Arial", Font.BOLD, 30);
+		
+		JButton BPJoinRoomButton = new JButton("Join Room");
+		BPJoinRoomButton.setSize(200, 50);
+		BPJoinRoomButton.setLocation(1025, 300);
+		BPJoinRoomButton.setFont(BPFont2);
+		BPJoinRoomButton.setForeground(Color.BLUE);
+		BombPassLobbyPane.add(BPJoinRoomButton);
+		
+		JButton BPMakeRoomButton = new JButton("Create Room");
+		BPMakeRoomButton.setSize(200, 50);
+		BPMakeRoomButton.setLocation(1025, 400);
+		BPMakeRoomButton.setFont(BPFont2);
+		BPMakeRoomButton.setForeground(Color.BLUE);
+		BombPassLobbyPane.add(BPMakeRoomButton);
+		
 		add(BombPassLobbyPane);
 		closePane();
 		BombPassLobbyPane.setVisible(true);
