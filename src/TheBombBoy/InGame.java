@@ -1652,7 +1652,6 @@ public class InGame extends JFrame {
 		BPTrainingButton.setForeground(Color.BLUE);
 		BombPassLobbyPane.add(BPTrainingButton);
 		
-		
 		BPUserModel = new DefaultListModel<>();
 		JList<String> BPUserList = new JList<>(BPUserModel);
 		BPUserList.setFixedCellHeight(50);
@@ -1665,6 +1664,13 @@ public class InGame extends JFrame {
 		BPUserScroll.setLocation(75, 200);
 		BPUserScroll.setBorder(BorderFactory.createLineBorder(Color.GREEN));
 		BombPassLobbyPane.add(BPUserScroll);
+		
+		JLabel BPUserListTitle = new JLabel();
+		BPUserListTitle.setSize(200, 50);
+		BPUserListTitle.setLocation(75, 150);
+		BPUserListTitle.setBackground(Color.GREEN);
+		BPUserListTitle.setOpaque(true);
+		BombPassLobbyPane.add(BPUserListTitle);
 		
 		add(BombPassLobbyPane);
 		closePane();
