@@ -1595,17 +1595,37 @@ public class InGame extends JFrame {
 		
 		JTextField BPRoomSearch = new JTextField();
 		BPRoomSearch.setSize(450, 50);
-		BPRoomSearch.setLocation(450, 190);
+		BPRoomSearch.setLocation(450, 200);
 		BPRoomSearch.setBackground(Color.BLACK);
 		BPRoomSearch.setForeground(Color.CYAN);
 		BPRoomSearch.setFont(BPFont1);
 		BombPassLobbyPane.add(BPRoomSearch);
-		
 		JLabel BPSearchIcon = new JLabel();
 		BPSearchIcon.setSize(50,50);
-		BPSearchIcon.setLocation(400, 190);
+		BPSearchIcon.setLocation(400, 200);
 		BPSearchIcon.setOpaque(true);
 		BombPassLobbyPane.add(BPSearchIcon);
+		
+		JLabel BPListFrame1 = new JLabel();
+		BPListFrame1.setSize(50, 300);
+		BPListFrame1.setLocation(350, 200);
+		BPListFrame1.setOpaque(true);
+		BombPassLobbyPane.add(BPListFrame1);
+		JLabel BPListFrame2 = new JLabel();
+		BPListFrame2.setSize(50, 300);
+		BPListFrame2.setLocation(900, 200);
+		BPListFrame2.setOpaque(true);
+		BombPassLobbyPane.add(BPListFrame2);
+		JLabel BPListFrame3 = new JLabel();
+		BPListFrame3.setSize(600, 50);
+		BPListFrame3.setLocation(350, 150);
+		BPListFrame3.setOpaque(true);
+		BombPassLobbyPane.add(BPListFrame3);
+		JLabel BPListFrame4 = new JLabel();
+		BPListFrame4.setSize(600, 50);
+		BPListFrame4.setLocation(350, 500);
+		BPListFrame4.setOpaque(true);
+		BombPassLobbyPane.add(BPListFrame4);
 		
 		add(BombPassLobbyPane);
 		closePane();
