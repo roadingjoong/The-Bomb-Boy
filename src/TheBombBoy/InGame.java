@@ -191,6 +191,8 @@ public class InGame extends JFrame {
 	
 	DefaultListModel<String> BPRoomModel;
 	
+	DefaultListModel<String> BPUserModel;
+	
 	//-----------------------------------
 	
 	Socket s;
@@ -1649,6 +1651,20 @@ public class InGame extends JFrame {
 		BPTrainingButton.setFont(BPFont2);
 		BPTrainingButton.setForeground(Color.BLUE);
 		BombPassLobbyPane.add(BPTrainingButton);
+		
+		
+		BPUserModel = new DefaultListModel<>();
+		JList<String> BPUserList = new JList<>(BPUserModel);
+		BPUserList.setFixedCellHeight(50);
+		BPUserList.setBackground(Color.BLACK);
+		BPUserList.setForeground(Color.GREEN);
+		BPUserList.setFont(BPFont1);
+		
+		JScrollPane BPUserScroll = new JScrollPane(BPUserList);
+		BPUserScroll.setSize(200, 350);
+		BPUserScroll.setLocation(75, 200);
+		BPUserScroll.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+		BombPassLobbyPane.add(BPUserScroll);
 		
 		add(BombPassLobbyPane);
 		closePane();
