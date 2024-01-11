@@ -1601,6 +1601,12 @@ public class InGame extends JFrame {
 		BPRoomSearch.setFont(BPFont1);
 		BombPassLobbyPane.add(BPRoomSearch);
 		
+		JLabel BPSearchIcon = new JLabel();
+		BPSearchIcon.setSize(50,50);
+		BPSearchIcon.setLocation(400, 190);
+		BPSearchIcon.setOpaque(true);
+		BombPassLobbyPane.add(BPSearchIcon);
+		
 		add(BombPassLobbyPane);
 		closePane();
 		BombPassLobbyPane.setVisible(true);
