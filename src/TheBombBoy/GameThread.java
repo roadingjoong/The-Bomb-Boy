@@ -647,6 +647,21 @@ public class GameThread implements Runnable{
 						}
 					}
 					
+					if(ingame.joinNum == 18) {
+						ingame.joinNum = 0;
+						ingame.closePane();
+						ingame.BombPassMyRoomPanel();
+						
+						while(ingame.joinNum == 0) {
+							try {
+								Thread.sleep(100);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+						}
+						
+					}
+					
 					continue;
 					
 				}

@@ -73,6 +73,8 @@ public class InGame extends JFrame {
 	JPanel StageClearPane = new JPanel();
 	JPanel StageFailePane = new JPanel();
 	
+	JPanel BombPassMyRoomPane = new JPanel();
+	
 	JLabel GameTitleText;
 	
 	JButton QuitGameButton;
@@ -213,7 +215,9 @@ public class InGame extends JFrame {
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		Gameframe = this;
-
+		
+		BombPassMyRoomPanel();
+		
 		Stage1HARDPanel();
 		Stage1MEDIUMPanel();
 		Stage1EASYPanel();
@@ -324,6 +328,8 @@ public class InGame extends JFrame {
 		Stage1HARDPane.setVisible(false);
 		StageClearPane.setVisible(false);
 		StageFailePane.setVisible(false);
+		
+		BombPassMyRoomPane.setVisible(false);
 	}
 	
 	void DarkPanel() {
@@ -1684,8 +1690,36 @@ public class InGame extends JFrame {
 		closePane();
 		BombPassLobbyPane.setVisible(true);
 		
+		BPJoinRoomButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				joinNum = 19;
+			}
+		});
+		BPMakeRoomButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				joinNum = 18;
+			}
+		});
+		BPTrainingButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				joinNum = 20;
+			}
+		});
+		
 	}
 	
+	void BombPassMyRoomPanel() {
+		BombPassMyRoomPane = new JPanel();
+		BombPassMyRoomPane.setBackground(Color.LIGHT_GRAY);
+		BombPassMyRoomPane.setLayout(null);
+		
+		add(BombPassMyRoomPane);
+		closePane();
+		BombPassMyRoomPane.setVisible(true);
+	}
 	
 	void MyPagePanel() {
 		
