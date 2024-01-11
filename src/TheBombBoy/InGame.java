@@ -1709,6 +1709,13 @@ public class InGame extends JFrame {
 			}
 		});
 		
+		BPExiteButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				joinNum = 1;
+			}
+		});
+		
 	}
 	
 	void BombPassMyRoomPanel() {
