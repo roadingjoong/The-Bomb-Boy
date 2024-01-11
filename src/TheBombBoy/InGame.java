@@ -1593,6 +1593,14 @@ public class InGame extends JFrame {
 		BPRoomScroll.setLocation(400,250);
 		BombPassLobbyPane.add(BPRoomScroll);
 		
+		JTextField BPRoomSearch = new JTextField();
+		BPRoomSearch.setSize(450, 50);
+		BPRoomSearch.setLocation(450, 190);
+		BPRoomSearch.setBackground(Color.BLACK);
+		BPRoomSearch.setForeground(Color.CYAN);
+		BPRoomSearch.setFont(BPFont1);
+		BombPassLobbyPane.add(BPRoomSearch);
+		
 		add(BombPassLobbyPane);
 		closePane();
 		BombPassLobbyPane.setVisible(true);
