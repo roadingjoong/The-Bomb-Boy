@@ -26,7 +26,9 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Vector;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -186,6 +188,8 @@ public class InGame extends JFrame {
 	int TimeOverNum = 0;
 	
 	JLabel GameProfileBox;
+	
+	DefaultListModel<String> BPRoomModel;
 	
 	//-----------------------------------
 	
@@ -1573,6 +1577,21 @@ public class InGame extends JFrame {
 		
 		GameTitleTextM();
 		BombPassLobbyPane.add(GameTitleText);
+		
+		Font BPFont1 = new Font("Arial", Font.BOLD, 15);
+		
+		BPRoomModel = new DefaultListModel<>();
+		JList<String> BPRoomList = new JList<>(BPRoomModel);
+		BPRoomList.setBackground(Color.BLACK);
+		BPRoomList.setForeground(Color.CYAN);
+		BPRoomList.setFixedCellHeight(50);
+		BPRoomList.setFont(BPFont1);
+		
+		JScrollPane BPRoomScroll = new JScrollPane(BPRoomList);
+		BPRoomScroll.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		BPRoomScroll.setSize(500,250);
+		BPRoomScroll.setLocation(400,250);
+		BombPassLobbyPane.add(BPRoomScroll);
 		
 		add(BombPassLobbyPane);
 		closePane();
