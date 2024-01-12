@@ -6,10 +6,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class GameServer{
 	ServerSocket ss;
 	List<GameServerEngine> GSEList;
+	Vector<String> Namelist = new Vector<>();
 	
 	GameServer(){
 		GSEList = new ArrayList<GameServerEngine>();
@@ -41,11 +43,6 @@ public class GameServer{
 		}
 	}
 	
-	void returnMessage(String message) {
-		for(GameServerEngine GSE : GSEList) {
-			GSE.writeMessage(message);
-		}
-	}
 	public static void main(String[] args) {
 		new GameServer();
 	}

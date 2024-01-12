@@ -1715,7 +1715,9 @@ public class InGame extends JFrame {
 				joinNum = 1;
 			}
 		});
-		
+		MessageReadThread MRT = new MessageReadThread(this);
+		Thread MessageRead = new Thread(MRT);
+		MessageRead.start();
 	}
 	
 	void BombPassMyRoomPanel() {

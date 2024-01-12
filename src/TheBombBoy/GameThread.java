@@ -639,6 +639,9 @@ public class GameThread implements Runnable{
 					ingame.closePane();
 					ingame.BombPassLobbyPanel();
 					
+					String BPjoinM = "BPjoin/c;"+ingame.InformationName;
+					ingame.writer.println(BPjoinM);
+					
 					while(ingame.joinNum == 0) {
 						try {
 							Thread.sleep(100);
@@ -661,7 +664,8 @@ public class GameThread implements Runnable{
 						}
 						
 					}
-					
+					String BPexM = "BPexite/c;"+ingame.InformationName;
+					ingame.writer.println(BPexM);
 					continue;
 					
 				}

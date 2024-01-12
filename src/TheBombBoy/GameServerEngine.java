@@ -11,6 +11,7 @@ public class GameServerEngine extends Thread{
 	BufferedReader reader;
 	PrintWriter writer;
 	GameServer GS;
+	String Id;
 	
 	GameServerEngine(Socket s, GameServer GS){
 		this.s = s;
@@ -31,21 +32,57 @@ public class GameServerEngine extends Thread{
 				
 				switch(messageCut[0]) {
 				case "join" : 
-					GS.returnMessage(message);
+					returnMessage(message);
 					break;
 					
 				case "speak":
-					GS.returnMessage(message);
+					returnMessage(message);
 					break;
 					
 				case "left" :
-					GS.returnMessage(message);
+					returnMessage(message);
+					break;
+					
+				case "BPjoin" :
+					String joinName = messageCut[1];
+					GS.Namelist.add(joinName+"/c;");
+					BPjoinList();
+					break;
+					
+				case "BPexite":
+					String exiteName = messageCut[1];
+					GS.Namelist.remove(exiteName+"/c;");
+					BPexiteList();
 					break;
 				}
 				
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	void BPjoinList() {
+		StringBuffer BPlist = new StringBuffer("BPjoin/c;");
+		
+		for(String name : GS.Namelist) {
+			BPlist.append(name);
+		}
+		returnMessage(BPlist.toString());
+	}
+	
+	void BPexiteList() {
+		StringBuffer BPlist = new StringBuffer("BPexite/c;");
+		
+		for(String name : GS.Namelist) {
+			BPlist.append(name);
+		}
+		returnMessage(BPlist.toString());
+	}
+	
+	void returnMessage(String message) {
+		for(GameServerEngine GSE : GS.GSEList) {
+			GSE.writeMessage(message);
 		}
 	}
 	

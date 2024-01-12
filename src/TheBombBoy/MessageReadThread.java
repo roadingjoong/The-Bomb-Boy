@@ -1,8 +1,10 @@
 package TheBombBoy;
 
 import java.io.IOException;
+import java.util.Arrays;
 
-public 	class MessageReadThread implements Runnable{
+public class MessageReadThread implements Runnable{
+	Boolean Thread_ToF = true;
 	InGame ingame;
 	MessageReadThread(InGame ingame){
 		this.ingame = ingame;
@@ -10,7 +12,12 @@ public 	class MessageReadThread implements Runnable{
 	
 	public void run() {
 		try {
-			while(true) {
+			while(Thread_ToF) {
+				if(ingame.MessengerPane.isVisible() == false && ingame.BombPassLobbyPane.isVisible() == false) {
+					Thread_ToF = false;
+					return;
+				}
+				
 				String message = ingame.reader.readLine();
 				String[] messageCut = message.split("/c;");
 				
@@ -27,6 +34,17 @@ public 	class MessageReadThread implements Runnable{
 					ingame.MessengerArea.append("\n ***** "+messageCut[1]+" has left the room. ***** \n\n");
 				    break;
 				    
+				case "BPjoin":
+					ingame.BPUserModel.removeAllElements();
+					String[] BPUserlist1 = Arrays.copyOfRange(messageCut, 1, messageCut.length);
+					ingame.BPUserModel.addAll(Arrays.asList(BPUserlist1));
+					break;
+					
+				case "BPexite":
+					ingame.BPUserModel.removeAllElements();
+					String[] BPUserlist2 = Arrays.copyOfRange(messageCut, 1, messageCut.length);
+					ingame.BPUserModel.addAll(Arrays.asList(BPUserlist2));
+					break;
 				}
 			}
 			
