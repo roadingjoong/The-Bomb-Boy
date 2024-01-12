@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.WriteAbortedException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -198,25 +199,20 @@ public class GameThread implements Runnable{
 							char[] LoginPwpass = ingame.Pwfield.getPassword();
 							String LoginPwtext = new String(LoginPwpass);
 							
-							boolean LoginCheck = ingame.GUD.LoginUser(LoginIdtext, LoginPwtext);
+							String LoginMessage = "Login/c;"+LoginIdtext+"/c;"+LoginPwtext;
+							ingame.writer.println(LoginMessage);
 							
-							if(LoginCheck == true) {
-								ingame.LoginNum = 0;
-								System.out.println("로그인 성공");
-								
-								ArrayList<GameUser> GUList = ingame.GUD.InputUser(LoginIdtext);
-								
-								for(GameUser gu : GUList ) {
-									ingame.InformationId = gu.getUserid();
-									ingame.InformationPw = gu.getUserpw();
-									ingame.InformationName = gu.getUsername();
-									ingame.InformationLevel = gu.getUserlevel();
-									ingame.InformationAlias = gu.getUseralias();
-									ingame.InformationStage = gu.getUserStage();
-									ingame.InformationCoin = gu.getUsercoin();
-									ingame.InformationAvatar = gu.getUseravatar();
+							while(ingame.LoginCollectNum == 0) {
+								try {
+									Thread.sleep(100);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
 								}
-								
+							}
+							
+							if(ingame.LoginCollectNum == 1) {
+								System.out.println("페르페");
+								ingame.LoginNum = 0;
 								break;
 							}else {
 								ingame.LoginNum = 0;

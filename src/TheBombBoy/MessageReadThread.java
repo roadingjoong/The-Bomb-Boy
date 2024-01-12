@@ -13,11 +13,7 @@ public class MessageReadThread implements Runnable{
 	public void run() {
 		try {
 			while(Thread_ToF) {
-				if(ingame.MessengerPane.isVisible() == false && ingame.BombPassLobbyPane.isVisible() == false) {
-					Thread_ToF = false;
-					return;
-				}
-				
+				System.out.println("마이턴");
 				String message = ingame.reader.readLine();
 				String[] messageCut = message.split("/c;");
 				
@@ -44,6 +40,23 @@ public class MessageReadThread implements Runnable{
 					ingame.BPUserModel.removeAllElements();
 					String[] BPUserlist2 = Arrays.copyOfRange(messageCut, 1, messageCut.length);
 					ingame.BPUserModel.addAll(Arrays.asList(BPUserlist2));
+					break;
+				case "ChSu":
+					System.out.println("오나료완료");
+					ingame.InformationId = messageCut[1];
+					ingame.InformationPw = messageCut[2];
+					ingame.InformationName = messageCut[3];
+					ingame.InformationLevel = Integer.parseInt(messageCut[4]);
+					ingame.InformationAlias = messageCut[5];
+					ingame.InformationStage = Integer.parseInt(messageCut[6]);
+					ingame.InformationCoin = Integer.parseInt(messageCut[7]);
+					ingame.InformationAvatar = Integer.parseInt(messageCut[8]);
+					ingame.LoginCollectNum = 1;
+					
+					System.out.println(ingame.InformationName+"이야이야호");
+					break;
+				case "ChFF":
+					ingame.LoginCollectNum = 2;
 					break;
 				}
 			}

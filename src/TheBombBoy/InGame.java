@@ -90,6 +90,7 @@ public class InGame extends JFrame {
 	
 	JFrame Gameframe;
 	
+	int LoginCollectNum = 0;
 	int LoginNum = 0;
 	int signNum = 0;
 	int joinNum = 0;
@@ -523,6 +524,10 @@ public class InGame extends JFrame {
 				}
 			}
 		});
+		
+		MessageReadThread MRT = new MessageReadThread(this);
+		Thread MessageRead = new Thread(MRT);
+		MessageRead.start();
 		
 	}
 	
@@ -1722,7 +1727,7 @@ public class InGame extends JFrame {
 	
 	void BombPassMyRoomPanel() {
 		BombPassMyRoomPane = new JPanel();
-		BombPassMyRoomPane.setBackground(Color.LIGHT_GRAY);
+		BombPassMyRoomPane.setBackground(Color.DARK_GRAY);
 		BombPassMyRoomPane.setLayout(null);
 		
 		add(BombPassMyRoomPane);

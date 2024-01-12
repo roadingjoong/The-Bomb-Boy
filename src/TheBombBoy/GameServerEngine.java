@@ -5,13 +5,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class GameServerEngine extends Thread{
 	Socket s;
 	BufferedReader reader;
 	PrintWriter writer;
 	GameServer GS;
+	String tryId;
 	String Id;
+	String Pw;
+	String Name;
+	int Level;
+	String Alias;
+	int Stage;
+	int Coin;
+	int Avatar;
 	
 	GameServerEngine(Socket s, GameServer GS){
 		this.s = s;
@@ -31,6 +40,46 @@ public class GameServerEngine extends Thread{
 				String[] messageCut = message.split("/c;");
 				
 				switch(messageCut[0]) {
+				case "Login" :
+					tryId = messageCut[1];
+					boolean LoginCheck = GS.GUD.LoginUser(messageCut[1], messageCut[2]);
+					
+					if(LoginCheck == true) {
+						
+						StringBuffer CheckSuccess = new StringBuffer("ChSu/c;");
+						
+						ArrayList<GameUser> GUList = GS.GUD.InputUser(messageCut[1]);
+						
+						for(GameUser gu : GUList ) {
+							Id = gu.getUserid();
+							Pw = gu.getUserpw();
+							Name = gu.getUsername();
+							Level = gu.getUserlevel();
+							Alias = gu.getUseralias();
+							Stage = gu.getUserStage();
+							Coin = gu.getUsercoin();
+							Avatar = gu.getUseravatar();
+						}
+						
+						for(GameServerEngine ese : GS.GSEList) {
+							if(ese.tryId.equals(Id)) {
+								CheckSuccess.append(Id+"/c;"+Pw+"/c;"+Name+"/c;"+Level+"/c;"+
+													Alias+"/c;"+Stage+"/c;"+Coin+"/c;"+Avatar);
+								System.out.println(CheckSuccess);
+								ese.writeMessage(CheckSuccess.toString());
+							}
+						}
+						
+					}else {
+						System.out.println("유저의 정보가 맞지 않습니다.");
+						for(GameServerEngine ese : GS.GSEList) {
+							if(ese.tryId.equals(Id)) {
+								ese.writeMessage("ChFF/c;failded");
+							}
+						}
+					}
+					break;
+					
 				case "join" : 
 					returnMessage(message);
 					break;
@@ -60,6 +109,10 @@ public class GameServerEngine extends Thread{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	void LoginUser() {
+		
 	}
 	
 	void BPjoinList() {
