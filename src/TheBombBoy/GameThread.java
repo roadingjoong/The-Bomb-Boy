@@ -165,15 +165,24 @@ public class GameThread implements Runnable{
 										String signPwtext = new String(signPwpass);
 										String signNametext = ingame.signNameField.getText();
 										
-										boolean checkSignId = ingame.GUD.CheckUser(signIdtext);
+										ingame.writer.println("chId/c;"+signIdtext+"/c;"+signPwtext+"/c;"+signNametext);
 										
-										if(checkSignId == false) {
-											ingame.GUD.SignUpUser(signIdtext, signPwtext, signNametext);
+										while(ingame.signCollectNum == 0) {
+											try {
+												Thread.sleep(100);
+											} catch (InterruptedException e) {
+												e.printStackTrace();
+											}
+										}
+										
+										if(ingame.signCollectNum == 1) {
+											ingame.signCollectNum = 0;
 											ingame.signNum = 0;
 											break;
 											
 										}else {
 											System.out.println("아이디 중복됨");
+											ingame.signCollectNum = 0;
 											ingame.signNum = 0;
 											continue;
 										}
@@ -367,26 +376,26 @@ public class GameThread implements Runnable{
 							ingame.StageClearPanel();
 							ingame.easy1start = 0;
 							
-							ingame.GUD.updateLevel(ingame.InformationLevel, ingame.InformationId);
-							
-							if(ingame.InformationStage <= 1 ) {
-								ingame.GUD.updateStage(ingame.InformationStage, ingame.InformationId);
-								
-								System.out.println("스테이지 업데이트");
-								}
-							
-							ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
-							
-							for(GameUser gu : GUList ) {
-								ingame.InformationId = gu.getUserid();
-								ingame.InformationPw = gu.getUserpw();
-								ingame.InformationName = gu.getUsername();
-								ingame.InformationLevel = gu.getUserlevel();
-								ingame.InformationAlias = gu.getUseralias();
-								ingame.InformationStage = gu.getUserStage();
-								ingame.InformationCoin = gu.getUsercoin();
-								ingame.InformationAvatar = gu.getUseravatar();
-							}
+//							ingame.GUD.updateLevel(ingame.InformationLevel, ingame.InformationId);
+//							
+//							if(ingame.InformationStage <= 1 ) {
+//								ingame.GUD.updateStage(ingame.InformationStage, ingame.InformationId);
+//								
+//								System.out.println("스테이지 업데이트");
+//								}
+//							
+//							ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
+//							
+//							for(GameUser gu : GUList ) {
+//								ingame.InformationId = gu.getUserid();
+//								ingame.InformationPw = gu.getUserpw();
+//								ingame.InformationName = gu.getUsername();
+//								ingame.InformationLevel = gu.getUserlevel();
+//								ingame.InformationAlias = gu.getUseralias();
+//								ingame.InformationStage = gu.getUserStage();
+//								ingame.InformationCoin = gu.getUsercoin();
+//								ingame.InformationAvatar = gu.getUseravatar();
+//							}
 							
 						}else{
 							ingame.StageFailePanel();
@@ -448,28 +457,28 @@ public class GameThread implements Runnable{
 								ingame.StageClearPanel();
 								ingame.medium1start = 0;
 								
-								ingame.GUD.updateLevel(ingame.InformationLevel, ingame.InformationId);
-								
-								if(ingame.InformationStage <= 2 ) {
-									ingame.GUD.updateStage(ingame.InformationStage, ingame.InformationId);
-									}
-								
-								if(ingame.InformationAlias.equals("Beginner")) {
-									ingame.GUD.updateAlias("Warrior", ingame.InformationId);
-								}
-								
-								ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
-								
-								for(GameUser gu : GUList ) {
-									ingame.InformationId = gu.getUserid();
-									ingame.InformationPw = gu.getUserpw();
-									ingame.InformationName = gu.getUsername();
-									ingame.InformationLevel = gu.getUserlevel();
-									ingame.InformationAlias = gu.getUseralias();
-									ingame.InformationStage = gu.getUserStage();
-									ingame.InformationCoin = gu.getUsercoin();
-									ingame.InformationAvatar = gu.getUseravatar();
-								}
+//								ingame.GUD.updateLevel(ingame.InformationLevel, ingame.InformationId);
+//								
+//								if(ingame.InformationStage <= 2 ) {
+//									ingame.GUD.updateStage(ingame.InformationStage, ingame.InformationId);
+//									}
+//								
+//								if(ingame.InformationAlias.equals("Beginner")) {
+//									ingame.GUD.updateAlias("Warrior", ingame.InformationId);
+//								}
+//								
+//								ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
+//								
+//								for(GameUser gu : GUList ) {
+//									ingame.InformationId = gu.getUserid();
+//									ingame.InformationPw = gu.getUserpw();
+//									ingame.InformationName = gu.getUsername();
+//									ingame.InformationLevel = gu.getUserlevel();
+//									ingame.InformationAlias = gu.getUseralias();
+//									ingame.InformationStage = gu.getUserStage();
+//									ingame.InformationCoin = gu.getUsercoin();
+//									ingame.InformationAvatar = gu.getUseravatar();
+//								}
 								
 							}else {
 								ingame.StageFailePanel();
@@ -534,35 +543,35 @@ public class GameThread implements Runnable{
 								ingame.StageClearPanel();
 								ingame.hard1start = 0;
 								
-								ingame.GUD.updateLevel(ingame.InformationLevel, ingame.InformationId);
-								
-								if(ingame.InformationStage <= 3 ) {
-									ingame.GUD.updateStage(ingame.InformationStage, ingame.InformationId);
-									}
-								
-								if(ingame.InformationAlias.equals("Warrior")) {
-									ingame.GUD.updateAlias("Hero", ingame.InformationId);
-								}
-								
-								ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
-								
-								for(GameUser gu : GUList ) {
-									ingame.InformationId = gu.getUserid();
-									ingame.InformationPw = gu.getUserpw();
-									ingame.InformationName = gu.getUsername();
-									ingame.InformationLevel = gu.getUserlevel();
-									ingame.InformationAlias = gu.getUseralias();
-									ingame.InformationStage = gu.getUserStage();
-									ingame.InformationCoin = gu.getUsercoin();
-									ingame.InformationAvatar = gu.getUseravatar();
-								}
-								
-							}else {
-								ingame.StageFailePanel();
-								ingame.hard1start = 0;
-								ingame.ExitGameNum = 0;
-								ingame.TimeOverNum = 0;
-							}
+//								ingame.GUD.updateLevel(ingame.InformationLevel, ingame.InformationId);
+//								
+//								if(ingame.InformationStage <= 3 ) {
+//									ingame.GUD.updateStage(ingame.InformationStage, ingame.InformationId);
+//									}
+//								
+//								if(ingame.InformationAlias.equals("Warrior")) {
+//									ingame.GUD.updateAlias("Hero", ingame.InformationId);
+//								}
+//								
+//								ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
+//								
+//								for(GameUser gu : GUList ) {
+//									ingame.InformationId = gu.getUserid();
+//									ingame.InformationPw = gu.getUserpw();
+//									ingame.InformationName = gu.getUsername();
+//									ingame.InformationLevel = gu.getUserlevel();
+//									ingame.InformationAlias = gu.getUseralias();
+//									ingame.InformationStage = gu.getUserStage();
+//									ingame.InformationCoin = gu.getUsercoin();
+//									ingame.InformationAvatar = gu.getUseravatar();
+//								}
+//								
+//							}else {
+//								ingame.StageFailePanel();
+//								ingame.hard1start = 0;
+//								ingame.ExitGameNum = 0;
+//								ingame.TimeOverNum = 0;
+//							}
 							
 							try {
 								Thread.sleep(2000);
@@ -764,24 +773,24 @@ public class GameThread implements Runnable{
 								
 								if(ingame.ChangeNamefield.getText().length() != 0) {
 									
-									String newName = ingame.ChangeNamefield.getText();
-									
-									ingame.GUD.updateName(newName, ingame.InformationId);
-									
-									ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
-									
-									for(GameUser gu : GUList ) {
-										ingame.InformationId = gu.getUserid();
-										ingame.InformationPw = gu.getUserpw();
-										ingame.InformationName = gu.getUsername();
-										ingame.InformationLevel = gu.getUserlevel();
-										ingame.InformationAlias = gu.getUseralias();
-										ingame.InformationStage = gu.getUserStage();
-										ingame.InformationCoin = gu.getUsercoin();
-										ingame.InformationAvatar = gu.getUseravatar();
-									}
-									
-									ingame.joinNum = 3;
+//									String newName = ingame.ChangeNamefield.getText();
+//									
+//									ingame.GUD.updateName(newName, ingame.InformationId);
+//									
+//									ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
+//									
+//									for(GameUser gu : GUList ) {
+//										ingame.InformationId = gu.getUserid();
+//										ingame.InformationPw = gu.getUserpw();
+//										ingame.InformationName = gu.getUsername();
+//										ingame.InformationLevel = gu.getUserlevel();
+//										ingame.InformationAlias = gu.getUseralias();
+//										ingame.InformationStage = gu.getUserStage();
+//										ingame.InformationCoin = gu.getUsercoin();
+//										ingame.InformationAvatar = gu.getUseravatar();
+//									}
+//									
+//									ingame.joinNum = 3;
 									
 								}else {
 									System.out.println("문자를 입력하지 않음");
@@ -855,33 +864,33 @@ public class GameThread implements Runnable{
 								char[] getcheckChangePw = ingame.ChangeCurrentPwfield.getPassword();
 								String checkChangePw = new String(getcheckChangePw);
 								
-								boolean checkChangeThisPw = ingame.GUD.LoginUser(ingame.InformationId, checkChangePw);
-								
-								if(checkChangeThisPw == true) {
-									
-									char[] getChangeNewPw = ingame.ChangePwfield.getPassword();
-									String ChangeNewPw = new String(getChangeNewPw);
-									
-									ingame.GUD.updatePw(ChangeNewPw, ingame.InformationId);
-									
-									ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
-									
-									for(GameUser gu : GUList ) {
-										ingame.InformationId = gu.getUserid();
-										ingame.InformationPw = gu.getUserpw();
-										ingame.InformationName = gu.getUsername();
-										ingame.InformationLevel = gu.getUserlevel();
-										ingame.InformationAlias = gu.getUseralias();
-										ingame.InformationStage = gu.getUserStage();
-										ingame.InformationCoin = gu.getUsercoin();
-										ingame.InformationAvatar = gu.getUseravatar();
-									}
-									
-									ingame.joinNum = 3;
-									
-								}else {
-									System.out.println("현재 비밀번호가 맞지 않습니다.");
-								}
+//								boolean checkChangeThisPw = ingame.GUD.LoginUser(ingame.InformationId, checkChangePw);
+//								
+//								if(checkChangeThisPw == true) {
+//									
+//									char[] getChangeNewPw = ingame.ChangePwfield.getPassword();
+//									String ChangeNewPw = new String(getChangeNewPw);
+//									
+//									ingame.GUD.updatePw(ChangeNewPw, ingame.InformationId);
+//									
+//									ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
+//									
+//									for(GameUser gu : GUList ) {
+//										ingame.InformationId = gu.getUserid();
+//										ingame.InformationPw = gu.getUserpw();
+//										ingame.InformationName = gu.getUsername();
+//										ingame.InformationLevel = gu.getUserlevel();
+//										ingame.InformationAlias = gu.getUseralias();
+//										ingame.InformationStage = gu.getUserStage();
+//										ingame.InformationCoin = gu.getUsercoin();
+//										ingame.InformationAvatar = gu.getUseravatar();
+//									}
+//									
+//									ingame.joinNum = 3;
+//									
+//								}else {
+//									System.out.println("현재 비밀번호가 맞지 않습니다.");
+//								}
 								
 							}else if(ingame.ChangePwNum == 1) {
 								ingame.ChangePwNum = 0;
@@ -931,56 +940,56 @@ public class GameThread implements Runnable{
 						}
 						
 						if(ingame.BuyAvatarNum != 0) {
-							if(ingame.BuyAvatarNum == 1) {
-								if(ingame.InformationCoin >= 1000) {
-									ingame.BuyAvatarNum = 0;
-									ingame.GUD.updateAvatar(2, ingame.InformationCoin, 1000, ingame.InformationId);
-									System.out.println("구매성공");
-								}else {
-									System.out.println("코인부족");
-								}
-							}else if(ingame.BuyAvatarNum == 2) {
-								if(ingame.InformationCoin >= 2000) {
-									ingame.BuyAvatarNum = 0;
-									ingame.GUD.updateAvatar(3, ingame.InformationCoin, 2000, ingame.InformationId);
-									System.out.println("구매성공");
-								}else {
-									System.out.println("코인부족");
-								}
-							}else if(ingame.BuyAvatarNum == 3) {
-								if(ingame.InformationCoin >= 3000) {
-									ingame.BuyAvatarNum = 0;
-									ingame.GUD.updateAvatar(4, ingame.InformationCoin, 3000, ingame.InformationId);
-									System.out.println("구매성공");
-								}else {
-									System.out.println("코인부족");
-								}
-							}else if(ingame.BuyAvatarNum == 4) {
-								if(ingame.InformationCoin >= 4000) {
-									ingame.BuyAvatarNum = 0;
-									ingame.GUD.updateAvatar(5, ingame.InformationCoin, 4000, ingame.InformationId);
-									System.out.println("구매성공");
-								}else {
-									System.out.println("코인부족");
-								}
-							}
+//							if(ingame.BuyAvatarNum == 1) {
+//								if(ingame.InformationCoin >= 1000) {
+//									ingame.BuyAvatarNum = 0;
+//									ingame.GUD.updateAvatar(2, ingame.InformationCoin, 1000, ingame.InformationId);
+//									System.out.println("구매성공");
+//								}else {
+//									System.out.println("코인부족");
+//								}
+//							}else if(ingame.BuyAvatarNum == 2) {
+//								if(ingame.InformationCoin >= 2000) {
+//									ingame.BuyAvatarNum = 0;
+//									ingame.GUD.updateAvatar(3, ingame.InformationCoin, 2000, ingame.InformationId);
+//									System.out.println("구매성공");
+//								}else {
+//									System.out.println("코인부족");
+//								}
+//							}else if(ingame.BuyAvatarNum == 3) {
+//								if(ingame.InformationCoin >= 3000) {
+//									ingame.BuyAvatarNum = 0;
+//									ingame.GUD.updateAvatar(4, ingame.InformationCoin, 3000, ingame.InformationId);
+//									System.out.println("구매성공");
+//								}else {
+//									System.out.println("코인부족");
+//								}
+//							}else if(ingame.BuyAvatarNum == 4) {
+//								if(ingame.InformationCoin >= 4000) {
+//									ingame.BuyAvatarNum = 0;
+//									ingame.GUD.updateAvatar(5, ingame.InformationCoin, 4000, ingame.InformationId);
+//									System.out.println("구매성공");
+//								}else {
+//									System.out.println("코인부족");
+//								}
+//							}
 							
-							if(ingame.BuyAvatarNum == 0) {
-								ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
-								for(GameUser gu : GUList ) {
-									ingame.InformationId = gu.getUserid();
-									ingame.InformationPw = gu.getUserpw();
-									ingame.InformationName = gu.getUsername();
-									ingame.InformationLevel = gu.getUserlevel();
-									ingame.InformationAlias = gu.getUseralias();
-									ingame.InformationStage = gu.getUserStage();
-									ingame.InformationCoin = gu.getUsercoin();
-									ingame.InformationAvatar = gu.getUseravatar();
-								}
-								System.out.println("구매 성공");
-							}else {
-								ingame.BuyAvatarNum = 0;
-								System.out.println("구매실패");
+//							if(ingame.BuyAvatarNum == 0) {
+//								ArrayList<GameUser> GUList = ingame.GUD.InputUser(ingame.InformationId);
+//								for(GameUser gu : GUList ) {
+//									ingame.InformationId = gu.getUserid();
+//									ingame.InformationPw = gu.getUserpw();
+//									ingame.InformationName = gu.getUsername();
+//									ingame.InformationLevel = gu.getUserlevel();
+//									ingame.InformationAlias = gu.getUseralias();
+//									ingame.InformationStage = gu.getUserStage();
+//									ingame.InformationCoin = gu.getUsercoin();
+//									ingame.InformationAvatar = gu.getUseravatar();
+//								}
+//								System.out.println("구매 성공");
+//							}else {
+//								ingame.BuyAvatarNum = 0;
+//								System.out.println("구매실패");
 							}
 						}
 						

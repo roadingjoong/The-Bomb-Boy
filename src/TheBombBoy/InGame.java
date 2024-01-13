@@ -90,6 +90,7 @@ public class InGame extends JFrame {
 	
 	JFrame Gameframe;
 	
+	int signCollectNum = 0;
 	int LoginCollectNum = 0;
 	int LoginNum = 0;
 	int signNum = 0;
@@ -133,8 +134,6 @@ public class InGame extends JFrame {
 	GoldCoin2G gc2g = new GoldCoin2G();
 	GoldCoin3G gc3g = new GoldCoin3G();
 	GoldBox1G gb1g = new GoldBox1G();
-	
-	GameUserDAO GUD = new GameUserDAO();
 	
 	String InformationId;
 	String InformationPw;

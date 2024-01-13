@@ -41,6 +41,7 @@ public class MessageReadThread implements Runnable{
 					String[] BPUserlist2 = Arrays.copyOfRange(messageCut, 1, messageCut.length);
 					ingame.BPUserModel.addAll(Arrays.asList(BPUserlist2));
 					break;
+					
 				case "ChSu":
 					System.out.println("오나료완료");
 					ingame.InformationId = messageCut[1];
@@ -51,12 +52,22 @@ public class MessageReadThread implements Runnable{
 					ingame.InformationStage = Integer.parseInt(messageCut[6]);
 					ingame.InformationCoin = Integer.parseInt(messageCut[7]);
 					ingame.InformationAvatar = Integer.parseInt(messageCut[8]);
+					
 					ingame.LoginCollectNum = 1;
 					
 					System.out.println(ingame.InformationName+"이야이야호");
 					break;
+					
 				case "ChFF":
 					ingame.LoginCollectNum = 2;
+					break;
+					
+				case "CTIDok":
+					ingame.signCollectNum = 1;
+					break;
+					
+				case "CTIDno":
+					ingame.signCollectNum = 2;
 					break;
 				}
 			}

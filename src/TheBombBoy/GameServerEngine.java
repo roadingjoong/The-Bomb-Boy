@@ -80,6 +80,19 @@ public class GameServerEngine extends Thread{
 					}
 					break;
 					
+				case "chId":
+					tryId = messageCut[1];
+					
+					boolean CTID = GS.GUD.CheckUser(messageCut[1]);
+					if(CTID == false) {
+						GS.GUD.SignUpUser(messageCut[1], messageCut[2], messageCut[3]);
+						writeMessage("CTIDok/c;Success");
+					}else {
+						writeMessage("CTIDno/c;faild");
+					}
+					
+					break;
+					
 				case "join" : 
 					returnMessage(message);
 					break;
