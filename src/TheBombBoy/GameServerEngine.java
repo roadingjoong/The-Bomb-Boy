@@ -93,6 +93,58 @@ public class GameServerEngine extends Thread{
 					
 					break;
 					
+				case "UpLe":
+					GS.GUD.updateLevel( Integer.parseInt(messageCut[1]), messageCut[2]);
+					break;
+					
+				case "UpSt":
+					GS.GUD.updateStage(Integer.parseInt(messageCut[1]), messageCut[2]);
+					break;
+					
+				case "UpAl":
+					GS.GUD.updateAlias(messageCut[1], messageCut[2]);
+					break;
+					
+				case "UpNa":
+					GS.GUD.updateName(messageCut[1], messageCut[2]);
+					boolean ChePas = GS.GUD.LoginUser(messageCut[1], messageCut[2]);
+					if(ChePas == true) {
+						GS.GUD.updatePw(messageCut[3], messageCut[1]);
+						writer.println("UpNaok/c;UpdateOk");
+					}else {
+						writer.println("UpNaok/c;UpdateNo");
+					}
+					break;
+					
+				case "UpAv":
+					GS.GUD.updateAvatar(Integer.parseInt(messageCut[1]), Integer.parseInt(messageCut[2]),
+										Integer.parseInt(messageCut[3]), messageCut[4]);
+					break;
+					
+				case "UpdInfo":
+					StringBuffer updateinfo = new StringBuffer("UpIf/c;");
+					ArrayList<GameUser> GUList = GS.GUD.InputUser(messageCut[1]);
+					
+					for(GameUser gu : GUList ) {
+						Id = gu.getUserid();
+						Pw = gu.getUserpw();
+						Name = gu.getUsername();
+						Level = gu.getUserlevel();
+						Alias = gu.getUseralias();
+						Stage = gu.getUserStage();
+						Coin = gu.getUsercoin();
+						Avatar = gu.getUseravatar();
+					}
+					
+					for(GameServerEngine ese : GS.GSEList) {
+						if(ese.tryId.equals(Id)) {
+							updateinfo.append(Id+"/c;"+Pw+"/c;"+Name+"/c;"+Level+"/c;"+
+												Alias+"/c;"+Stage+"/c;"+Coin+"/c;"+Avatar);
+							ese.writeMessage(updateinfo.toString());
+						}
+					}
+					break;
+					
 				case "join" : 
 					returnMessage(message);
 					break;

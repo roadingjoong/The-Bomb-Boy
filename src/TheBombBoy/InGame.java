@@ -90,6 +90,8 @@ public class InGame extends JFrame {
 	
 	JFrame Gameframe;
 	
+	int updatePsNum = 0;
+	int updateinfNum = 0;
 	int signCollectNum = 0;
 	int LoginCollectNum = 0;
 	int LoginNum = 0;

@@ -69,6 +69,26 @@ public class MessageReadThread implements Runnable{
 				case "CTIDno":
 					ingame.signCollectNum = 2;
 					break;
+				case "UpIf":
+					ingame.InformationId = messageCut[1];
+					ingame.InformationPw = messageCut[2];
+					ingame.InformationName = messageCut[3];
+					ingame.InformationLevel = Integer.parseInt(messageCut[4]);
+					ingame.InformationAlias = messageCut[5];
+					ingame.InformationStage = Integer.parseInt(messageCut[6]);
+					ingame.InformationCoin = Integer.parseInt(messageCut[7]);
+					ingame.InformationAvatar = Integer.parseInt(messageCut[8]);
+					
+					ingame.updateinfNum = 1;
+					break;
+					
+				case "UpNaok":
+					ingame.updatePsNum = 1;
+					break;
+					
+				case "UpNano":
+					ingame.updatePsNum = 2;
+					break;
 				}
 			}
 			
