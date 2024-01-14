@@ -121,6 +121,10 @@ public class GameServerEngine extends Thread{
 										Integer.parseInt(messageCut[3]), messageCut[4]);
 					break;
 					
+				case "UpCo":
+					GS.GUD.updateCoin(Integer.parseInt(messageCut[1]), Integer.parseInt(messageCut[2]), messageCut[3]);
+					break;
+					
 				case "UpdInfo":
 					StringBuffer updateinfo = new StringBuffer("UpIf/c;");
 					ArrayList<GameUser> GUList = GS.GUD.InputUser(messageCut[1]);
@@ -143,6 +147,7 @@ public class GameServerEngine extends Thread{
 							ese.writeMessage(updateinfo.toString());
 						}
 					}
+					System.out.println(tryId+", "+Coin);
 					break;
 					
 				case "join" : 
