@@ -29,6 +29,7 @@ import java.util.Random;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -37,6 +38,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -1730,6 +1732,65 @@ public class InGame extends JFrame {
 		BombPassMyRoomPane = new JPanel();
 		BombPassMyRoomPane.setBackground(Color.DARK_GRAY);
 		BombPassMyRoomPane.setLayout(null);
+		
+		JPanel MakeRoomBox = new JPanel();
+		MakeRoomBox.setSize(500,300);
+		MakeRoomBox.setLocation(400, 200);
+		MakeRoomBox.setBackground(Color.BLACK);
+		MakeRoomBox.setLayout(null);
+		
+		Font MakeRoomFont = new Font("Arial", Font.BOLD, 20);
+		Font MakeRoomFont2 = new Font("Arial", Font.BOLD, 25);
+		
+		JLabel MakeRoomText1 = new JLabel("Room Title:");
+		MakeRoomText1.setSize(150,50);
+		MakeRoomText1.setLocation(50,50);
+		MakeRoomText1.setForeground(Color.CYAN);
+		MakeRoomText1.setBackground(Color.BLACK);
+		MakeRoomText1.setOpaque(true);
+		MakeRoomText1.setHorizontalAlignment(JLabel.CENTER);
+		MakeRoomText1.setVerticalAlignment(JLabel.CENTER);
+		MakeRoomText1.setFont(MakeRoomFont);
+		MakeRoomBox.add(MakeRoomText1);
+		
+		JTextField MakeRoomName = new JTextField();
+		MakeRoomName.setBackground(Color.BLACK);
+		MakeRoomName.setForeground(Color.CYAN);
+		MakeRoomName.setSize(250,50);
+		MakeRoomName.setLocation(200,50);
+		MakeRoomName.setFont(MakeRoomFont);
+		MakeRoomName.setBorder(BorderFactory.createLineBorder(Color.CYAN));
+		MakeRoomName.setHorizontalAlignment(JTextField.CENTER);
+		MakeRoomBox.add(MakeRoomName);
+		
+		ButtonGroup selectMode = new ButtonGroup();
+		JRadioButton StandardB = new JRadioButton("Standard");
+		StandardB.setSize(200,50);
+		StandardB.setLocation(50, 125);
+		StandardB.setForeground(Color.CYAN);
+		StandardB.setVerticalAlignment(JRadioButton.CENTER);
+		StandardB.setHorizontalAlignment(JRadioButton.CENTER);
+		StandardB.setFont(MakeRoomFont);
+		JRadioButton SurvivalB = new JRadioButton("Survival");
+		SurvivalB.setSize(200,50);
+		SurvivalB.setLocation(250, 125);
+		SurvivalB.setForeground(Color.CYAN);
+		SurvivalB.setVerticalAlignment(JRadioButton.CENTER);
+		SurvivalB.setHorizontalAlignment(JRadioButton.CENTER);
+		SurvivalB.setFont(MakeRoomFont);
+		selectMode.add(StandardB);
+		selectMode.add(SurvivalB);
+		MakeRoomBox.add(StandardB);
+		MakeRoomBox.add(SurvivalB);
+		
+		JButton RoomCreatButton = new JButton("Create");
+		RoomCreatButton.setSize(100, 60);
+		RoomCreatButton.setLocation(200, 200);
+		RoomCreatButton.setForeground(Color.BLUE);
+		RoomCreatButton.setFont(MakeRoomFont2);
+		MakeRoomBox.add(RoomCreatButton);
+		
+		BombPassMyRoomPane.add(MakeRoomBox);
 		
 		add(BombPassMyRoomPane);
 		closePane();
