@@ -220,16 +220,6 @@ public class GameThread implements Runnable{
 					ingame.writer.println("QuiteGame/c;"+ingame.InformationId);
 					break;
 				}
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				// 로그인 패널 빠져나옴
 				ingame.BarPane.setVisible(true);
 				
@@ -637,6 +627,9 @@ public class GameThread implements Runnable{
 							if(ingame.QuitGameNum == 1) {
 								break;
 							}
+							if(ingame.LogoutNum == 1) {
+								break;
+							}
 							try {
 								Thread.sleep(100);
 							} catch (InterruptedException e) {
@@ -644,6 +637,10 @@ public class GameThread implements Runnable{
 							}
 						}
 						if(ingame.QuitGameNum == 1) {
+							break;
+						}
+						if(ingame.LogoutNum == 1) {
+							ingame.LogoutNum = 0;
 							break;
 						}
 						

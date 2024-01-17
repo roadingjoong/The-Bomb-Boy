@@ -1694,6 +1694,12 @@ public class InGame extends JFrame {
 		BPExiteButton.setFont(BPFont3);
 		BombPassLobbyPane.add(BPExiteButton);
 		
+		QuitGameButtonM();
+		BombPassLobbyPane.add(QuitGameButton);
+		
+		LogoutButtonM();
+		BombPassLobbyPane.add(LogoutButton);
+		
 		add(BombPassLobbyPane);
 		closePane();
 		BombPassLobbyPane.setVisible(true);
