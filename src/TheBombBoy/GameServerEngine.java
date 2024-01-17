@@ -12,6 +12,7 @@ public class GameServerEngine extends Thread{
 	BufferedReader reader;
 	PrintWriter writer;
 	GameServer GS;
+	Boolean Thread_ToF = true;
 	String tryId;
 	String Id;
 	String Pw;
@@ -21,6 +22,7 @@ public class GameServerEngine extends Thread{
 	int Stage;
 	int Coin;
 	int Avatar;
+	int QuiteNum = 0;
 	
 	GameServerEngine(Socket s, GameServer GS){
 		this.s = s;
@@ -35,7 +37,8 @@ public class GameServerEngine extends Thread{
 	}
 	public void run() {
 		try {
-			while(true) {
+			while(Thread_ToF) {
+				
 				String message = reader.readLine();
 				String[] messageCut = message.split("/c;");
 				
@@ -173,16 +176,37 @@ public class GameServerEngine extends Thread{
 					GS.Namelist.remove(exiteName+"/c;");
 					BPexiteList();
 					break;
+					
+				case "QuiteGame":
+					QuiteNum = 1;
+					break;
+				}
+				
+				if(QuiteNum == 1) {
+					break;
 				}
 				
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("오류오류류오류");
+		} finally {
+			try {
+				System.out.println("==================< S >=================");
+				System.out.println(GS.GSEList);
+				GS.GSEList.remove(this);
+				System.out.println(GS.GSEList);
+				GS.Namelist.remove(Id+"/c;");
+				BPexiteList();
+				reader.close();
+				writer.close();
+				s.close();
+				Thread_ToF = false;
+				System.out.println("==================< E >=================");
+				return;
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
-	}
-	
-	void LoginUser() {
-		
 	}
 	
 	void BPjoinList() {

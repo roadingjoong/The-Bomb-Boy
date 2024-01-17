@@ -1028,18 +1028,16 @@ public class GameThread implements Runnable{
 			
 		} finally {
 			System.out.println("ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ");
-			Thread_ToF = false;
-			ingame.Gameframe.dispose();
 			try {
+				ingame.writer.println("QuiteGame/c;"+ingame.InformationId);
+				ingame.s.close();
 				ingame.reader.close();
 				ingame.writer.close();
-				ingame.s.close();
-				
+				System.exit(0);
 			} catch (IOException e1) {
 				System.out.println("소켓 닫기 에러");
 			}
 		}
-		
 	}
 	
 }

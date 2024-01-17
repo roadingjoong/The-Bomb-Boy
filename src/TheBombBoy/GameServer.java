@@ -31,6 +31,8 @@ public class GameServer{
 				GSE.start();
 				
 				GSEList.add(GSE);
+				
+				System.out.println(GSE);
 			}
 			
 		} catch (IOException e) {

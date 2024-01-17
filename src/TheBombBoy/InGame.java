@@ -201,9 +201,9 @@ public class InGame extends JFrame {
 	
 	//-----------------------------------
 	
-	Socket s;
-	PrintWriter writer;
-	BufferedReader reader;
+	Socket s = null;
+	PrintWriter writer = null;
+	BufferedReader reader = null;
 	
 	JTextArea MessengerArea;
 	JTextField MessengerField;
