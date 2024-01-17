@@ -1798,6 +1798,12 @@ public class InGame extends JFrame {
 		
 		BombPassMyRoomPane.add(MakeRoomBox);
 		
+		QuitGameButtonM();
+		BombPassMyRoomPane.add(QuitGameButton);
+		
+		LogoutButtonM();
+		BombPassMyRoomPane.add(LogoutButton);
+		
 		add(BombPassMyRoomPane);
 		closePane();
 		BombPassMyRoomPane.setVisible(true);

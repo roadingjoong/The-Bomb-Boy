@@ -653,6 +653,9 @@ public class GameThread implements Runnable{
 								if(ingame.QuitGameNum == 1) {
 									break;
 								}
+								if(ingame.LogoutNum == 1) {
+									break;
+								}
 								try {
 									Thread.sleep(100);
 								} catch (InterruptedException e) {
@@ -662,7 +665,10 @@ public class GameThread implements Runnable{
 							if(ingame.QuitGameNum == 1) {
 								break;
 							}
-							
+							if(ingame.LogoutNum == 1) {
+								ingame.LogoutNum = 0;
+								break;
+							}
 						}
 						String BPexM = "BPexite/c;"+ingame.InformationName;
 						ingame.writer.println(BPexM);
