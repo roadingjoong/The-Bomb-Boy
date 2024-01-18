@@ -8,6 +8,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -76,8 +78,14 @@ public class InGame extends JFrame {
 	JPanel StageFailePane = new JPanel();
 	
 	JPanel BombPassMyRoomPane = new JPanel();
+	JPanel BPMyStandardPane = new JPanel();
 	
 	JLabel GameTitleText;
+	
+	JRadioButton StandardB;
+	int StandardNum = 0;
+	JRadioButton SurvivalB;
+	int SurvivalNum = 0;
 	
 	JButton QuitGameButton;
 	int QuitGameNum = 0;
@@ -194,10 +202,13 @@ public class InGame extends JFrame {
 	int TimeOverNum = 0;
 	
 	JLabel GameProfileBox;
+	JTextField MakeRoomName;
 	
 	DefaultListModel<String> BPRoomModel;
 	
 	DefaultListModel<String> BPUserModel;
+	
+	int BPCgroundNum = 0;
 	
 	//-----------------------------------
 	
@@ -220,6 +231,7 @@ public class InGame extends JFrame {
 		this.setLocationRelativeTo(null);
 		Gameframe = this;
 		
+		BPMyStandardPanel();
 		BombPassMyRoomPanel();
 		
 		Stage1HARDPanel();
@@ -334,6 +346,7 @@ public class InGame extends JFrame {
 		StageFailePane.setVisible(false);
 		
 		BombPassMyRoomPane.setVisible(false);
+		BPMyStandardPane.setVisible(false);
 	}
 	
 	void DarkPanel() {
@@ -1759,7 +1772,7 @@ public class InGame extends JFrame {
 		MakeRoomText1.setFont(MakeRoomFont);
 		MakeRoomBox.add(MakeRoomText1);
 		
-		JTextField MakeRoomName = new JTextField();
+		MakeRoomName = new JTextField();
 		MakeRoomName.setBackground(Color.BLACK);
 		MakeRoomName.setForeground(Color.CYAN);
 		MakeRoomName.setSize(250,50);
@@ -1770,14 +1783,15 @@ public class InGame extends JFrame {
 		MakeRoomBox.add(MakeRoomName);
 		
 		ButtonGroup selectMode = new ButtonGroup();
-		JRadioButton StandardB = new JRadioButton("Standard");
+		StandardB = new JRadioButton("Standard");
 		StandardB.setSize(200,50);
 		StandardB.setLocation(50, 125);
 		StandardB.setForeground(Color.CYAN);
 		StandardB.setVerticalAlignment(JRadioButton.CENTER);
 		StandardB.setHorizontalAlignment(JRadioButton.CENTER);
 		StandardB.setFont(MakeRoomFont);
-		JRadioButton SurvivalB = new JRadioButton("Survival");
+		
+		SurvivalB = new JRadioButton("Survival");
 		SurvivalB.setSize(200,50);
 		SurvivalB.setLocation(250, 125);
 		SurvivalB.setForeground(Color.CYAN);
@@ -1807,6 +1821,45 @@ public class InGame extends JFrame {
 		add(BombPassMyRoomPane);
 		closePane();
 		BombPassMyRoomPane.setVisible(true);
+		
+		RoomCreatButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				BPCgroundNum = 1;
+			}
+		});
+		
+		StandardB.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange() == ItemEvent.SELECTED) {
+					StandardNum = 1;
+				}else {
+					StandardNum = 0;
+				}
+			}
+		});
+		
+		SurvivalB.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange() == ItemEvent.SELECTED) {
+					SurvivalNum = 1;
+				}else {
+					SurvivalNum = 0;
+				}
+			}
+		});
+	}
+	
+	void BPMyStandardPanel() {
+		BPMyStandardPane = new JPanel();
+		BPMyStandardPane.setBackground(Color.LIGHT_GRAY);
+		BPMyStandardPane.setLayout(null);
+		
+		add(BPMyStandardPane);
+		closePane();
+		BPMyStandardPane.setVisible(true);
 	}
 	
 	void MyPagePanel() {

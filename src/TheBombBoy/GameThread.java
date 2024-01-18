@@ -661,6 +661,20 @@ public class GameThread implements Runnable{
 								} catch (InterruptedException e) {
 									e.printStackTrace();
 								}
+								if(ingame.BPCgroundNum == 1) {
+									ingame.BPCgroundNum = 0;
+									if(ingame.MakeRoomName.getText().length() > 1) {
+										if(ingame.StandardNum == 1) {
+											ingame.joinNum = 19;
+										}else if(ingame.SurvivalNum == 1) {
+											System.out.println("서바이벌 모드 선택");
+											ingame.joinNum = 17;
+										}else {
+											System.out.println("모드를 선택해주세요.");
+											ingame.joinNum = 17;
+										}
+									}
+								}
 							}
 							if(ingame.QuitGameNum == 1) {
 								break;
@@ -670,10 +684,26 @@ public class GameThread implements Runnable{
 								break;
 							}
 						}
+						
+						if(ingame.joinNum == 19) {
+							ingame.joinNum = 0;
+							ingame.closePane();
+							ingame.BPMyStandardPanel();
+							
+							while(ingame.joinNum == 0) {
+								try {
+									Thread.sleep(100);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}
+							
+						}
+						
+						
 						String BPexM = "BPexite/c;"+ingame.InformationName;
 						ingame.writer.println(BPexM);
 						continue;
-						
 					}
 					else if(ingame.joinNum == 3) {
 						ingame.joinNum = 0;
