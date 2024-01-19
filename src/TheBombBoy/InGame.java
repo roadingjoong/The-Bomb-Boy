@@ -79,6 +79,7 @@ public class InGame extends JFrame {
 	
 	JPanel BombPassMyRoomPane = new JPanel();
 	JPanel BPMyStandardPane = new JPanel();
+	JPanel BPJoinStandardPane = new JPanel();
 	
 	JLabel GameTitleText;
 	
@@ -205,11 +206,12 @@ public class InGame extends JFrame {
 	JTextField MakeRoomName;
 	
 	DefaultListModel<String> BPRoomModel;
-	
 	DefaultListModel<String> BPUserModel;
 	
 	int BPCgroundNum = 0;
 	int MyStandardStart = 0;
+	int JoinStandardStart = 0;
+	String joinRoomName;
 	
 	//-----------------------------------
 	
@@ -232,6 +234,7 @@ public class InGame extends JFrame {
 		this.setLocationRelativeTo(null);
 		Gameframe = this;
 		
+		BPJoinStandardPanel();
 		BPMyStandardPanel();
 		BombPassMyRoomPanel();
 		
@@ -348,6 +351,7 @@ public class InGame extends JFrame {
 		
 		BombPassMyRoomPane.setVisible(false);
 		BPMyStandardPane.setVisible(false);
+		BPJoinStandardPane.setVisible(false);
 	}
 	
 	void DarkPanel() {
@@ -1751,7 +1755,7 @@ public class InGame extends JFrame {
 		BPJoinRoomButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				joinNum = 19;
+				joinNum = 20;
 			}
 		});
 		BPMakeRoomButton.addActionListener(new ActionListener() {
@@ -1763,16 +1767,27 @@ public class InGame extends JFrame {
 		BPTrainingButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				joinNum = 20;
+				joinNum = 21;
 			}
 		});
-		
 		BPExiteButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				joinNum = 1;
 			}
 		});
+		BPRoomList.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				if(BPRoomList.getSelectedValue() != null) {
+					joinNum = 20;
+					joinRoomName = (String)BPRoomList.getSelectedValue();
+				}else {
+					System.out.println("없는 방입니다.");
+				}
+			}
+		});
+		
 		MessageReadThread MRT = new MessageReadThread(this);
 		Thread MessageRead = new Thread(MRT);
 		MessageRead.start();
@@ -1929,6 +1944,54 @@ public class InGame extends JFrame {
 		add(BPMyStandardPane);
 		closePane();
 		BPMyStandardPane.setVisible(true);
+	}
+	
+	void BPJoinStandardPanel() {
+		BPJoinStandardPane = new JPanel();
+		BPJoinStandardPane.setBackground(Color.LIGHT_GRAY);
+		BPJoinStandardPane.setLayout(null);
+		
+		UserAvatarM();
+		BPJoinStandardPane.add(UserAvatar);
+				
+		JLabel SpaceFrame1 = new JLabel();
+		SpaceFrame1.setBackground(Color.BLACK);
+		SpaceFrame1.setSize(400, 750);
+		SpaceFrame1.setLocation(0,0);
+		SpaceFrame1.setOpaque(true);
+		BPJoinStandardPane.add(SpaceFrame1);
+		
+		JLabel SpaceFrame2 = new JLabel();
+		SpaceFrame2.setBackground(Color.BLACK);
+		SpaceFrame2.setSize(400, 750);
+		SpaceFrame2.setLocation(900,0);
+		SpaceFrame2.setOpaque(true);
+		BPJoinStandardPane.add(SpaceFrame2);
+		
+		JLabel SpaceFrame3 = new JLabel();
+		SpaceFrame3.setBackground(Color.BLACK);
+		SpaceFrame3.setSize(500, 100);
+		SpaceFrame3.setLocation(400,650);
+		SpaceFrame3.setOpaque(true);
+		BPJoinStandardPane.add(SpaceFrame3);
+		
+		JLabel SpaceFrame4 = new JLabel();
+		SpaceFrame4.setBackground(Color.BLACK);
+		SpaceFrame4.setSize(500, 100);
+		SpaceFrame4.setLocation(400,0);
+		SpaceFrame4.setOpaque(true);
+		BPJoinStandardPane.add(SpaceFrame4);
+		
+		JLabel GroundLine = new JLabel();
+		GroundLine.setBackground(Color.RED);
+		GroundLine.setSize(500, 10);
+		GroundLine.setLocation(400, 375);
+		GroundLine.setOpaque(true);
+		BPJoinStandardPane.add(GroundLine);
+		
+		add(BPJoinStandardPane);
+		closePane();
+		BPJoinStandardPane.setVisible(true);
 	}
 	
 	void MyPagePanel() {

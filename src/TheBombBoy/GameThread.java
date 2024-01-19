@@ -705,6 +705,27 @@ public class GameThread implements Runnable{
 							ingame.MyStandardStart = 0;
 							ingame.BarPane.setVisible(true);	
 						}
+						
+						if(ingame.joinNum == 20) {
+							ingame.JoinStandardStart = 1;
+							ingame.joinNum = 0;
+							ingame.closePane();
+							ingame.BarPane.setVisible(false);
+							ingame.BPJoinStandardPanel();
+							ingame.UserAvatar.setLocation(600, 200);
+							
+							while(ingame.joinNum == 0) {
+								try {
+									Thread.sleep(100);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}
+							
+							ingame.JoinStandardStart = 0;
+							ingame.BarPane.setVisible(true);	
+						}
+						
 						String BPexM = "BPexite/c;"+ingame.InformationName;
 						ingame.writer.println(BPexM);
 						continue;
