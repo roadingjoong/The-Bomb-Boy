@@ -688,6 +688,7 @@ public class GameThread implements Runnable{
 						if(ingame.joinNum == 19) {
 							ingame.joinNum = 0;
 							ingame.closePane();
+							ingame.BarPane.setVisible(false);
 							ingame.BPMyStandardPanel();
 							ingame.writer.println("BPCRoom/c;"+ingame.MakeRoomName.getText());
 							
@@ -698,8 +699,9 @@ public class GameThread implements Runnable{
 									e.printStackTrace();
 								}
 							}
+							
 						}
-						
+						ingame.BarPane.setVisible(true);
 						String BPexM = "BPexite/c;"+ingame.InformationName;
 						ingame.writer.println(BPexM);
 						continue;

@@ -1856,6 +1856,41 @@ public class InGame extends JFrame {
 		BPMyStandardPane = new JPanel();
 		BPMyStandardPane.setBackground(Color.LIGHT_GRAY);
 		BPMyStandardPane.setLayout(null);
+				
+		JLabel SpaceFrame1 = new JLabel();
+		SpaceFrame1.setBackground(Color.BLACK);
+		SpaceFrame1.setSize(400, 750);
+		SpaceFrame1.setLocation(0,0);
+		SpaceFrame1.setOpaque(true);
+		BPMyStandardPane.add(SpaceFrame1);
+		
+		JLabel SpaceFrame2 = new JLabel();
+		SpaceFrame2.setBackground(Color.BLACK);
+		SpaceFrame2.setSize(400, 750);
+		SpaceFrame2.setLocation(900,0);
+		SpaceFrame2.setOpaque(true);
+		BPMyStandardPane.add(SpaceFrame2);
+		
+		JLabel SpaceFrame3 = new JLabel();
+		SpaceFrame3.setBackground(Color.BLACK);
+		SpaceFrame3.setSize(500, 100);
+		SpaceFrame3.setLocation(400,650);
+		SpaceFrame3.setOpaque(true);
+		BPMyStandardPane.add(SpaceFrame3);
+		
+		JLabel SpaceFrame4 = new JLabel();
+		SpaceFrame4.setBackground(Color.BLACK);
+		SpaceFrame4.setSize(500, 100);
+		SpaceFrame4.setLocation(400,0);
+		SpaceFrame4.setOpaque(true);
+		BPMyStandardPane.add(SpaceFrame4);
+		
+		JLabel GroundLine = new JLabel();
+		GroundLine.setBackground(Color.RED);
+		GroundLine.setSize(500, 10);
+		GroundLine.setLocation(400, 375);
+		GroundLine.setOpaque(true);
+		BPMyStandardPane.add(GroundLine);
 		
 		add(BPMyStandardPane);
 		closePane();
