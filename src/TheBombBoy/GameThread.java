@@ -686,11 +686,13 @@ public class GameThread implements Runnable{
 						}
 						
 						if(ingame.joinNum == 19) {
+							ingame.MyStandardStart = 1;
 							ingame.joinNum = 0;
 							ingame.closePane();
 							ingame.BarPane.setVisible(false);
 							ingame.BPMyStandardPanel();
 							ingame.writer.println("BPCRoom/c;"+ingame.MakeRoomName.getText());
+							ingame.UserAvatar.setLocation(600, 500);
 							
 							while(ingame.joinNum == 0) {
 								try {
@@ -700,8 +702,9 @@ public class GameThread implements Runnable{
 								}
 							}
 							
+							ingame.MyStandardStart = 0;
+							ingame.BarPane.setVisible(true);	
 						}
-						ingame.BarPane.setVisible(true);
 						String BPexM = "BPexite/c;"+ingame.InformationName;
 						ingame.writer.println(BPexM);
 						continue;

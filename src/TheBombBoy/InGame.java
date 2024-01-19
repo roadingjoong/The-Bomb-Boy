@@ -209,6 +209,7 @@ public class InGame extends JFrame {
 	DefaultListModel<String> BPUserModel;
 	
 	int BPCgroundNum = 0;
+	int MyStandardStart = 0;
 	
 	//-----------------------------------
 	
@@ -1145,36 +1146,67 @@ public class InGame extends JFrame {
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_LEFT) {
 					AvatarMove = 4;
-					if(UserAvatar.getLocation().x >= 20) {
-						UserAvatar.setLocation(UserAvatar.getLocation().x-5, UserAvatar.getLocation().y);
-					}else if(UserAvatar.getLocation().x <= 20) {
-						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+					if(MyStandardStart == 1) {
+						if(UserAvatar.getLocation().x >= 410) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x-5, UserAvatar.getLocation().y);
+						}else if(UserAvatar.getLocation().x <= 410) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}
+					}else {
+						if(UserAvatar.getLocation().x >= 20) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x-5, UserAvatar.getLocation().y);
+						}else if(UserAvatar.getLocation().x <= 20) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}
 					}
 					
 				}else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
 					AvatarMove = 3;
-					if(UserAvatar.getLocation().x <= 1180) {
-						UserAvatar.setLocation(UserAvatar.getLocation().x+5, UserAvatar.getLocation().y);
-					}else if(UserAvatar.getLocation().x >= 1180) {
-						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+					if(MyStandardStart == 1) {
+						if(UserAvatar.getLocation().x <= 790) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x+5, UserAvatar.getLocation().y);
+						}else if(UserAvatar.getLocation().x >= 790) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}
+					}else {
+						if(UserAvatar.getLocation().x <= 1180) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x+5, UserAvatar.getLocation().y);
+						}else if(UserAvatar.getLocation().x >= 1180) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}
 					}
 					
 				}else if(e.getKeyCode() == KeyEvent.VK_UP) {
 					AvatarMove = 2;
-					if(UserAvatar.getLocation().y >= 175) {
-						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
-					}else if(UserAvatar.getLocation().y <= 175){
-						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+					if(MyStandardStart == 1) {
+						if(UserAvatar.getLocation().y >= 400) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
+						}else if(UserAvatar.getLocation().y <= 400){
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}
+					}else {
+						if(UserAvatar.getLocation().y >= 175) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
+						}else if(UserAvatar.getLocation().y <= 175){
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}
 					}
 					
 				}else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
 					AvatarMove = 1;
-					if(UserAvatar.getLocation().y <= 500) {
-						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
-					}else if(UserAvatar.getLocation().y >= 500) {
-						UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+					if(MyStandardStart == 1) {
+						if(UserAvatar.getLocation().y <= 530) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
+						}else if(UserAvatar.getLocation().y >= 530) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}
+					}else {
+						if(UserAvatar.getLocation().y <= 500) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
+						}else if(UserAvatar.getLocation().y >= 500) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}
 					}
-										
 				}
 				
 				if(e.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -1183,7 +1215,6 @@ public class InGame extends JFrame {
 						UserBomb.setLocation(UserAvatar.getLocation().x+25, UserAvatar.getLocation().y+50);
 						BombTime = 1;
 					}
-					
 				}
 			}
 		});
@@ -1856,6 +1887,9 @@ public class InGame extends JFrame {
 		BPMyStandardPane = new JPanel();
 		BPMyStandardPane.setBackground(Color.LIGHT_GRAY);
 		BPMyStandardPane.setLayout(null);
+		
+		UserAvatarM();
+		BPMyStandardPane.add(UserAvatar);
 				
 		JLabel SpaceFrame1 = new JLabel();
 		SpaceFrame1.setBackground(Color.BLACK);
