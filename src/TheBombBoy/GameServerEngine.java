@@ -23,6 +23,7 @@ public class GameServerEngine extends Thread{
 	int Coin;
 	int Avatar;
 	int QuiteNum = 0;
+	String MyRoomName;
 	
 	GameServerEngine(Socket s, GameServer GS){
 		this.s = s;
@@ -169,12 +170,19 @@ public class GameServerEngine extends Thread{
 					String joinName = messageCut[1];
 					GS.Namelist.add(joinName+"/c;");
 					BPjoinList();
+					BPCreateRoom();
 					break;
 					
 				case "BPexite":
 					String exiteName = messageCut[1];
 					GS.Namelist.remove(exiteName+"/c;");
 					BPexiteList();
+					break;
+					
+				case "BPCRoom":
+					MyRoomName = messageCut[1];
+					GS.RoomList.add(MyRoomName+"/c;");
+					BPCreateRoom();
 					break;
 					
 				case "QuiteGame":
@@ -188,7 +196,7 @@ public class GameServerEngine extends Thread{
 				
 			}
 		} catch (IOException e) {
-			System.out.println("오류오류류오류");
+			System.out.println("오류");
 		} finally {
 			try {
 				System.out.println("==================< S >=================");
@@ -225,6 +233,15 @@ public class GameServerEngine extends Thread{
 			BPlist.append(name);
 		}
 		returnMessage(BPlist.toString());
+	}
+	
+	void BPCreateRoom() {
+		StringBuffer BPRlist = new StringBuffer("BPCR/c;");
+		
+		for(String room : GS.RoomList) {
+			BPRlist.append(room);
+		}
+		returnMessage(BPRlist.toString());
 	}
 	
 	void returnMessage(String message) {

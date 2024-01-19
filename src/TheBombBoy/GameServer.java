@@ -12,6 +12,7 @@ public class GameServer{
 	ServerSocket ss;
 	List<GameServerEngine> GSEList;
 	Vector<String> Namelist = new Vector<>();
+	Vector<String> RoomList = new Vector<>();
 	GameUserDAO GUD = new GameUserDAO();
 	
 	GameServer(){
