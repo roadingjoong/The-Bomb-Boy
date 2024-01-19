@@ -1693,23 +1693,16 @@ public class InGame extends JFrame {
 		
 		Font BPFont2 = new Font("Arial", Font.BOLD, 30);
 		
-		JButton BPJoinRoomButton = new JButton("Join Room");
-		BPJoinRoomButton.setSize(200, 50);
-		BPJoinRoomButton.setLocation(1025, 250);
-		BPJoinRoomButton.setFont(BPFont2);
-		BPJoinRoomButton.setForeground(Color.BLUE);
-		BombPassLobbyPane.add(BPJoinRoomButton);
-		
 		JButton BPMakeRoomButton = new JButton("Create Room");
 		BPMakeRoomButton.setSize(200, 50);
-		BPMakeRoomButton.setLocation(1025, 350);
+		BPMakeRoomButton.setLocation(1025, 300);
 		BPMakeRoomButton.setFont(BPFont2);
 		BPMakeRoomButton.setForeground(Color.BLUE);
 		BombPassLobbyPane.add(BPMakeRoomButton);
 		
 		JButton BPTrainingButton = new JButton("Training");
 		BPTrainingButton.setSize(200, 50);
-		BPTrainingButton.setLocation(1025, 450);
+		BPTrainingButton.setLocation(1025, 400);
 		BPTrainingButton.setFont(BPFont2);
 		BPTrainingButton.setForeground(Color.BLUE);
 		BombPassLobbyPane.add(BPTrainingButton);
@@ -1752,12 +1745,6 @@ public class InGame extends JFrame {
 		closePane();
 		BombPassLobbyPane.setVisible(true);
 		
-		BPJoinRoomButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				joinNum = 20;
-			}
-		});
 		BPMakeRoomButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
