@@ -692,7 +692,7 @@ public class GameThread implements Runnable{
 							ingame.BarPane.setVisible(false);
 							ingame.BPMyStandardPanel();
 							ingame.writer.println("BPCRoom/c;"+ingame.MakeRoomName.getText());
-							ingame.UserAvatar.setLocation(600, 500);
+							ingame.UserAvatar.setLocation(600, 490);
 							
 							while(ingame.joinNum == 0) {
 								try {
@@ -712,6 +712,7 @@ public class GameThread implements Runnable{
 							ingame.closePane();
 							ingame.BarPane.setVisible(false);
 							ingame.BPJoinStandardPanel();
+							ingame.writer.println("BPJRoom/c;"+ingame.joinRoomName);
 							ingame.UserAvatar.setLocation(600, 200);
 							
 							while(ingame.joinNum == 0) {

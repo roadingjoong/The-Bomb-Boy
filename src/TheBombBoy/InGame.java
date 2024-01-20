@@ -213,6 +213,14 @@ public class InGame extends JFrame {
 	int JoinStandardStart = 0;
 	String joinRoomName;
 	
+	String OtherUserId;
+	String OtherUserName;
+	int OtherUserLevel;
+	String OtherUserAlias;
+	int OtherUserAvatar;
+	
+	int joinMyRoomOtherUser = 0;
+	
 	//-----------------------------------
 	
 	Socket s = null;
@@ -758,7 +766,6 @@ public class InGame extends JFrame {
 		closePane();
 		StartGamePane.setVisible(true);
 		
-		
 		StartGameButton1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1183,9 +1190,9 @@ public class InGame extends JFrame {
 				}else if(e.getKeyCode() == KeyEvent.VK_UP) {
 					AvatarMove = 2;
 					if(MyStandardStart == 1) {
-						if(UserAvatar.getLocation().y >= 400) {
+						if(UserAvatar.getLocation().y >= 370) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
-						}else if(UserAvatar.getLocation().y <= 400){
+						}else if(UserAvatar.getLocation().y <= 370){
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 						}
 					}else {
@@ -1199,9 +1206,9 @@ public class InGame extends JFrame {
 				}else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
 					AvatarMove = 1;
 					if(MyStandardStart == 1) {
-						if(UserAvatar.getLocation().y <= 530) {
+						if(UserAvatar.getLocation().y <= 480) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
-						}else if(UserAvatar.getLocation().y >= 530) {
+						}else if(UserAvatar.getLocation().y >= 480) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 						}
 					}else {
@@ -1895,38 +1902,41 @@ public class InGame extends JFrame {
 				
 		JLabel SpaceFrame1 = new JLabel();
 		SpaceFrame1.setBackground(Color.BLACK);
-		SpaceFrame1.setSize(400, 750);
-		SpaceFrame1.setLocation(0,0);
+		SpaceFrame1.setSize(10, 520);
+		SpaceFrame1.setLocation(390,90);
 		SpaceFrame1.setOpaque(true);
 		BPMyStandardPane.add(SpaceFrame1);
 		
 		JLabel SpaceFrame2 = new JLabel();
 		SpaceFrame2.setBackground(Color.BLACK);
-		SpaceFrame2.setSize(400, 750);
-		SpaceFrame2.setLocation(900,0);
+		SpaceFrame2.setSize(10, 520);
+		SpaceFrame2.setLocation(900,90);
 		SpaceFrame2.setOpaque(true);
 		BPMyStandardPane.add(SpaceFrame2);
 		
 		JLabel SpaceFrame3 = new JLabel();
 		SpaceFrame3.setBackground(Color.BLACK);
-		SpaceFrame3.setSize(500, 100);
-		SpaceFrame3.setLocation(400,650);
+		SpaceFrame3.setSize(500, 10);
+		SpaceFrame3.setLocation(400,600);
 		SpaceFrame3.setOpaque(true);
 		BPMyStandardPane.add(SpaceFrame3);
 		
 		JLabel SpaceFrame4 = new JLabel();
 		SpaceFrame4.setBackground(Color.BLACK);
-		SpaceFrame4.setSize(500, 100);
-		SpaceFrame4.setLocation(400,0);
+		SpaceFrame4.setSize(500, 10);
+		SpaceFrame4.setLocation(400, 90);
 		SpaceFrame4.setOpaque(true);
 		BPMyStandardPane.add(SpaceFrame4);
 		
 		JLabel GroundLine = new JLabel();
-		GroundLine.setBackground(Color.RED);
+		GroundLine.setBackground(Color.BLACK);
 		GroundLine.setSize(500, 10);
-		GroundLine.setLocation(400, 375);
+		GroundLine.setLocation(400, 350);
 		GroundLine.setOpaque(true);
 		BPMyStandardPane.add(GroundLine);
+		
+		GameProfileBoxM();
+		BPMyStandardPane.add(GameProfileBox);
 		
 		add(BPMyStandardPane);
 		closePane();

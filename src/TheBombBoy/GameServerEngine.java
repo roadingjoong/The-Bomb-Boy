@@ -24,6 +24,7 @@ public class GameServerEngine extends Thread{
 	int Avatar;
 	int QuiteNum = 0;
 	String MyRoomName;
+	String JoinRoomName;
 	
 	GameServerEngine(Socket s, GameServer GS){
 		this.s = s;
@@ -185,6 +186,11 @@ public class GameServerEngine extends Thread{
 					BPCreateRoom();
 					break;
 					
+				case "BPJRoom":
+					JoinRoomName = messageCut[1];
+					BPJoinRoom(JoinRoomName);
+					break;
+					
 				case "QuiteGame":
 					QuiteNum = 1;
 					break;
@@ -242,6 +248,29 @@ public class GameServerEngine extends Thread{
 			BPRlist.append(room);
 		}
 		returnMessage(BPRlist.toString());
+	}
+	
+	void BPJoinRoom(String JoinRoomName) {
+		StringBuffer BPJoinUser = new StringBuffer("BPJU/c;");
+		
+		ArrayList<GameUser> GUList = GS.GUD.InputUser(Id);
+		for(GameUser gu : GUList ) {
+			Id = gu.getUserid();
+			Pw = gu.getUserpw();
+			Name = gu.getUsername();
+			Level = gu.getUserlevel();
+			Alias = gu.getUseralias();
+			Stage = gu.getUserStage();
+			Coin = gu.getUsercoin();
+			Avatar = gu.getUseravatar();
+		}
+		
+		for(GameServerEngine gse : GS.GSEList) {
+			if(gse.MyRoomName.equals(JoinRoomName)&& !gse.Id.equals(Id)) {
+				BPJoinUser.append(Id+"/c;"+Name+"/c;"+Level+"/c;"+Alias+"/c;"+Avatar);
+				writeMessage(BPJoinUser.toString());
+			}
+		}
 	}
 	
 	void returnMessage(String message) {
