@@ -133,6 +133,7 @@ public class InGame extends JFrame {
 	
 	ExitGameButtonG egb = new ExitGameButtonG();
 	GameProfileBoxG gpbg = new GameProfileBoxG(this);
+	OtherGameProfileBoxG ogpbg = new OtherGameProfileBoxG(this);
 	MyAvatar mav = new MyAvatar();
 	vLair vla = new vLair();
 	MyBomb mb = new MyBomb();
@@ -204,6 +205,8 @@ public class InGame extends JFrame {
 	
 	JLabel GameProfileBox;
 	JTextField MakeRoomName;
+	
+	JLabel OtherGameProfileBox;
 	
 	DefaultListModel<String> BPRoomModel;
 	DefaultListModel<String> BPUserModel;
@@ -1448,6 +1451,14 @@ public class InGame extends JFrame {
 		GameProfileBox.setIcon(new ImageIcon(gpbg.makeProfile()));
 	}
 	
+	void OtherGameProfileBoxM() {
+		OtherGameProfileBox = new JLabel();
+		OtherGameProfileBox.setSize(900, 80);
+		OtherGameProfileBox.setLocation(60, 0);
+		OtherGameProfileBox.setOpaque(false);
+		OtherGameProfileBox.setIcon(new ImageIcon(ogpbg.makeProfile()));
+	}
+	
 	void Stage1EASYPanel() {
 		
 		Stage1SkyM();
@@ -1894,12 +1905,12 @@ public class InGame extends JFrame {
 	
 	void BPMyStandardPanel() {
 		BPMyStandardPane = new JPanel();
-		BPMyStandardPane.setBackground(Color.LIGHT_GRAY);
+		BPMyStandardPane.setBackground(Color.GRAY);
 		BPMyStandardPane.setLayout(null);
 		
 		UserAvatarM();
 		BPMyStandardPane.add(UserAvatar);
-				
+		
 		JLabel SpaceFrame1 = new JLabel();
 		SpaceFrame1.setBackground(Color.BLACK);
 		SpaceFrame1.setSize(10, 520);
@@ -1937,6 +1948,9 @@ public class InGame extends JFrame {
 		
 		GameProfileBoxM();
 		BPMyStandardPane.add(GameProfileBox);
+		
+		OtherGameProfileBoxM();
+		BPMyStandardPane.add(OtherGameProfileBox);
 		
 		add(BPMyStandardPane);
 		closePane();
