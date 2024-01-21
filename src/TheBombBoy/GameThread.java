@@ -695,6 +695,7 @@ public class GameThread implements Runnable{
 							ingame.UserAvatar.setLocation(600, 490);
 							
 							while(ingame.joinNum == 0) {
+								
 								try {
 									Thread.sleep(100);
 								} catch (InterruptedException e) {

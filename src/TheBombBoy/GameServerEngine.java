@@ -269,6 +269,7 @@ public class GameServerEngine extends Thread{
 			if(gse.MyRoomName.equals(JoinRoomName)&& !gse.Id.equals(Id)) {
 				BPJoinUser.append(Id+"/c;"+Name+"/c;"+Level+"/c;"+Alias+"/c;"+Avatar);
 				writeMessage(BPJoinUser.toString());
+				System.out.println(gse.Id+"ddddddttttttyyyyyyy");
 			}
 		}
 	}

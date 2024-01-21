@@ -133,7 +133,6 @@ public class InGame extends JFrame {
 	
 	ExitGameButtonG egb = new ExitGameButtonG();
 	GameProfileBoxG gpbg = new GameProfileBoxG(this);
-	OtherGameProfileBoxG ogpbg = new OtherGameProfileBoxG(this);
 	MyAvatar mav = new MyAvatar();
 	vLair vla = new vLair();
 	MyBomb mb = new MyBomb();
@@ -1451,14 +1450,6 @@ public class InGame extends JFrame {
 		GameProfileBox.setIcon(new ImageIcon(gpbg.makeProfile()));
 	}
 	
-	void OtherGameProfileBoxM() {
-		OtherGameProfileBox = new JLabel();
-		OtherGameProfileBox.setSize(900, 80);
-		OtherGameProfileBox.setLocation(60, 0);
-		OtherGameProfileBox.setOpaque(false);
-		OtherGameProfileBox.setIcon(new ImageIcon(ogpbg.makeProfile()));
-	}
-	
 	void Stage1EASYPanel() {
 		
 		Stage1SkyM();
@@ -1946,11 +1937,7 @@ public class InGame extends JFrame {
 		GroundLine.setOpaque(true);
 		BPMyStandardPane.add(GroundLine);
 		
-		GameProfileBoxM();
-		BPMyStandardPane.add(GameProfileBox);
-		
-		OtherGameProfileBoxM();
-		BPMyStandardPane.add(OtherGameProfileBox);
+		Font UserInfoFont = new Font("Arial", Font.BOLD, 20);
 		
 		add(BPMyStandardPane);
 		closePane();
