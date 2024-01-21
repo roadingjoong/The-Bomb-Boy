@@ -1,5 +1,6 @@
 package TheBombBoy;
 
+import java.awt.datatransfer.SystemFlavorMap;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -188,7 +189,7 @@ public class GameServerEngine extends Thread{
 					
 				case "BPJRoom":
 					JoinRoomName = messageCut[1];
-					BPJoinRoom(JoinRoomName);
+					BPJoinRoom();
 					break;
 					
 				case "QuiteGame":
@@ -243,33 +244,19 @@ public class GameServerEngine extends Thread{
 	
 	void BPCreateRoom() {
 		StringBuffer BPRlist = new StringBuffer("BPCR/c;");
-		
 		for(String room : GS.RoomList) {
 			BPRlist.append(room);
 		}
 		returnMessage(BPRlist.toString());
 	}
 	
-	void BPJoinRoom(String JoinRoomName) {
+	void BPJoinRoom() {
 		StringBuffer BPJoinUser = new StringBuffer("BPJU/c;");
-		
-		ArrayList<GameUser> GUList = GS.GUD.InputUser(Id);
-		for(GameUser gu : GUList ) {
-			Id = gu.getUserid();
-			Pw = gu.getUserpw();
-			Name = gu.getUsername();
-			Level = gu.getUserlevel();
-			Alias = gu.getUseralias();
-			Stage = gu.getUserStage();
-			Coin = gu.getUsercoin();
-			Avatar = gu.getUseravatar();
-		}
-		
 		for(GameServerEngine gse : GS.GSEList) {
-			if(gse.MyRoomName.equals(JoinRoomName)&& !gse.Id.equals(Id)) {
+			if(gse.MyRoomName.equals(JoinRoomName)) {
 				BPJoinUser.append(Id+"/c;"+Name+"/c;"+Level+"/c;"+Alias+"/c;"+Avatar);
-				writeMessage(BPJoinUser.toString());
-				System.out.println(gse.Id+"ddddddttttttyyyyyyy");
+				gse.writeMessage(BPJoinUser.toString());
+				System.out.println(JoinRoomName+"과, ? "+Id+", 그리고, "+Name +"또한, 디어..."+gse.Name+"에게..");
 			}
 		}
 	}

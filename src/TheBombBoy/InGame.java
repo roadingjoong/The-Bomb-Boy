@@ -223,6 +223,14 @@ public class InGame extends JFrame {
 	
 	int joinMyRoomOtherUser = 0;
 	
+	JLabel User1Name;
+	JLabel User1Level;
+	JLabel User1Alias;
+	
+	JLabel User2Name;
+	JLabel User2Level;
+	JLabel User2Alias;
+	
 	//-----------------------------------
 	
 	Socket s = null;
@@ -1938,6 +1946,56 @@ public class InGame extends JFrame {
 		BPMyStandardPane.add(GroundLine);
 		
 		Font UserInfoFont = new Font("Arial", Font.BOLD, 20);
+		
+		JPanel User1Info = new JPanel();
+		User1Info.setLayout(new GridLayout(3,1));
+		User1Info.setBackground(Color.BLACK);
+		User1Info.setSize(300,200);
+		User1Info.setLocation(50, 400);
+		User1Name = new JLabel("Name : ");
+		User1Name.setVerticalAlignment(JLabel.CENTER);
+		User1Name.setHorizontalAlignment(JLabel.CENTER);
+		User1Name.setForeground(Color.CYAN);
+		User1Name.setFont(UserInfoFont);
+		User1Info.add(User1Name);
+		User1Level = new JLabel("Level : ");
+		User1Level.setVerticalAlignment(JLabel.CENTER);
+		User1Level.setHorizontalAlignment(JLabel.CENTER);
+		User1Level.setForeground(Color.CYAN);
+		User1Level.setFont(UserInfoFont);
+		User1Info.add(User1Level);
+		User1Alias = new JLabel("Alias : ");
+		User1Alias.setVerticalAlignment(JLabel.CENTER);
+		User1Alias.setHorizontalAlignment(JLabel.CENTER);
+		User1Alias.setForeground(Color.CYAN);
+		User1Alias.setFont(UserInfoFont);
+		User1Info.add(User1Alias);
+		BPMyStandardPane.add(User1Info);
+		
+		JPanel User2Info = new JPanel();
+		User2Info.setLayout(new GridLayout(3,1));
+		User2Info.setBackground(Color.BLACK);
+		User2Info.setSize(300,200);
+		User2Info.setLocation(950, 100);
+		User2Name = new JLabel("Name : ");
+		User2Name.setVerticalAlignment(JLabel.CENTER);
+		User2Name.setHorizontalAlignment(JLabel.CENTER);
+		User2Name.setForeground(Color.CYAN);
+		User2Name.setFont(UserInfoFont);
+		User2Info.add(User2Name);
+		User2Level = new JLabel("Level : ");
+		User2Level.setVerticalAlignment(JLabel.CENTER);
+		User2Level.setHorizontalAlignment(JLabel.CENTER);
+		User2Level.setForeground(Color.CYAN);
+		User2Level.setFont(UserInfoFont);
+		User2Info.add(User2Level);
+		User2Alias = new JLabel("Alias : ");
+		User2Alias.setVerticalAlignment(JLabel.CENTER);
+		User2Alias.setHorizontalAlignment(JLabel.CENTER);
+		User2Alias.setForeground(Color.CYAN);
+		User2Alias.setFont(UserInfoFont);
+		User2Info.add(User2Alias);
+		BPMyStandardPane.add(User2Info);
 		
 		add(BPMyStandardPane);
 		closePane();

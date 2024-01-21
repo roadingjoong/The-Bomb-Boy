@@ -693,9 +693,26 @@ public class GameThread implements Runnable{
 							ingame.BPMyStandardPanel();
 							ingame.writer.println("BPCRoom/c;"+ingame.MakeRoomName.getText());
 							ingame.UserAvatar.setLocation(600, 490);
+							ingame.User1Name.setText("Name : "+ingame.InformationName);
+							ingame.User1Level.setText("Level : "+ingame.InformationLevel);
+							ingame.User1Alias.setText("Alias : "+ingame.InformationAlias);
+							
+							while(ingame.joinMyRoomOtherUser == 0) {
+								System.out.println("아직 아니야");
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}
+							
+							if(ingame.joinMyRoomOtherUser == 1) {
+								ingame.User2Name.setText("Name : "+ingame.OtherUserName);
+								ingame.User2Level.setText("Level : "+ingame.OtherUserLevel);
+								ingame.User2Alias.setText("Alias : "+ingame.OtherUserAlias);
+							}
 							
 							while(ingame.joinNum == 0) {
-								
 								try {
 									Thread.sleep(100);
 								} catch (InterruptedException e) {
@@ -713,8 +730,8 @@ public class GameThread implements Runnable{
 							ingame.closePane();
 							ingame.BarPane.setVisible(false);
 							ingame.BPJoinStandardPanel();
-							ingame.writer.println("BPJRoom/c;"+ingame.joinRoomName);
 							ingame.UserAvatar.setLocation(600, 200);
+							ingame.writer.println("BPJRoom/c;"+ingame.joinRoomName);
 							
 							while(ingame.joinNum == 0) {
 								try {

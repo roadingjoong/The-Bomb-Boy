@@ -47,18 +47,17 @@ public class MessageReadThread implements Runnable{
 					ingame.BPRoomModel.addAll(Arrays.asList(BPRoomlist));
 					break;
 					
-				case "BPJR":
+				case "BPJU" :
 					ingame.OtherUserId = messageCut[1];
 					ingame.OtherUserName = messageCut[2];
 					ingame.OtherUserLevel = Integer.parseInt(messageCut[3]);
-					ingame.OtherUserAlias = messageCut[3];
-					ingame.OtherUserAvatar = Integer.parseInt(messageCut[4]);
+					ingame.OtherUserAlias = messageCut[4];
+					ingame.OtherUserAvatar = Integer.parseInt(messageCut[5]);
 					
 					ingame.joinMyRoomOtherUser = 1;
-					
 					break;
 					
-				case "ChSu":
+				case "ChSu" :
 					ingame.InformationId = messageCut[1];
 					ingame.InformationPw = messageCut[2];
 					ingame.InformationName = messageCut[3];
@@ -69,7 +68,6 @@ public class MessageReadThread implements Runnable{
 					ingame.InformationAvatar = Integer.parseInt(messageCut[8]);
 					
 					ingame.LoginCollectNum = 1;
-					
 					break;
 					
 				case "ChFF":
