@@ -226,10 +226,16 @@ public class InGame extends JFrame {
 	JLabel User1Name;
 	JLabel User1Level;
 	JLabel User1Alias;
-	
 	JLabel User2Name;
 	JLabel User2Level;
 	JLabel User2Alias;
+	
+	JLabel JUser1Name;
+	JLabel JUser1Level;
+	JLabel JUser1Alias;
+	JLabel JUser2Name;
+	JLabel JUser2Level;
+	JLabel JUser2Alias;
 	
 	//-----------------------------------
 	
@@ -1904,7 +1910,7 @@ public class InGame extends JFrame {
 	
 	void BPMyStandardPanel() {
 		BPMyStandardPane = new JPanel();
-		BPMyStandardPane.setBackground(Color.GRAY);
+		BPMyStandardPane.setBackground(Color.LIGHT_GRAY);
 		BPMyStandardPane.setLayout(null);
 		
 		UserAvatarM();
@@ -2007,43 +2013,92 @@ public class InGame extends JFrame {
 		BPJoinStandardPane.setBackground(Color.LIGHT_GRAY);
 		BPJoinStandardPane.setLayout(null);
 		
-		UserAvatarM();
-		BPJoinStandardPane.add(UserAvatar);
-				
 		JLabel SpaceFrame1 = new JLabel();
 		SpaceFrame1.setBackground(Color.BLACK);
-		SpaceFrame1.setSize(400, 750);
-		SpaceFrame1.setLocation(0,0);
+		SpaceFrame1.setSize(10, 520);
+		SpaceFrame1.setLocation(390,90);
 		SpaceFrame1.setOpaque(true);
 		BPJoinStandardPane.add(SpaceFrame1);
 		
 		JLabel SpaceFrame2 = new JLabel();
 		SpaceFrame2.setBackground(Color.BLACK);
-		SpaceFrame2.setSize(400, 750);
-		SpaceFrame2.setLocation(900,0);
+		SpaceFrame2.setSize(10, 520);
+		SpaceFrame2.setLocation(900,90);
 		SpaceFrame2.setOpaque(true);
 		BPJoinStandardPane.add(SpaceFrame2);
 		
 		JLabel SpaceFrame3 = new JLabel();
 		SpaceFrame3.setBackground(Color.BLACK);
-		SpaceFrame3.setSize(500, 100);
-		SpaceFrame3.setLocation(400,650);
+		SpaceFrame3.setSize(500, 10);
+		SpaceFrame3.setLocation(400,600);
 		SpaceFrame3.setOpaque(true);
 		BPJoinStandardPane.add(SpaceFrame3);
 		
 		JLabel SpaceFrame4 = new JLabel();
 		SpaceFrame4.setBackground(Color.BLACK);
-		SpaceFrame4.setSize(500, 100);
-		SpaceFrame4.setLocation(400,0);
+		SpaceFrame4.setSize(500, 10);
+		SpaceFrame4.setLocation(400, 90);
 		SpaceFrame4.setOpaque(true);
 		BPJoinStandardPane.add(SpaceFrame4);
 		
 		JLabel GroundLine = new JLabel();
-		GroundLine.setBackground(Color.RED);
+		GroundLine.setBackground(Color.BLACK);
 		GroundLine.setSize(500, 10);
-		GroundLine.setLocation(400, 375);
+		GroundLine.setLocation(400, 350);
 		GroundLine.setOpaque(true);
 		BPJoinStandardPane.add(GroundLine);
+		
+		Font UserInfoFont = new Font("Arial", Font.BOLD, 20);
+		
+		JPanel User1Info = new JPanel();
+		User1Info.setLayout(new GridLayout(3,1));
+		User1Info.setBackground(Color.BLACK);
+		User1Info.setSize(300,200);
+		User1Info.setLocation(50, 400);
+		JUser1Name = new JLabel("Name : ");
+		JUser1Name.setVerticalAlignment(JLabel.CENTER);
+		JUser1Name.setHorizontalAlignment(JLabel.CENTER);
+		JUser1Name.setForeground(Color.CYAN);
+		JUser1Name.setFont(UserInfoFont);
+		User1Info.add(JUser1Name);
+		JUser1Level = new JLabel("Level : ");
+		JUser1Level.setVerticalAlignment(JLabel.CENTER);
+		JUser1Level.setHorizontalAlignment(JLabel.CENTER);
+		JUser1Level.setForeground(Color.CYAN);
+		JUser1Level.setFont(UserInfoFont);
+		User1Info.add(JUser1Level);
+		JUser1Alias = new JLabel("Alias : ");
+		JUser1Alias.setVerticalAlignment(JLabel.CENTER);
+		JUser1Alias.setHorizontalAlignment(JLabel.CENTER);
+		JUser1Alias.setForeground(Color.CYAN);
+		JUser1Alias.setFont(UserInfoFont);
+		User1Info.add(JUser1Alias);
+		BPJoinStandardPane.add(User1Info);
+		
+		JPanel User2Info = new JPanel();
+		User2Info.setLayout(new GridLayout(3,1));
+		User2Info.setBackground(Color.BLACK);
+		User2Info.setSize(300,200);
+		User2Info.setLocation(950, 100);
+		JUser2Name = new JLabel("Name : ");
+		JUser2Name.setVerticalAlignment(JLabel.CENTER);
+		JUser2Name.setHorizontalAlignment(JLabel.CENTER);
+		JUser2Name.setForeground(Color.CYAN);
+		JUser2Name.setFont(UserInfoFont);
+		User2Info.add(JUser2Name);
+		JUser2Level = new JLabel("Level : ");
+		JUser2Level.setVerticalAlignment(JLabel.CENTER);
+		JUser2Level.setHorizontalAlignment(JLabel.CENTER);
+		JUser2Level.setForeground(Color.CYAN);
+		JUser2Level.setFont(UserInfoFont);
+		User2Info.add(JUser2Level);
+		JUser2Alias = new JLabel("Alias : ");
+		JUser2Alias.setVerticalAlignment(JLabel.CENTER);
+		JUser2Alias.setHorizontalAlignment(JLabel.CENTER);
+		JUser2Alias.setForeground(Color.CYAN);
+		JUser2Alias.setFont(UserInfoFont);
+		User2Info.add(JUser2Alias);
+		BPJoinStandardPane.add(User2Info);
 		
 		add(BPJoinStandardPane);
 		closePane();
