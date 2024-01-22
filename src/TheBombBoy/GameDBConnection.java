@@ -15,7 +15,7 @@ public class GameDBConnection {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String url = "jdbc:mysql://localhost:3306/"+conString;
 			String id = "root";
-			String pw = "46602827";
+			String pw = "1234";
 			
 			try {
 				conn = DriverManager.getConnection(url, id, pw);
