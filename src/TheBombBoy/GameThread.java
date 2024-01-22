@@ -710,6 +710,9 @@ public class GameThread implements Runnable{
 								ingame.User2Name.setText("Name : "+ingame.OtherUserName);
 								ingame.User2Level.setText("Level : "+ingame.OtherUserLevel);
 								ingame.User2Alias.setText("Alias : "+ingame.OtherUserAlias);
+								
+								ingame.writer.println("BPwelcom/c;"+ingame.OtherUserId);
+								System.out.println("환영합니다,"+ingame.OtherUserId+"씨");
 							}
 							
 							while(ingame.joinNum == 0) {
@@ -734,6 +737,21 @@ public class GameThread implements Runnable{
 							ingame.JUser2Name.setText("Name : "+ingame.InformationName);
 							ingame.JUser2Level.setText("Level : "+ingame.InformationLevel);
 							ingame.JUser2Alias.setText("Alias : "+ingame.InformationAlias);
+							
+							while(ingame.WelcomRoomOtherUser == 0) {
+								try {
+									Thread.sleep(100);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}
+							
+							if(ingame.WelcomRoomOtherUser == 1) {
+								ingame.JUser1Name.setText("Name : "+ingame.OtherUserName);
+								ingame.JUser1Level.setText("Level : "+ingame.OtherUserLevel);
+								ingame.JUser1Alias.setText("Alias : "+ingame.OtherUserAlias);
+								System.out.println("안녕하세요, 처음 뵙겠습니다.");
+							}
 							
 							while(ingame.joinNum == 0) {
 								try {

@@ -192,6 +192,11 @@ public class GameServerEngine extends Thread{
 					BPJoinRoom();
 					break;
 					
+				case "BPwelcom" :
+					String joinUserId = messageCut[1].toString();
+					BPwelcomMyRoom(joinUserId);
+					break;
+					
 				case "QuiteGame":
 					QuiteNum = 1;
 					break;
@@ -206,18 +211,20 @@ public class GameServerEngine extends Thread{
 			System.out.println("오류");
 		} finally {
 			try {
-				System.out.println("==================< S >=================");
-				System.out.println(GS.GSEList);
-				GS.GSEList.remove(this);
-				System.out.println(GS.GSEList);
-				GS.Namelist.remove(Id+"/c;");
-				BPexiteList();
-				reader.close();
-				writer.close();
-				s.close();
-				Thread_ToF = false;
-				System.out.println("==================< E >=================");
-				return;
+				if(QuiteNum == 1) {
+					System.out.println("==================< S >=================");
+					System.out.println(GS.GSEList);
+					GS.GSEList.remove(this);
+					System.out.println(GS.GSEList);
+					GS.Namelist.remove(Id+"/c;");
+					BPexiteList();
+					reader.close();
+					writer.close();
+					s.close();
+					Thread_ToF = false;
+					System.out.println("==================< E >=================");
+					return;
+				}
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
@@ -257,6 +264,18 @@ public class GameServerEngine extends Thread{
 				BPJoinUser.append(Id+"/c;"+Name+"/c;"+Level+"/c;"+Alias+"/c;"+Avatar);
 				gse.writeMessage(BPJoinUser.toString());
 				System.out.println(JoinRoomName+"과, ? "+Id+", 그리고, "+Name +"또한, 디어..."+gse.Name+"에게..");
+			}
+		}
+	}
+	
+	void BPwelcomMyRoom(String joinUserId) {
+		StringBuffer BPwel = new StringBuffer("BPwel/c;");
+		for(GameServerEngine gse : GS.GSEList) {
+			System.out.println(GS.GSEList+"입니다.");
+			if(gse.Id.equals(joinUserId)) {
+				BPwel.append(Id+"/c;"+Name+"/c;"+Level+"/c;"+Alias+"/c;"+Avatar);
+				gse.writeMessage(BPwel.toString());
+				System.out.println("보내는 과정이 이것입니다. : "+BPwel.toString());
 			}
 		}
 	}

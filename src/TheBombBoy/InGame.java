@@ -222,6 +222,7 @@ public class InGame extends JFrame {
 	int OtherUserAvatar;
 	
 	int joinMyRoomOtherUser = 0;
+	int WelcomRoomOtherUser = 0;
 	
 	JLabel User1Name;
 	JLabel User1Level;

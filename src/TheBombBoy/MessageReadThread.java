@@ -57,6 +57,16 @@ public class MessageReadThread implements Runnable{
 					ingame.joinMyRoomOtherUser = 1;
 					break;
 					
+				case "BPwel" : 
+					ingame.OtherUserId = messageCut[1];
+					ingame.OtherUserName = messageCut[2];
+					ingame.OtherUserLevel = Integer.parseInt(messageCut[3]);
+					ingame.OtherUserAlias = messageCut[4];
+					ingame.OtherUserAvatar = Integer.parseInt(messageCut[5]);
+					
+					ingame.WelcomRoomOtherUser = 1;
+					break;
+					
 				case "ChSu" :
 					ingame.InformationId = messageCut[1];
 					ingame.InformationPw = messageCut[2];
