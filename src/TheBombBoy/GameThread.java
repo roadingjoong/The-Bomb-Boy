@@ -733,6 +733,7 @@ public class GameThread implements Runnable{
 							ingame.closePane();
 							ingame.BarPane.setVisible(false);
 							ingame.BPJoinStandardPanel();
+							ingame.UserAvatar.setLocation(600, 110);
 							ingame.writer.println("BPJRoom/c;"+ingame.joinRoomName);
 							ingame.JUser2Name.setText("Name : "+ingame.InformationName);
 							ingame.JUser2Level.setText("Level : "+ingame.InformationLevel);

@@ -14,7 +14,8 @@ public class UserAvatarThread implements Runnable{
 		
 		while(Thread_ToF) {
 			
-			if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && ingame.MyStandardStart == 0) {
+			if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && 
+					ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 				Thread_ToF = false;
 				return;
 			}
@@ -24,14 +25,16 @@ public class UserAvatarThread implements Runnable{
 				
 				while(true) {
 					
-					if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && ingame.MyStandardStart == 0) {
+					if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 &&
+							ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 						Thread_ToF = false;
 						return;
 					}
 					
 					while(ingame.AvatarMove == 0) {
 						
-						if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && ingame.MyStandardStart == 0) {
+						if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && 
+								ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 							Thread_ToF = false;
 							return;
 						}
@@ -73,14 +76,16 @@ public class UserAvatarThread implements Runnable{
 				
 				while(true) {
 					
-					if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && ingame.MyStandardStart == 0) {
+					if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && 
+							ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 						Thread_ToF = false;
 						return;
 					}
 					
 					while(ingame.AvatarMove == 0) {
 						
-						if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && ingame.MyStandardStart == 0) {
+						if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && 
+								ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 							Thread_ToF = false;
 							return;
 						}
@@ -121,14 +126,16 @@ public class UserAvatarThread implements Runnable{
 				
 				while(true) {
 					
-					if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && ingame.MyStandardStart == 0) {
+					if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && 
+							ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 						Thread_ToF = false;
 						return;
 					}
 					
 					while(ingame.AvatarMove == 0) {
 						
-						if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && ingame.MyStandardStart == 0) {
+						if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && 
+								ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 							Thread_ToF = false;
 							return;
 						}
@@ -169,14 +176,16 @@ public class UserAvatarThread implements Runnable{
 				
 				while(true) {
 					
-					if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && ingame.MyStandardStart == 0) {
+					if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && 
+							ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 						Thread_ToF = false;
 						return;
 					}
 					
 					while(ingame.AvatarMove == 0) {
 						
-						if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && ingame.MyStandardStart == 0) {
+						if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && 
+								ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 							Thread_ToF = false;
 							return;
 						}
@@ -217,14 +226,16 @@ public class UserAvatarThread implements Runnable{
 				
 				while(true) {
 					
-					if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && ingame.MyStandardStart == 0) {
+					if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && 
+							ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 						Thread_ToF = false;
 						return;
 					}
 					
 					while(ingame.AvatarMove == 0) {
 						
-						if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && ingame.MyStandardStart == 0) {
+						if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && 
+								ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 							Thread_ToF = false;
 							return;
 						}

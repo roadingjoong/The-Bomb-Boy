@@ -2014,6 +2014,9 @@ public class InGame extends JFrame {
 		BPJoinStandardPane.setBackground(Color.LIGHT_GRAY);
 		BPJoinStandardPane.setLayout(null);
 		
+		UserAvatarM();
+		BPJoinStandardPane.add(UserAvatar);
+		
 		JLabel SpaceFrame1 = new JLabel();
 		SpaceFrame1.setBackground(Color.BLACK);
 		SpaceFrame1.setSize(10, 520);
