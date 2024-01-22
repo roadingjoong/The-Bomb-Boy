@@ -700,7 +700,7 @@ public class GameThread implements Runnable{
 							while(ingame.joinMyRoomOtherUser == 0) {
 								System.out.println("아직 아니야");
 								try {
-									Thread.sleep(1000);
+									Thread.sleep(100);
 								} catch (InterruptedException e) {
 									e.printStackTrace();
 								}
@@ -730,8 +730,10 @@ public class GameThread implements Runnable{
 							ingame.closePane();
 							ingame.BarPane.setVisible(false);
 							ingame.BPJoinStandardPanel();
-							ingame.UserAvatar.setLocation(600, 200);
 							ingame.writer.println("BPJRoom/c;"+ingame.joinRoomName);
+							ingame.JUser2Name.setText("Name : "+ingame.InformationName);
+							ingame.JUser2Level.setText("Level : "+ingame.InformationLevel);
+							ingame.JUser2Alias.setText("Alias : "+ingame.InformationAlias);
 							
 							while(ingame.joinNum == 0) {
 								try {
