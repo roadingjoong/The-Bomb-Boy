@@ -715,6 +715,17 @@ public class GameThread implements Runnable{
 								System.out.println("환영합니다,"+ingame.OtherUserId+"씨");
 							}
 							
+							if(ingame.OtherUserAvatar == 1) {
+								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar1()));
+							}else if(ingame.OtherUserAvatar == 2) {
+								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar2()));
+							}else if(ingame.OtherUserAvatar == 3) {
+								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar3()));
+							}else if(ingame.OtherUserAvatar == 4) {
+								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar4()));
+							}else if(ingame.OtherUserAvatar == 5) {
+								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar5()));
+							}
 							ingame.OtherAvatar.setLocation(600, 110);
 							ingame.OtherAvatar.setVisible(true);
 							
@@ -757,6 +768,17 @@ public class GameThread implements Runnable{
 								System.out.println("안녕하세요, 처음 뵙겠습니다.");
 							}
 							
+							if(ingame.OtherUserAvatar == 1) {
+								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar1()));
+							}else if(ingame.OtherUserAvatar == 2) {
+								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar2()));
+							}else if(ingame.OtherUserAvatar == 3) {
+								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar3()));
+							}else if(ingame.OtherUserAvatar == 4) {
+								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar4()));
+							}else if(ingame.OtherUserAvatar == 5) {
+								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar5()));
+							}
 							ingame.OtherAvatar.setLocation(600, 490);
 							ingame.OtherAvatar.setVisible(true);
 							

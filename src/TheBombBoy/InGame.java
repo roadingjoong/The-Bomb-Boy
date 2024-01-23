@@ -1282,7 +1282,6 @@ public class InGame extends JFrame {
 		OtherAvatar.setSize(100, 110);
 		OtherAvatar.setOpaque(false);
 		OtherAvatar.setVisible(false);
-		OtherAvatar.setIcon(new ImageIcon(mav.makeAvatar1()));
 	}
 	
 	void villainsLairM() {
