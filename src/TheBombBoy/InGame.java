@@ -1174,7 +1174,7 @@ public class InGame extends JFrame {
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_LEFT) {
 					AvatarMove = 4;
-					if(MyStandardStart == 1) {
+					if(MyStandardStart == 1 || JoinStandardStart == 1) {
 						if(UserAvatar.getLocation().x >= 410) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x-5, UserAvatar.getLocation().y);
 						}else if(UserAvatar.getLocation().x <= 410) {
@@ -1190,7 +1190,7 @@ public class InGame extends JFrame {
 					
 				}else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
 					AvatarMove = 3;
-					if(MyStandardStart == 1) {
+					if(MyStandardStart == 1 || JoinStandardStart == 1) {
 						if(UserAvatar.getLocation().x <= 790) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x+5, UserAvatar.getLocation().y);
 						}else if(UserAvatar.getLocation().x >= 790) {
@@ -1212,7 +1212,13 @@ public class InGame extends JFrame {
 						}else if(UserAvatar.getLocation().y <= 370){
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 						}
-					}else {
+					} else if(JoinStandardStart == 1) {
+						if(UserAvatar.getLocation().y >= 110) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
+						}else if(UserAvatar.getLocation().y <= 110){
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}
+					} else {
 						if(UserAvatar.getLocation().y >= 175) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
 						}else if(UserAvatar.getLocation().y <= 175){
@@ -1228,7 +1234,13 @@ public class InGame extends JFrame {
 						}else if(UserAvatar.getLocation().y >= 480) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 						}
-					}else {
+					}else if(JoinStandardStart == 1) {
+						if(UserAvatar.getLocation().y <= 230) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
+						}else if(UserAvatar.getLocation().y >= 230) {
+							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}
+					} else {
 						if(UserAvatar.getLocation().y <= 500) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
 						}else if(UserAvatar.getLocation().y >= 500) {
