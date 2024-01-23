@@ -160,6 +160,8 @@ public class InGame extends JFrame {
 	JLabel UserAvatar = new JLabel();
 	int AvatarMove = 0;
 	
+	JLabel OtherAvatar = new JLabel();
+	
 	JLabel villainsLair = new JLabel();
 	int LairDamageNum = 0;
 	
@@ -1275,6 +1277,14 @@ public class InGame extends JFrame {
 		UserBombT.start();
 	}
 	
+	void OtherAvatarM() {
+		OtherAvatar = new JLabel();
+		OtherAvatar.setSize(100, 110);
+		OtherAvatar.setOpaque(false);
+		OtherAvatar.setVisible(false);
+		OtherAvatar.setIcon(new ImageIcon(mav.makeAvatar1()));
+	}
+	
 	void villainsLairM() {
 		villainsLair = new JLabel();
 		villainsLair.setSize(200,250);
@@ -1929,6 +1939,9 @@ public class InGame extends JFrame {
 		UserAvatarM();
 		BPMyStandardPane.add(UserAvatar);
 		
+		OtherAvatarM();
+		BPMyStandardPane.add(OtherAvatar);
+		
 		JLabel SpaceFrame1 = new JLabel();
 		SpaceFrame1.setBackground(Color.BLACK);
 		SpaceFrame1.setSize(10, 520);
@@ -2028,6 +2041,9 @@ public class InGame extends JFrame {
 		
 		UserAvatarM();
 		BPJoinStandardPane.add(UserAvatar);
+		
+		OtherAvatarM();
+		BPJoinStandardPane.add(OtherAvatar);
 		
 		JLabel SpaceFrame1 = new JLabel();
 		SpaceFrame1.setBackground(Color.BLACK);

@@ -715,6 +715,9 @@ public class GameThread implements Runnable{
 								System.out.println("환영합니다,"+ingame.OtherUserId+"씨");
 							}
 							
+							ingame.OtherAvatar.setLocation(600, 110);
+							ingame.OtherAvatar.setVisible(true);
+							
 							while(ingame.joinNum == 0) {
 								try {
 									Thread.sleep(100);
@@ -753,6 +756,9 @@ public class GameThread implements Runnable{
 								ingame.JUser1Alias.setText("Alias : "+ingame.OtherUserAlias);
 								System.out.println("안녕하세요, 처음 뵙겠습니다.");
 							}
+							
+							ingame.OtherAvatar.setLocation(600, 490);
+							ingame.OtherAvatar.setVisible(true);
 							
 							while(ingame.joinNum == 0) {
 								try {
