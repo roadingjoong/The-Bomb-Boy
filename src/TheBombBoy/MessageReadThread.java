@@ -3,6 +3,8 @@ package TheBombBoy;
 import java.io.IOException;
 import java.util.Arrays;
 
+import javax.swing.ImageIcon;
+
 public class MessageReadThread implements Runnable{
 	Boolean Thread_ToF = true;
 	InGame ingame;
@@ -65,6 +67,65 @@ public class MessageReadThread implements Runnable{
 					ingame.OtherUserAvatar = Integer.parseInt(messageCut[5]);
 					
 					ingame.WelcomRoomOtherUser = 1;
+					break;
+					
+				case "U1M" :
+					int userX = Integer.parseInt(messageCut[1]);
+					int userY = Integer.parseInt(messageCut[2]);
+					int MoveN = Integer.parseInt(messageCut[3]);
+					ingame.OtherAvatar.setLocation(userX, userY);
+					if(ingame.OtherUserAvatar == 1) {
+						if(MoveN == 1) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar1()));
+						}else if(MoveN == 2) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar1_up()));
+						}else if(MoveN == 3) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar1_right()));
+						}else if(MoveN == 4) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar1_left()));
+						}
+					}else if(ingame.OtherUserAvatar == 2) {
+						if(MoveN == 1) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar2()));
+						}else if(MoveN == 2) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar2_up()));
+						}else if(MoveN == 3) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar2_right()));
+						}else if(MoveN == 4) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar2_left()));
+						}
+					}else if(ingame.OtherUserAvatar == 3) {
+						if(MoveN == 1) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar3()));
+						}else if(MoveN == 2) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar3_up()));
+						}else if(MoveN == 3) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar3_right()));
+						}else if(MoveN == 4) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar3_left()));
+						}
+					}else if(ingame.OtherUserAvatar == 4) {
+						if(MoveN == 1) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar4()));
+						}else if(MoveN == 2) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar4_up()));
+						}else if(MoveN == 3) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar4_right()));
+						}else if(MoveN == 4) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar4_left()));
+						}
+					}else if(ingame.OtherUserAvatar == 5) {
+						if(MoveN == 1) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar5()));
+						}else if(MoveN == 2) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar5_up()));
+						}else if(MoveN == 3) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar5_right()));
+						}else if(MoveN == 4) {
+							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar5_left()));
+						}
+					}
+					
 					break;
 					
 				case "ChSu" :
