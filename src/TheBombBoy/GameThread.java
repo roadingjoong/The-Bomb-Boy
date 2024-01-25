@@ -787,6 +787,10 @@ public class GameThread implements Runnable{
 							ingame.OtherAvatar.setVisible(true);
 							
 							while(ingame.joinNum == 0) {
+								if(ingame.AvatarMove != 0) {
+									ingame.writer.println("User1move/c;"+ingame.UserAvatar.getLocation().x+"/c;"
+									+ingame.UserAvatar.getLocation().y+"/c;"+ingame.OtherUserId+"/c;"+ingame.AvatarMove);
+								}
 								try {
 									Thread.sleep(1);
 								} catch (InterruptedException e) {

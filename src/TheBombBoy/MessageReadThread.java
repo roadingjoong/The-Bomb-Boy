@@ -125,7 +125,6 @@ public class MessageReadThread implements Runnable{
 							ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar5_left()));
 						}
 					}
-					
 					break;
 					
 				case "ChSu" :
