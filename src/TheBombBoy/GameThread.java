@@ -684,7 +684,7 @@ public class GameThread implements Runnable{
 								break;
 							}
 						}
-						
+						//========================================
 						if(ingame.joinNum == 19) {
 							ingame.MyStandardStart = 1;
 							ingame.joinNum = 0;
@@ -698,7 +698,6 @@ public class GameThread implements Runnable{
 							ingame.User1Alias.setText("Alias : "+ingame.InformationAlias);
 							
 							while(ingame.joinMyRoomOtherUser == 0) {
-								System.out.println("아직 아니야");
 								try {
 									Thread.sleep(100);
 								} catch (InterruptedException e) {
@@ -707,12 +706,12 @@ public class GameThread implements Runnable{
 							}
 							
 							if(ingame.joinMyRoomOtherUser == 1) {
+								ingame.joinMyRoomOtherUser = 0;
 								ingame.User2Name.setText("Name : "+ingame.OtherUserName);
 								ingame.User2Level.setText("Level : "+ingame.OtherUserLevel);
 								ingame.User2Alias.setText("Alias : "+ingame.OtherUserAlias);
 								
 								ingame.writer.println("BPwelcom/c;"+ingame.OtherUserId);
-								System.out.println("환영합니다,"+ingame.OtherUserId+"씨");
 							}
 							
 							if(ingame.OtherUserAvatar == 1) {
@@ -744,15 +743,15 @@ public class GameThread implements Runnable{
 							ingame.MyStandardStart = 0;
 							ingame.BarPane.setVisible(true);	
 						}
-						
+						//-------------------------------------------------------------------------------------
 						if(ingame.joinNum == 20) {
 							ingame.JoinStandardStart = 1;
 							ingame.joinNum = 0;
 							ingame.closePane();
 							ingame.BarPane.setVisible(false);
 							ingame.BPJoinStandardPanel();
-							ingame.UserAvatar.setLocation(600, 110);
 							ingame.writer.println("BPJRoom/c;"+ingame.joinRoomName);
+							ingame.UserAvatar.setLocation(600, 110);
 							ingame.JUser2Name.setText("Name : "+ingame.InformationName);
 							ingame.JUser2Level.setText("Level : "+ingame.InformationLevel);
 							ingame.JUser2Alias.setText("Alias : "+ingame.InformationAlias);
@@ -766,10 +765,10 @@ public class GameThread implements Runnable{
 							}
 							
 							if(ingame.WelcomRoomOtherUser == 1) {
+								ingame.WelcomRoomOtherUser = 0;
 								ingame.JUser1Name.setText("Name : "+ingame.OtherUserName);
 								ingame.JUser1Level.setText("Level : "+ingame.OtherUserLevel);
 								ingame.JUser1Alias.setText("Alias : "+ingame.OtherUserAlias);
-								System.out.println("안녕하세요, 처음 뵙겠습니다.");
 							}
 							
 							if(ingame.OtherUserAvatar == 1) {
@@ -801,7 +800,7 @@ public class GameThread implements Runnable{
 							ingame.JoinStandardStart = 0;
 							ingame.BarPane.setVisible(true);	
 						}
-						
+						//================================================================
 						String BPexM = "BPexite/c;"+ingame.InformationName;
 						ingame.writer.println(BPexM);
 						continue;

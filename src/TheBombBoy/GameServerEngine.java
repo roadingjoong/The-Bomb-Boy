@@ -1,6 +1,5 @@
 package TheBombBoy;
 
-import java.awt.datatransfer.SystemFlavorMap;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,8 +23,8 @@ public class GameServerEngine extends Thread{
 	int Coin;
 	int Avatar;
 	int QuiteNum = 0;
-	String MyRoomName;
-	String JoinRoomName;
+	String MyRoomName = "";
+	String JoinRoomName = "";
 	
 	GameServerEngine(Socket s, GameServer GS){
 		this.s = s;
@@ -44,7 +43,7 @@ public class GameServerEngine extends Thread{
 				
 				String message = reader.readLine();
 				String[] messageCut = message.split("/c;");
-				
+				System.out.println(Id+" : "+message);
 				switch(messageCut[0]) {
 				case "Login" :
 					tryId = messageCut[1];
@@ -198,6 +197,7 @@ public class GameServerEngine extends Thread{
 					break;
 					
 				case "User1move" :
+					System.out.println(Id+"TYT");
 					String UserX = messageCut[1];
 					String UserY = messageCut[2];
 					String DearUser = messageCut[3];
