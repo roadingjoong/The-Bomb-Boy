@@ -226,6 +226,9 @@ public class InGame extends JFrame {
 	int joinMyRoomOtherUser = 0;
 	int WelcomRoomOtherUser = 0;
 	
+	JLabel BPGameStartButton;
+	int BPGameStartNum = 0;
+	
 	JLabel User1Name;
 	JLabel User1Level;
 	JLabel User1Alias;
@@ -1177,10 +1180,14 @@ public class InGame extends JFrame {
 				if(e.getKeyCode() == KeyEvent.VK_LEFT) {
 					AvatarMove = 4;
 					if(MyStandardStart == 1 || JoinStandardStart == 1) {
-						if(UserAvatar.getLocation().x >= 410) {
-							UserAvatar.setLocation(UserAvatar.getLocation().x-5, UserAvatar.getLocation().y);
-						}else if(UserAvatar.getLocation().x <= 410) {
+						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}else {
+							if(UserAvatar.getLocation().x >= 410) {
+								UserAvatar.setLocation(UserAvatar.getLocation().x-5, UserAvatar.getLocation().y);
+							}else if(UserAvatar.getLocation().x <= 410) {
+								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+							}
 						}
 					}else {
 						if(UserAvatar.getLocation().x >= 20) {
@@ -1193,10 +1200,14 @@ public class InGame extends JFrame {
 				}else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
 					AvatarMove = 3;
 					if(MyStandardStart == 1 || JoinStandardStart == 1) {
-						if(UserAvatar.getLocation().x <= 790) {
-							UserAvatar.setLocation(UserAvatar.getLocation().x+5, UserAvatar.getLocation().y);
-						}else if(UserAvatar.getLocation().x >= 790) {
+						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}else {
+							if(UserAvatar.getLocation().x <= 790) {
+								UserAvatar.setLocation(UserAvatar.getLocation().x+5, UserAvatar.getLocation().y);
+							}else if(UserAvatar.getLocation().x >= 790) {
+								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+							}
 						}
 					}else {
 						if(UserAvatar.getLocation().x <= 1180) {
@@ -1209,16 +1220,24 @@ public class InGame extends JFrame {
 				}else if(e.getKeyCode() == KeyEvent.VK_UP) {
 					AvatarMove = 2;
 					if(MyStandardStart == 1) {
-						if(UserAvatar.getLocation().y >= 370) {
-							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
-						}else if(UserAvatar.getLocation().y <= 370){
+						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}else {
+							if(UserAvatar.getLocation().y >= 370) {
+								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
+							}else if(UserAvatar.getLocation().y <= 370){
+								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+							}
 						}
 					} else if(JoinStandardStart == 1) {
-						if(UserAvatar.getLocation().y >= 110) {
-							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
-						}else if(UserAvatar.getLocation().y <= 110){
+						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}else {
+							if(UserAvatar.getLocation().y >= 110) {
+								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
+							}else if(UserAvatar.getLocation().y <= 110){
+								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+							}
 						}
 					} else {
 						if(UserAvatar.getLocation().y >= 175) {
@@ -1231,16 +1250,24 @@ public class InGame extends JFrame {
 				}else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
 					AvatarMove = 1;
 					if(MyStandardStart == 1) {
-						if(UserAvatar.getLocation().y <= 480) {
-							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
-						}else if(UserAvatar.getLocation().y >= 480) {
+						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}else {
+							if(UserAvatar.getLocation().y <= 480) {
+								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
+							}else if(UserAvatar.getLocation().y >= 480) {
+								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+							}
 						}
 					}else if(JoinStandardStart == 1) {
-						if(UserAvatar.getLocation().y <= 230) {
-							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
-						}else if(UserAvatar.getLocation().y >= 230) {
+						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+						}else {
+							if(UserAvatar.getLocation().y <= 230) {
+								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
+							}else if(UserAvatar.getLocation().y >= 230) {
+								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
+							}
 						}
 					} else {
 						if(UserAvatar.getLocation().y <= 500) {
@@ -1930,6 +1957,21 @@ public class InGame extends JFrame {
 		});
 	}
 	
+	void BPGameStartButtonM() {
+		BPGameStartButton = new JLabel();
+		BPGameStartButton.setSize(200,80);
+		BPGameStartButton.setLocation(50, 630);
+		BPGameStartButton.setOpaque(true);
+		
+		BPGameStartButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				BPGameStartNum = 1;
+				writer.println("BPGameStart/c;"+OtherUserId);
+			}
+		});
+	}
+	
 	void BPMyStandardPanel() {
 		BPMyStandardPane = new JPanel();
 		BPMyStandardPane.setBackground(Color.LIGHT_GRAY);
@@ -1940,6 +1982,9 @@ public class InGame extends JFrame {
 		
 		OtherAvatarM();
 		BPMyStandardPane.add(OtherAvatar);
+		
+		BPGameStartButtonM();
+		BPMyStandardPane.add(BPGameStartButton);
 		
 		JLabel SpaceFrame1 = new JLabel();
 		SpaceFrame1.setBackground(Color.BLACK);

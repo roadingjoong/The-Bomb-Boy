@@ -69,6 +69,13 @@ public class MessageReadThread implements Runnable{
 					ingame.WelcomRoomOtherUser = 1;
 					break;
 					
+				case "BPST":
+					String Otheruid = messageCut[1];
+					if(Otheruid.equals(ingame.OtherUserId)) {
+						ingame.BPGameStartNum = 1;
+					}
+					break;
+					
 				case "U1M" :
 					int userX = Integer.parseInt(messageCut[1]);
 					int userY = Integer.parseInt(messageCut[2]);

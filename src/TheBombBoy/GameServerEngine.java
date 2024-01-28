@@ -196,6 +196,11 @@ public class GameServerEngine extends Thread{
 					BPwelcomMyRoom(joinUserId);
 					break;
 					
+				case "BPGameStart" :
+					String joinUser = messageCut[1];
+					BPStart(joinUser);
+					break;
+					
 				case "User1move" :
 					System.out.println(Id+"TYT");
 					String UserX = messageCut[1];
@@ -284,6 +289,16 @@ public class GameServerEngine extends Thread{
 				BPwel.append(Id+"/c;"+Name+"/c;"+Level+"/c;"+Alias+"/c;"+Avatar);
 				gse.writeMessage(BPwel.toString());
 				System.out.println("보내는 과정이 이것입니다. : "+BPwel.toString());
+			}
+		}
+	}
+	
+	void BPStart(String JoinUser) {
+		StringBuffer BPST = new StringBuffer("BPST/c;");
+		for(GameServerEngine gse : GS.GSEList) {
+			if(gse.Id.equals(JoinUser)) {
+				BPST.append(Id);
+				gse.writeMessage(BPST.toString());
 			}
 		}
 	}

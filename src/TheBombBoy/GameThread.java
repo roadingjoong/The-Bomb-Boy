@@ -740,6 +740,7 @@ public class GameThread implements Runnable{
 								}
 							}
 							
+							ingame.BPGameStartNum = 0;
 							ingame.MyStandardStart = 0;
 							ingame.BarPane.setVisible(true);	
 						}
