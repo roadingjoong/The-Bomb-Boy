@@ -76,6 +76,14 @@ public class MessageReadThread implements Runnable{
 					}
 					break;
 					
+				case "NBPBomb":
+					
+					int BombX = Integer.parseInt(messageCut[1]);
+					int BombY = Integer.parseInt(messageCut[2]);
+					ingame.BPBomb.setLocation(BombX, BombY);
+					ingame.BPBomb.setVisible(true);
+					break;
+					
 				case "U1M" :
 					int userX = Integer.parseInt(messageCut[1]);
 					int userY = Integer.parseInt(messageCut[2]);

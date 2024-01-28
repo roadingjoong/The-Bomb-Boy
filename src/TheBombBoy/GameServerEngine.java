@@ -201,6 +201,13 @@ public class GameServerEngine extends Thread{
 					BPStart(joinUser);
 					break;
 					
+				case "NewBPBomb" :
+					String BombX = messageCut[1];
+					String BombY = messageCut[2];
+					String OtherU = messageCut[3];
+					NewBPBomb(BombX,BombY,OtherU);
+					break;
+					
 				case "User1move" :
 					System.out.println(Id+"TYT");
 					String UserX = messageCut[1];
@@ -299,6 +306,16 @@ public class GameServerEngine extends Thread{
 			if(gse.Id.equals(JoinUser)) {
 				BPST.append(Id);
 				gse.writeMessage(BPST.toString());
+			}
+		}
+	}
+	
+	void NewBPBomb(String BombX, String BombY, String OtherU) {
+		StringBuffer NBPBomb = new StringBuffer("NBPBomb/c;");
+		for(GameServerEngine gse : GS.GSEList) {
+			if(gse.Id.equals(OtherU)) {
+				NBPBomb.append(BombX+"/c;"+BombY);
+				gse.writeMessage(NBPBomb.toString());
 			}
 		}
 	}

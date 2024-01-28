@@ -229,6 +229,9 @@ public class InGame extends JFrame {
 	JLabel BPGameStartButton;
 	int BPGameStartNum = 0;
 	
+	JLabel BPBomb;
+	int NewBPBombNum = 0;
+	
 	JLabel User1Name;
 	JLabel User1Level;
 	JLabel User1Alias;
@@ -1968,8 +1971,17 @@ public class InGame extends JFrame {
 			public void mouseReleased(MouseEvent e) {
 				BPGameStartNum = 1;
 				writer.println("BPGameStart/c;"+OtherUserId);
+				NewBPBombNum = 1;
 			}
 		});
+	}
+	
+	void BPBombM() {
+		BPBomb = new JLabel();
+		BPBomb.setSize(50,50);
+		BPBomb.setLocation(0,0);
+		BPBomb.setOpaque(true);
+		BPBomb.setVisible(false);
 	}
 	
 	void BPMyStandardPanel() {
@@ -1985,6 +1997,9 @@ public class InGame extends JFrame {
 		
 		BPGameStartButtonM();
 		BPMyStandardPane.add(BPGameStartButton);
+		
+		BPBombM();
+		BPMyStandardPane.add(BPBomb);
 		
 		JLabel SpaceFrame1 = new JLabel();
 		SpaceFrame1.setBackground(Color.BLACK);
@@ -2088,6 +2103,9 @@ public class InGame extends JFrame {
 		
 		OtherAvatarM();
 		BPJoinStandardPane.add(OtherAvatar);
+		
+		BPBombM();
+		BPJoinStandardPane.add(BPBomb);
 		
 		JLabel SpaceFrame1 = new JLabel();
 		SpaceFrame1.setBackground(Color.BLACK);

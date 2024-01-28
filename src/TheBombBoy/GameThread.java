@@ -729,6 +729,16 @@ public class GameThread implements Runnable{
 							ingame.OtherAvatar.setVisible(true);
 							
 							while(ingame.joinNum == 0) {
+								
+								if(ingame.NewBPBombNum == 1) {
+									ingame.NewBPBombNum = 0;
+									ingame.BPBomb.setLocation(625, 400);
+									ingame.BPBomb.setVisible(true);
+									ingame.writer.println("NewBPBomb/c;"
+									+ingame.BPBomb.getLocation().x+"/c;"+ingame.BPBomb.getLocation().y
+									+"/c;"+ingame.OtherUserId);
+								}
+								
 								if(ingame.AvatarMove != 0) {
 									ingame.writer.println("User1move/c;"+ingame.UserAvatar.getLocation().x+"/c;"
 									+ingame.UserAvatar.getLocation().y+"/c;"+ingame.OtherUserId+"/c;"+ingame.AvatarMove);
