@@ -231,6 +231,7 @@ public class InGame extends JFrame {
 	
 	JLabel BPBomb;
 	int NewBPBombNum = 0;
+	int touchBombNum = 0;
 	
 	JLabel User1Name;
 	JLabel User1Level;
@@ -245,6 +246,12 @@ public class InGame extends JFrame {
 	JLabel JUser2Name;
 	JLabel JUser2Level;
 	JLabel JUser2Alias;
+	
+	JLabel SpaceFrame1;
+	JLabel SpaceFrame2;
+	JLabel SpaceFrame3;
+	JLabel SpaceFrame4;
+	JLabel GroundLine;
 	
 	//-----------------------------------
 	
@@ -1982,6 +1989,42 @@ public class InGame extends JFrame {
 		BPBomb.setLocation(0,0);
 		BPBomb.setOpaque(true);
 		BPBomb.setVisible(false);
+		
+		BPBombThread bpbombthread = new BPBombThread(this);
+		Thread BPBT = new Thread(bpbombthread);
+		BPBT.start();
+	}
+	
+	void SpaceFrameM() {
+		SpaceFrame1 = new JLabel();
+		SpaceFrame1.setBackground(Color.BLACK);
+		SpaceFrame1.setSize(10, 520);
+		SpaceFrame1.setLocation(390,90);
+		SpaceFrame1.setOpaque(true);
+		
+		SpaceFrame2 = new JLabel();
+		SpaceFrame2.setBackground(Color.BLACK);
+		SpaceFrame2.setSize(10, 520);
+		SpaceFrame2.setLocation(900,90);
+		SpaceFrame2.setOpaque(true);
+		
+		SpaceFrame3 = new JLabel();
+		SpaceFrame3.setBackground(Color.BLACK);
+		SpaceFrame3.setSize(500, 10);
+		SpaceFrame3.setLocation(400,600);
+		SpaceFrame3.setOpaque(true);
+		
+		SpaceFrame4 = new JLabel();
+		SpaceFrame4.setBackground(Color.BLACK);
+		SpaceFrame4.setSize(500, 10);
+		SpaceFrame4.setLocation(400, 90);
+		SpaceFrame4.setOpaque(true);
+		
+		GroundLine = new JLabel();
+		GroundLine.setBackground(Color.BLACK);
+		GroundLine.setSize(500, 10);
+		GroundLine.setLocation(400, 350);
+		GroundLine.setOpaque(true);
 	}
 	
 	void BPMyStandardPanel() {
@@ -2001,39 +2044,11 @@ public class InGame extends JFrame {
 		BPBombM();
 		BPMyStandardPane.add(BPBomb);
 		
-		JLabel SpaceFrame1 = new JLabel();
-		SpaceFrame1.setBackground(Color.BLACK);
-		SpaceFrame1.setSize(10, 520);
-		SpaceFrame1.setLocation(390,90);
-		SpaceFrame1.setOpaque(true);
+		SpaceFrameM();
 		BPMyStandardPane.add(SpaceFrame1);
-		
-		JLabel SpaceFrame2 = new JLabel();
-		SpaceFrame2.setBackground(Color.BLACK);
-		SpaceFrame2.setSize(10, 520);
-		SpaceFrame2.setLocation(900,90);
-		SpaceFrame2.setOpaque(true);
 		BPMyStandardPane.add(SpaceFrame2);
-		
-		JLabel SpaceFrame3 = new JLabel();
-		SpaceFrame3.setBackground(Color.BLACK);
-		SpaceFrame3.setSize(500, 10);
-		SpaceFrame3.setLocation(400,600);
-		SpaceFrame3.setOpaque(true);
 		BPMyStandardPane.add(SpaceFrame3);
-		
-		JLabel SpaceFrame4 = new JLabel();
-		SpaceFrame4.setBackground(Color.BLACK);
-		SpaceFrame4.setSize(500, 10);
-		SpaceFrame4.setLocation(400, 90);
-		SpaceFrame4.setOpaque(true);
 		BPMyStandardPane.add(SpaceFrame4);
-		
-		JLabel GroundLine = new JLabel();
-		GroundLine.setBackground(Color.BLACK);
-		GroundLine.setSize(500, 10);
-		GroundLine.setLocation(400, 350);
-		GroundLine.setOpaque(true);
 		BPMyStandardPane.add(GroundLine);
 		
 		Font UserInfoFont = new Font("Arial", Font.BOLD, 20);
@@ -2107,39 +2122,11 @@ public class InGame extends JFrame {
 		BPBombM();
 		BPJoinStandardPane.add(BPBomb);
 		
-		JLabel SpaceFrame1 = new JLabel();
-		SpaceFrame1.setBackground(Color.BLACK);
-		SpaceFrame1.setSize(10, 520);
-		SpaceFrame1.setLocation(390,90);
-		SpaceFrame1.setOpaque(true);
+		SpaceFrameM();
 		BPJoinStandardPane.add(SpaceFrame1);
-		
-		JLabel SpaceFrame2 = new JLabel();
-		SpaceFrame2.setBackground(Color.BLACK);
-		SpaceFrame2.setSize(10, 520);
-		SpaceFrame2.setLocation(900,90);
-		SpaceFrame2.setOpaque(true);
 		BPJoinStandardPane.add(SpaceFrame2);
-		
-		JLabel SpaceFrame3 = new JLabel();
-		SpaceFrame3.setBackground(Color.BLACK);
-		SpaceFrame3.setSize(500, 10);
-		SpaceFrame3.setLocation(400,600);
-		SpaceFrame3.setOpaque(true);
 		BPJoinStandardPane.add(SpaceFrame3);
-		
-		JLabel SpaceFrame4 = new JLabel();
-		SpaceFrame4.setBackground(Color.BLACK);
-		SpaceFrame4.setSize(500, 10);
-		SpaceFrame4.setLocation(400, 90);
-		SpaceFrame4.setOpaque(true);
 		BPJoinStandardPane.add(SpaceFrame4);
-		
-		JLabel GroundLine = new JLabel();
-		GroundLine.setBackground(Color.BLACK);
-		GroundLine.setSize(500, 10);
-		GroundLine.setLocation(400, 350);
-		GroundLine.setOpaque(true);
 		BPJoinStandardPane.add(GroundLine);
 		
 		Font UserInfoFont = new Font("Arial", Font.BOLD, 20);

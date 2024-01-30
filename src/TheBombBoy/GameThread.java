@@ -743,6 +743,13 @@ public class GameThread implements Runnable{
 									ingame.writer.println("User1move/c;"+ingame.UserAvatar.getLocation().x+"/c;"
 									+ingame.UserAvatar.getLocation().y+"/c;"+ingame.OtherUserId+"/c;"+ingame.AvatarMove);
 								}
+								
+								if(ingame.touchBombNum == 1) {
+									ingame.writer.println("BPBombMove/c;"+ingame.BPBomb.getLocation().x+
+											"/c;"+ingame.BPBomb.getLocation().y+
+											"/c;"+ingame.OtherUserId);
+								}
+								
 								try {
 									Thread.sleep(1);
 								} catch (InterruptedException e) {
@@ -801,6 +808,13 @@ public class GameThread implements Runnable{
 									ingame.writer.println("User1move/c;"+ingame.UserAvatar.getLocation().x+"/c;"
 									+ingame.UserAvatar.getLocation().y+"/c;"+ingame.OtherUserId+"/c;"+ingame.AvatarMove);
 								}
+								
+								if(ingame.touchBombNum == 1) {
+									ingame.writer.println("BPBombMove/c;"+ingame.BPBomb.getLocation().x+
+											"/c;"+ingame.BPBomb.getLocation().y+
+											"/c;"+ingame.OtherUserId);
+								}
+								
 								try {
 									Thread.sleep(1);
 								} catch (InterruptedException e) {

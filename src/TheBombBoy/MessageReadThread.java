@@ -142,6 +142,12 @@ public class MessageReadThread implements Runnable{
 					}
 					break;
 					
+				case "BBMove":
+					int BBX = Integer.parseInt(messageCut[1]);
+					int BBY = Integer.parseInt(messageCut[2]);
+					ingame.BPBomb.setLocation(BBX,BBY);
+					break;
+					
 				case "ChSu" :
 					ingame.InformationId = messageCut[1];
 					ingame.InformationPw = messageCut[2];

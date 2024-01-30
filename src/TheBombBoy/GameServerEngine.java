@@ -217,6 +217,13 @@ public class GameServerEngine extends Thread{
 					BPUser1Move(UserX, UserY, DearUser, MoveNum);
 					break;
 					
+				case "BPBombMove" :
+					String BMX = messageCut[1];
+					String BMY = messageCut[2];
+					String OU = messageCut[3];
+					BPBombMove(BMX,BMY,OU);
+					break;
+					
 				case "QuiteGame":
 					QuiteNum = 1;
 					break;
@@ -327,6 +334,16 @@ public class GameServerEngine extends Thread{
 				U1Move.append(UserX+"/c;"+UserY+"/c;"+movenum);
 				gse.writeMessage(U1Move.toString());
 				System.out.println(U1Move+"ddd");
+			}
+		}
+	}
+	
+	void BPBombMove(String BMX, String BMY, String OU) {
+		StringBuffer BBMove = new StringBuffer("BBMove/c;");
+		for(GameServerEngine gse : GS.GSEList) {
+			if(gse.Id.equals(OU)) {
+				BBMove.append(BMX+"/c;"+BMY);
+				gse.writeMessage(BBMove.toString());
 			}
 		}
 	}
