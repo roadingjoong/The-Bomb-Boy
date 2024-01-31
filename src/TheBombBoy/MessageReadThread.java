@@ -145,6 +145,10 @@ public class MessageReadThread implements Runnable{
 				case "BBMove":
 					int BBX = Integer.parseInt(messageCut[1]);
 					int BBY = Integer.parseInt(messageCut[2]);
+					int RDN = Integer.parseInt(messageCut[3]);
+					int TN = Integer.parseInt(messageCut[4]);
+					ingame.randomNum = RDN;
+					ingame.BPturnNum = TN;
 					ingame.BPBomb.setLocation(BBX,BBY);
 					break;
 					

@@ -7,7 +7,6 @@ public class BPBombThread implements Runnable {
 	Boolean Thread_ToF = true;
 	
 	Random random = new Random();
-	int randomNum = 0;
 	
 	BPBombThread(InGame ingame){
 		this.ingame = ingame;
@@ -22,31 +21,37 @@ public class BPBombThread implements Runnable {
 			}
 			
 			if(ingame.BPBomb.getBounds().intersects(ingame.UserAvatar.getBounds())) {
-				randomNum = random.nextInt(2)+1;
+				ingame.randomNum = random.nextInt(2)+1;
 				ingame.touchBombNum = 1;
+				
+				if(ingame.MyStandardStart == 1) {
+					ingame.BPturnNum = 1;
+				}else if(ingame.JoinStandardStart == 1) {
+					ingame.BPturnNum = 2;
+				}
 			}
 			
-			if(ingame.MyStandardStart == 1) {
+			if(ingame.BPturnNum == 1) {
 				
-				if(randomNum == 1) {
+				if(ingame.randomNum == 1) {
 					ingame.BPBomb.setLocation(ingame.BPBomb.getLocation().x-5, ingame.BPBomb.getLocation().y-5);
-				}else if(randomNum == 2) {
+				}else if(ingame.randomNum == 2) {
 					ingame.BPBomb.setLocation(ingame.BPBomb.getLocation().x+5, ingame.BPBomb.getLocation().y-5);
-				}else if(randomNum == 3) {
+				}else if(ingame.randomNum == 3) {
 					ingame.BPBomb.setLocation(625,250);
-				}else if(randomNum == 4) {
+				}else if(ingame.randomNum == 4) {
 					ingame.BPBomb.setLocation(625,400);
 				}
 				
-			}else if(ingame.JoinStandardStart == 1) {
+			}else if(ingame.BPturnNum == 2) {
 				
-				if(randomNum == 1) {
+				if(ingame.randomNum == 1) {
 					ingame.BPBomb.setLocation(ingame.BPBomb.getLocation().x-5, ingame.BPBomb.getLocation().y+5);
-				}else if(randomNum == 2) {
+				}else if(ingame.randomNum == 2) {
 					ingame.BPBomb.setLocation(ingame.BPBomb.getLocation().x+5, ingame.BPBomb.getLocation().y+5);
-				}else if(randomNum == 3) {
+				}else if(ingame.randomNum == 3) {
 					ingame.BPBomb.setLocation(625,250);
-				}else if(randomNum == 4) {
+				}else if(ingame.randomNum == 4) {
 					ingame.BPBomb.setLocation(625,400);
 				}
 				
@@ -57,13 +62,13 @@ public class BPBombThread implements Runnable {
 			}
 			
 			if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame1.getBounds())) {
-				randomNum = 2;
+				ingame.randomNum = 2;
 			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame2.getBounds())) {
-				randomNum = 1;
+				ingame.randomNum = 1;
 			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame3.getBounds())) {
-				randomNum = 3;
+				ingame.randomNum = 3;
 			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame4.getBounds())) {
-				randomNum = 4;
+				ingame.randomNum = 4;
 			}
 			
 			try {

@@ -747,7 +747,7 @@ public class GameThread implements Runnable{
 								if(ingame.touchBombNum == 1) {
 									ingame.writer.println("BPBombMove/c;"+ingame.BPBomb.getLocation().x+
 											"/c;"+ingame.BPBomb.getLocation().y+
-											"/c;"+ingame.OtherUserId);
+											"/c;"+ingame.OtherUserId+"/c;"+ingame.randomNum+"/c;"+ingame.BPturnNum);
 								}
 								
 								try {
@@ -812,7 +812,7 @@ public class GameThread implements Runnable{
 								if(ingame.touchBombNum == 1) {
 									ingame.writer.println("BPBombMove/c;"+ingame.BPBomb.getLocation().x+
 											"/c;"+ingame.BPBomb.getLocation().y+
-											"/c;"+ingame.OtherUserId);
+											"/c;"+ingame.OtherUserId+"/c;"+ingame.randomNum+"/c;"+ingame.BPturnNum);
 								}
 								
 								try {

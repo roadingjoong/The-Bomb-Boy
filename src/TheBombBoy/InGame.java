@@ -232,6 +232,8 @@ public class InGame extends JFrame {
 	JLabel BPBomb;
 	int NewBPBombNum = 0;
 	int touchBombNum = 0;
+	int randomNum = 0;
+	int BPturnNum = 0;
 	
 	JLabel User1Name;
 	JLabel User1Level;
@@ -1233,9 +1235,9 @@ public class InGame extends JFrame {
 						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 						}else {
-							if(UserAvatar.getLocation().y >= 370) {
+							if(UserAvatar.getLocation().y >= 400) {
 								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y-5);
-							}else if(UserAvatar.getLocation().y <= 370){
+							}else if(UserAvatar.getLocation().y <= 400){
 								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 							}
 						}
@@ -1273,9 +1275,9 @@ public class InGame extends JFrame {
 						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 						}else {
-							if(UserAvatar.getLocation().y <= 230) {
+							if(UserAvatar.getLocation().y <= 200) {
 								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y+5);
-							}else if(UserAvatar.getLocation().y >= 230) {
+							}else if(UserAvatar.getLocation().y >= 200) {
 								UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 							}
 						}
