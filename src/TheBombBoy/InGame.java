@@ -2011,13 +2011,13 @@ public class InGame extends JFrame {
 		SpaceFrame2.setOpaque(true);
 		
 		SpaceFrame3 = new JLabel();
-		SpaceFrame3.setBackground(Color.BLACK);
+		SpaceFrame3.setBackground(Color.RED);
 		SpaceFrame3.setSize(500, 10);
 		SpaceFrame3.setLocation(400,600);
 		SpaceFrame3.setOpaque(true);
 		
 		SpaceFrame4 = new JLabel();
-		SpaceFrame4.setBackground(Color.BLACK);
+		SpaceFrame4.setBackground(Color.BLUE);
 		SpaceFrame4.setSize(500, 10);
 		SpaceFrame4.setLocation(400, 90);
 		SpaceFrame4.setOpaque(true);
