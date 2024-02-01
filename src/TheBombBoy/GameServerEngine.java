@@ -226,6 +226,13 @@ public class GameServerEngine extends Thread{
 					BPBombMove(BMX,BMY,OU,RDN,TN);
 					break;
 					
+				case "BPScore" :
+					String Score = messageCut[1];
+					String ouser = messageCut[2];
+					String RorB = messageCut[3];
+					BPScore(Score, ouser, RorB);
+					break;
+					
 				case "QuiteGame":
 					QuiteNum = 1;
 					break;
@@ -346,6 +353,16 @@ public class GameServerEngine extends Thread{
 			if(gse.Id.equals(OU)) {
 				BBMove.append(BMX+"/c;"+BMY+"/c;"+RDN+"/c;"+TN);
 				gse.writeMessage(BBMove.toString());
+			}
+		}
+	}
+	
+	void BPScore(String score, String ouser, String RorB) {
+		StringBuffer BPSC = new StringBuffer("BPSC/c;");
+		for(GameServerEngine gse : GS.GSEList) {
+			if(gse.Id.equals(ouser)) {
+				BPSC.append(score+"/c;"+RorB);
+				gse.writeMessage(BPSC.toString());
 			}
 		}
 	}

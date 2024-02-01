@@ -152,6 +152,20 @@ public class MessageReadThread implements Runnable{
 					ingame.BPBomb.setLocation(BBX,BBY);
 					break;
 					
+				case "BPSC":
+					int BPS = Integer.parseInt(messageCut[1]);
+					int RorB = Integer.parseInt(messageCut[2]);
+					
+					if(RorB == 1) {
+						ingame.BlueScoreNum = BPS;
+						ingame.BPBlueScore.setText("Score : "+ingame.BlueScoreNum);
+					}else if(RorB == 2) {
+						ingame.RedScoreNum = BPS;
+						ingame.BPRedScore.setText("Score : "+ingame.RedScoreNum);
+					}
+					
+					break;
+					
 				case "ChSu" :
 					ingame.InformationId = messageCut[1];
 					ingame.InformationPw = messageCut[2];

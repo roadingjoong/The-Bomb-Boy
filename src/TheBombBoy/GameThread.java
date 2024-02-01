@@ -728,8 +728,7 @@ public class GameThread implements Runnable{
 							ingame.OtherAvatar.setLocation(600, 110);
 							ingame.OtherAvatar.setVisible(true);
 							
-							while(ingame.joinNum == 0) {
-								
+							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10) {
 								if(ingame.NewBPBombNum == 1) {
 									ingame.NewBPBombNum = 0;
 									ingame.BPBomb.setLocation(625, 400);
@@ -803,7 +802,7 @@ public class GameThread implements Runnable{
 							ingame.OtherAvatar.setLocation(600, 490);
 							ingame.OtherAvatar.setVisible(true);
 							
-							while(ingame.joinNum == 0) {
+							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10) {
 								if(ingame.AvatarMove != 0) {
 									ingame.writer.println("User1move/c;"+ingame.UserAvatar.getLocation().x+"/c;"
 									+ingame.UserAvatar.getLocation().y+"/c;"+ingame.OtherUserId+"/c;"+ingame.AvatarMove);

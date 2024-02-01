@@ -67,12 +67,18 @@ public class BPBombThread implements Runnable {
 				ingame.randomNum = 1;
 			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame3.getBounds())) { //red 하
 				ingame.randomNum = 3;
-				ingame.BlueScoreNum += 1;
-				ingame.BPBlueScore.setText("Score : "+ingame.BlueScoreNum);
+				if(ingame.MyStandardStart == 1) {
+					ingame.BlueScoreNum += 1;
+					ingame.BPBlueScore.setText("Score : "+ingame.BlueScoreNum);
+					ingame.writer.println("BPScore/c;"+ingame.BlueScoreNum+"/c;"+ingame.OtherUserId+"/c;"+1);
+				}
 			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame4.getBounds())) { //blue 상
 				ingame.randomNum = 4;
-				ingame.RedScoreNum += 1;
-				ingame.BPRedScore.setText("Score : "+ingame.RedScoreNum);
+				if(ingame.MyStandardStart == 1) {
+					ingame.RedScoreNum += 1;
+					ingame.BPRedScore.setText("Score : "+ingame.RedScoreNum);
+					ingame.writer.println("BPScore/c;"+ingame.RedScoreNum+"/c;"+ingame.OtherUserId+"/c;"+2);
+				}
 			}
 			try {
 				Thread.sleep(30);
