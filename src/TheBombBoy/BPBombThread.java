@@ -75,6 +75,11 @@ public class BPBombThread implements Runnable {
 					ingame.BPBlueScore.setText("Score : "+ingame.BlueScoreNum);
 					ingame.writer.println("BPScore/c;"+ingame.BlueScoreNum+"/c;"+ingame.OtherUserId+"/c;"+1);
 				}
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame4.getBounds())) { //blue 상
 				ingame.BPBomb.setIcon(new ImageIcon(ingame.mb.makeBomb2()));
 				ingame.randomNum = 4;
@@ -82,6 +87,11 @@ public class BPBombThread implements Runnable {
 					ingame.RedScoreNum += 1;
 					ingame.BPRedScore.setText("Score : "+ingame.RedScoreNum);
 					ingame.writer.println("BPScore/c;"+ingame.RedScoreNum+"/c;"+ingame.OtherUserId+"/c;"+2);
+				}
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
 			}
 			try {

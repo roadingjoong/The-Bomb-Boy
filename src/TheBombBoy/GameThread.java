@@ -758,6 +758,28 @@ public class GameThread implements Runnable{
 							
 							ingame.BPGameStartNum = 0;
 							ingame.MyStandardStart = 0;
+							
+							if(ingame.RedScoreNum == 10) {
+								ingame.closePane();
+								ingame.StageFailePanel();
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}else if(ingame.BlueScoreNum == 10) {
+								ingame.closePane();
+								ingame.StageClearPanel();
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}
+							ingame.RedScoreNum = 0;
+							ingame.BlueScoreNum = 0;
+							ingame.joinNum = 17;
+							
 							ingame.BarPane.setVisible(true);	
 						}
 						//-------------------------------------------------------------------------------------
@@ -823,6 +845,28 @@ public class GameThread implements Runnable{
 							
 							ingame.BPGameStartNum = 0;
 							ingame.JoinStandardStart = 0;
+							
+							if(ingame.RedScoreNum == 10) {
+								ingame.closePane();
+								ingame.StageClearPanel();
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}else if(ingame.BlueScoreNum == 10) {
+								ingame.closePane();
+								ingame.StageFailePanel();
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}
+							ingame.RedScoreNum = 0;
+							ingame.BlueScoreNum = 0;
+							ingame.joinNum = 17;
+							
 							ingame.BarPane.setVisible(true);	
 						}
 						//================================================================
