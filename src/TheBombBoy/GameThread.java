@@ -821,6 +821,7 @@ public class GameThread implements Runnable{
 								}
 							}
 							
+							ingame.BPGameStartNum = 0;
 							ingame.JoinStandardStart = 0;
 							ingame.BarPane.setVisible(true);	
 						}

@@ -1994,7 +1994,7 @@ public class InGame extends JFrame {
 		BPBomb = new JLabel();
 		BPBomb.setSize(50,50);
 		BPBomb.setLocation(0,0);
-		BPBomb.setOpaque(true);
+		BPBomb.setIcon(new ImageIcon(mb.makeBomb1()));
 		BPBomb.setVisible(false);
 		
 		BPBombThread bpbombthread = new BPBombThread(this);

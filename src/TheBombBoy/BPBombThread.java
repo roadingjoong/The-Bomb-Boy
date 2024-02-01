@@ -2,6 +2,8 @@ package TheBombBoy;
 
 import java.util.Random;
 
+import javax.swing.ImageIcon;
+
 public class BPBombThread implements Runnable {
 	InGame ingame;
 	Boolean Thread_ToF = true;
@@ -66,6 +68,7 @@ public class BPBombThread implements Runnable {
 			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame2.getBounds())) {
 				ingame.randomNum = 1;
 			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame3.getBounds())) { //red 하
+				ingame.BPBomb.setIcon(new ImageIcon(ingame.mb.makeBomb2()));
 				ingame.randomNum = 3;
 				if(ingame.MyStandardStart == 1) {
 					ingame.BlueScoreNum += 1;
@@ -73,6 +76,7 @@ public class BPBombThread implements Runnable {
 					ingame.writer.println("BPScore/c;"+ingame.BlueScoreNum+"/c;"+ingame.OtherUserId+"/c;"+1);
 				}
 			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame4.getBounds())) { //blue 상
+				ingame.BPBomb.setIcon(new ImageIcon(ingame.mb.makeBomb2()));
 				ingame.randomNum = 4;
 				if(ingame.MyStandardStart == 1) {
 					ingame.RedScoreNum += 1;
@@ -85,6 +89,7 @@ public class BPBombThread implements Runnable {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			ingame.BPBomb.setIcon(new ImageIcon(ingame.mb.makeBomb1()));
 			
 		}
 	}
