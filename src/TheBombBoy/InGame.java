@@ -255,6 +255,11 @@ public class InGame extends JFrame {
 	JLabel SpaceFrame4;
 	JLabel GroundLine;
 	
+	JLabel BPRedScore;
+	int RedScoreNum = 0;
+	JLabel BPBlueScore;
+	int BlueScoreNum = 0;
+	
 	//-----------------------------------
 	
 	Socket s = null;
@@ -2029,6 +2034,27 @@ public class InGame extends JFrame {
 		GroundLine.setOpaque(true);
 	}
 	
+	void BPScoreM() {
+		
+		Font BPScoreFont = new Font("Arial",Font.BOLD, 40);
+		
+		BPRedScore = new JLabel("Score : "+RedScoreNum);
+		BPRedScore.setSize(200, 70);
+		BPRedScore.setLocation(550, 630);
+		BPRedScore.setFont(BPScoreFont);
+		BPRedScore.setForeground(Color.RED);
+		BPRedScore.setHorizontalAlignment(JLabel.CENTER);
+		BPRedScore.setVerticalAlignment(JLabel.CENTER);
+		
+		BPBlueScore = new JLabel("Score : "+BlueScoreNum);
+		BPBlueScore.setSize(200, 70);
+		BPBlueScore.setLocation(550, 10);
+		BPBlueScore.setFont(BPScoreFont);
+		BPBlueScore.setForeground(Color.BLUE);
+		BPBlueScore.setHorizontalAlignment(JLabel.CENTER);
+		BPBlueScore.setVerticalAlignment(JLabel.CENTER);
+	}
+	
 	void BPMyStandardPanel() {
 		BPMyStandardPane = new JPanel();
 		BPMyStandardPane.setBackground(Color.LIGHT_GRAY);
@@ -2045,6 +2071,10 @@ public class InGame extends JFrame {
 		
 		BPBombM();
 		BPMyStandardPane.add(BPBomb);
+		
+		BPScoreM();
+		BPMyStandardPane.add(BPRedScore);
+		BPMyStandardPane.add(BPBlueScore);
 		
 		SpaceFrameM();
 		BPMyStandardPane.add(SpaceFrame1);
@@ -2130,6 +2160,10 @@ public class InGame extends JFrame {
 		BPJoinStandardPane.add(SpaceFrame3);
 		BPJoinStandardPane.add(SpaceFrame4);
 		BPJoinStandardPane.add(GroundLine);
+		
+		BPScoreM();
+		BPJoinStandardPane.add(BPBlueScore);
+		BPJoinStandardPane.add(BPRedScore);
 		
 		Font UserInfoFont = new Font("Arial", Font.BOLD, 20);
 		

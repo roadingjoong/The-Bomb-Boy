@@ -65,14 +65,17 @@ public class BPBombThread implements Runnable {
 				ingame.randomNum = 2;
 			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame2.getBounds())) {
 				ingame.randomNum = 1;
-			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame3.getBounds())) {
+			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame3.getBounds())) { //red 하
 				ingame.randomNum = 3;
-			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame4.getBounds())) {
+				ingame.BlueScoreNum += 1;
+				ingame.BPBlueScore.setText("Score : "+ingame.BlueScoreNum);
+			}else if(ingame.BPBomb.getBounds().intersects(ingame.SpaceFrame4.getBounds())) { //blue 상
 				ingame.randomNum = 4;
+				ingame.RedScoreNum += 1;
+				ingame.BPRedScore.setText("Score : "+ingame.RedScoreNum);
 			}
-			
 			try {
-				Thread.sleep(100);
+				Thread.sleep(30);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
