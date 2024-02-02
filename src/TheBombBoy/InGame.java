@@ -148,6 +148,8 @@ public class InGame extends JFrame {
 	GoldCoin3G gc3g = new GoldCoin3G();
 	GoldBox1G gb1g = new GoldBox1G();
 	
+	BPGameStartButtonG BPgsb = new BPGameStartButtonG();
+	
 	String InformationId;
 	String InformationPw;
 	String InformationName;
@@ -217,7 +219,7 @@ public class InGame extends JFrame {
 	int JoinStandardStart = 0;
 	String joinRoomName;
 	
-	String OtherUserId;
+	String OtherUserId = "";
 	String OtherUserName;
 	int OtherUserLevel;
 	String OtherUserAlias;
@@ -1978,14 +1980,18 @@ public class InGame extends JFrame {
 		BPGameStartButton = new JLabel();
 		BPGameStartButton.setSize(200,80);
 		BPGameStartButton.setLocation(50, 630);
-		BPGameStartButton.setOpaque(true);
+		BPGameStartButton.setIcon(new ImageIcon(BPgsb.MakeStartButton1()));
+		BPGameStartButton.setVisible(true);
 		
 		BPGameStartButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				BPGameStartNum = 1;
-				writer.println("BPGameStart/c;"+OtherUserId);
-				NewBPBombNum = 1;
+				if(BPGameStartNum == 0 && OtherUserId.length() >= 1) {
+					BPGameStartButton.setIcon(new ImageIcon(BPgsb.MakeStartButton2()));
+					BPGameStartNum = 1;
+					writer.println("BPGameStart/c;"+OtherUserId);
+					NewBPBombNum = 1;
+				}
 			}
 		});
 	}

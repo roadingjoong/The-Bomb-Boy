@@ -730,12 +730,14 @@ public class GameThread implements Runnable{
 							
 							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10) {
 								if(ingame.NewBPBombNum == 1) {
+									ingame.BPGameStartButton.setIcon(new ImageIcon(ingame.BPgsb.MakeStartButton1()));
 									ingame.NewBPBombNum = 0;
 									ingame.BPBomb.setLocation(625, 400);
 									ingame.BPBomb.setVisible(true);
 									ingame.writer.println("NewBPBomb/c;"
 									+ingame.BPBomb.getLocation().x+"/c;"+ingame.BPBomb.getLocation().y
 									+"/c;"+ingame.OtherUserId);
+									ingame.BPGameStartButton.setVisible(false);
 								}
 								
 								if(ingame.AvatarMove != 0) {
