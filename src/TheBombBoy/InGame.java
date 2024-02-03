@@ -2041,7 +2041,6 @@ public class InGame extends JFrame {
 	}
 	
 	void BPScoreM() {
-		
 		Font BPScoreFont = new Font("Arial",Font.BOLD, 40);
 		
 		BPRedScore = new JLabel("Score : "+RedScoreNum);
@@ -2088,6 +2087,9 @@ public class InGame extends JFrame {
 		BPMyStandardPane.add(SpaceFrame3);
 		BPMyStandardPane.add(SpaceFrame4);
 		BPMyStandardPane.add(GroundLine);
+		
+		GameTimerM();
+		BPMyStandardPane.add(GameTimer);
 		
 		Font UserInfoFont = new Font("Arial", Font.BOLD, 20);
 		
@@ -2170,6 +2172,9 @@ public class InGame extends JFrame {
 		BPScoreM();
 		BPJoinStandardPane.add(BPBlueScore);
 		BPJoinStandardPane.add(BPRedScore);
+		
+		GameTimerM();
+		BPJoinStandardPane.add(GameTimer);
 		
 		Font UserInfoFont = new Font("Arial", Font.BOLD, 20);
 		

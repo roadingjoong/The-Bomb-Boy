@@ -14,12 +14,22 @@ public class GameTimerThread implements Runnable{
 	
 	public void run() {
 		while(Thread_ToF) {
-			if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0) {
+			if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 && 
+					ingame.MyStandardStart == 0 && ingame.JoinStandardStart == 0) {
 				minute = 1;
 				second = 59;
 				Thread_ToF = false;
 				return;
 			}
+			
+			while((ingame.MyStandardStart == 1 || ingame.JoinStandardStart == 1) && ingame.BPGameStartNum == 0) {
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			
 			ingame.GameTimer.setText("0"+minute+":"+second);
 			if(second < 10) {
 				ingame.GameTimer.setText("0"+minute+":"+"0"+second);

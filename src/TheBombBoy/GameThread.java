@@ -758,9 +758,6 @@ public class GameThread implements Runnable{
 								}
 							}
 							
-							ingame.BPGameStartNum = 0;
-							ingame.MyStandardStart = 0;
-							
 							if(ingame.RedScoreNum == 10) {
 								ingame.closePane();
 								ingame.StageFailePanel();
@@ -778,6 +775,9 @@ public class GameThread implements Runnable{
 									e.printStackTrace();
 								}
 							}
+							
+							ingame.BPGameStartNum = 0;
+							ingame.MyStandardStart = 0;
 							ingame.RedScoreNum = 0;
 							ingame.BlueScoreNum = 0;
 							ingame.joinNum = 17;
@@ -845,9 +845,6 @@ public class GameThread implements Runnable{
 								}
 							}
 							
-							ingame.BPGameStartNum = 0;
-							ingame.JoinStandardStart = 0;
-							
 							if(ingame.RedScoreNum == 10) {
 								ingame.closePane();
 								ingame.StageClearPanel();
@@ -865,6 +862,9 @@ public class GameThread implements Runnable{
 									e.printStackTrace();
 								}
 							}
+							
+							ingame.BPGameStartNum = 0;
+							ingame.JoinStandardStart = 0;
 							ingame.RedScoreNum = 0;
 							ingame.BlueScoreNum = 0;
 							ingame.joinNum = 17;
