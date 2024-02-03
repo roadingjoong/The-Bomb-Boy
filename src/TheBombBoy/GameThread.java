@@ -728,7 +728,7 @@ public class GameThread implements Runnable{
 							ingame.OtherAvatar.setLocation(600, 110);
 							ingame.OtherAvatar.setVisible(true);
 							
-							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10) {
+							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10 && ingame.TimeOverNum == 0) {
 								if(ingame.NewBPBombNum == 1) {
 									ingame.BPGameStartButton.setIcon(new ImageIcon(ingame.BPgsb.MakeStartButton1()));
 									ingame.NewBPBombNum = 0;
@@ -758,24 +758,20 @@ public class GameThread implements Runnable{
 								}
 							}
 							
-							if(ingame.RedScoreNum == 10) {
+							if(ingame.RedScoreNum < ingame.BlueScoreNum) {
 								ingame.closePane();
 								ingame.StageFailePanel();
-								try {
-									Thread.sleep(1000);
-								} catch (InterruptedException e) {
-									e.printStackTrace();
-								}
-							}else if(ingame.BlueScoreNum == 10) {
+							}else if(ingame.RedScoreNum > ingame.BlueScoreNum) {
 								ingame.closePane();
 								ingame.StageClearPanel();
-								try {
-									Thread.sleep(1000);
-								} catch (InterruptedException e) {
-									e.printStackTrace();
-								}
+							}
+							try {
+								Thread.sleep(1000);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
 							}
 							
+							ingame.TimeOverNum = 0;
 							ingame.BPGameStartNum = 0;
 							ingame.MyStandardStart = 0;
 							ingame.RedScoreNum = 0;
@@ -826,7 +822,7 @@ public class GameThread implements Runnable{
 							ingame.OtherAvatar.setLocation(600, 490);
 							ingame.OtherAvatar.setVisible(true);
 							
-							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10) {
+							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10 && ingame.TimeOverNum == 0) {
 								if(ingame.AvatarMove != 0) {
 									ingame.writer.println("User1move/c;"+ingame.UserAvatar.getLocation().x+"/c;"
 									+ingame.UserAvatar.getLocation().y+"/c;"+ingame.OtherUserId+"/c;"+ingame.AvatarMove);
@@ -845,24 +841,20 @@ public class GameThread implements Runnable{
 								}
 							}
 							
-							if(ingame.RedScoreNum == 10) {
+							if( ingame.BlueScoreNum > ingame.RedScoreNum ) {
 								ingame.closePane();
 								ingame.StageClearPanel();
-								try {
-									Thread.sleep(1000);
-								} catch (InterruptedException e) {
-									e.printStackTrace();
-								}
-							}else if(ingame.BlueScoreNum == 10) {
+							}else if(ingame.BlueScoreNum < ingame.RedScoreNum) {
 								ingame.closePane();
 								ingame.StageFailePanel();
-								try {
-									Thread.sleep(1000);
-								} catch (InterruptedException e) {
-									e.printStackTrace();
-								}
+							}
+							try {
+								Thread.sleep(1000);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
 							}
 							
+							ingame.TimeOverNum = 0;
 							ingame.BPGameStartNum = 0;
 							ingame.JoinStandardStart = 0;
 							ingame.RedScoreNum = 0;
