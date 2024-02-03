@@ -1496,11 +1496,14 @@ public class InGame extends JFrame {
 		ExitGameButton.setLocation(1210, 630);
 		ExitGameButton.setOpaque(false);
 		ExitGameButton.setIcon(new ImageIcon(egb.makeButton1()));
+		ExitGameButton.setVisible(true);
 		
 		ExitGameButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ExitGameNum = 1;
+				if(BPGameStartNum == 0) {
+					ExitGameNum = 1;
+				}
 			}
 		});
 		ExitGameButtonThread egbt = new ExitGameButtonThread(this);
@@ -2091,6 +2094,9 @@ public class InGame extends JFrame {
 		GameTimerM();
 		BPMyStandardPane.add(GameTimer);
 		
+		ExitGameButtonM();
+		BPMyStandardPane.add(ExitGameButton);
+		
 		Font UserInfoFont = new Font("Arial", Font.BOLD, 20);
 		
 		JPanel User1Info = new JPanel();
@@ -2175,6 +2181,9 @@ public class InGame extends JFrame {
 		
 		GameTimerM();
 		BPJoinStandardPane.add(GameTimer);
+		
+		ExitGameButtonM();
+		BPJoinStandardPane.add(ExitGameButton);
 		
 		Font UserInfoFont = new Font("Arial", Font.BOLD, 20);
 		

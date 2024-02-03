@@ -698,6 +698,9 @@ public class GameThread implements Runnable{
 							ingame.User1Alias.setText("Alias : "+ingame.InformationAlias);
 							
 							while(ingame.joinMyRoomOtherUser == 0) {
+								if(ingame.ExitGameNum == 1) {
+									break;
+								}
 								try {
 									Thread.sleep(100);
 								} catch (InterruptedException e) {
@@ -729,6 +732,10 @@ public class GameThread implements Runnable{
 							ingame.OtherAvatar.setVisible(true);
 							
 							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10 && ingame.TimeOverNum == 0) {
+								if(ingame.ExitGameNum == 1) {
+									break;
+								}
+								
 								if(ingame.NewBPBombNum == 1) {
 									ingame.BPGameStartButton.setIcon(new ImageIcon(ingame.BPgsb.MakeStartButton1()));
 									ingame.NewBPBombNum = 0;
@@ -771,6 +778,7 @@ public class GameThread implements Runnable{
 								e.printStackTrace();
 							}
 							
+							ingame.ExitGameNum = 0;
 							ingame.TimeOverNum = 0;
 							ingame.BPGameStartNum = 0;
 							ingame.MyStandardStart = 0;
@@ -794,6 +802,9 @@ public class GameThread implements Runnable{
 							ingame.JUser2Alias.setText("Alias : "+ingame.InformationAlias);
 							
 							while(ingame.WelcomRoomOtherUser == 0) {
+								if(ingame.ExitGameNum == 1) {
+									break;
+								}
 								try {
 									Thread.sleep(100);
 								} catch (InterruptedException e) {
@@ -823,6 +834,10 @@ public class GameThread implements Runnable{
 							ingame.OtherAvatar.setVisible(true);
 							
 							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10 && ingame.TimeOverNum == 0) {
+								if(ingame.ExitGameNum == 1) {
+									break;
+								}
+								
 								if(ingame.AvatarMove != 0) {
 									ingame.writer.println("User1move/c;"+ingame.UserAvatar.getLocation().x+"/c;"
 									+ingame.UserAvatar.getLocation().y+"/c;"+ingame.OtherUserId+"/c;"+ingame.AvatarMove);
@@ -854,6 +869,7 @@ public class GameThread implements Runnable{
 								e.printStackTrace();
 							}
 							
+							ingame.ExitGameNum = 0;
 							ingame.TimeOverNum = 0;
 							ingame.BPGameStartNum = 0;
 							ingame.JoinStandardStart = 0;
