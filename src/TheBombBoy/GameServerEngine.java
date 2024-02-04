@@ -233,6 +233,12 @@ public class GameServerEngine extends Thread{
 					BPScore(Score, ouser, RorB);
 					break;
 					
+				case "BPCloseRoom":
+					GS.RoomList.remove(MyRoomName+"/c;");
+					MyRoomName = "";
+					BPCreateRoom();
+					break;
+					
 				case "QuiteGame":
 					QuiteNum = 1;
 					break;

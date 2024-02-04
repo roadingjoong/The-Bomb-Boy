@@ -217,13 +217,13 @@ public class InGame extends JFrame {
 	int BPCgroundNum = 0;
 	int MyStandardStart = 0;
 	int JoinStandardStart = 0;
-	String joinRoomName;
+	String joinRoomName = "";
 	
 	String OtherUserId = "";
-	String OtherUserName;
-	int OtherUserLevel;
-	String OtherUserAlias;
-	int OtherUserAvatar;
+	String OtherUserName = "";
+	int OtherUserLevel = 0;
+	String OtherUserAlias = "";
+	int OtherUserAvatar = 0;
 	
 	int joinMyRoomOtherUser = 0;
 	int WelcomRoomOtherUser = 0;

@@ -778,6 +778,8 @@ public class GameThread implements Runnable{
 								e.printStackTrace();
 							}
 							
+							ingame.writer.println("BPCloseRoom/c;");
+							
 							ingame.ExitGameNum = 0;
 							ingame.TimeOverNum = 0;
 							ingame.BPGameStartNum = 0;
