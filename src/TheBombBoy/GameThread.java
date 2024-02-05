@@ -685,9 +685,9 @@ public class GameThread implements Runnable{
 							}
 						}
 						//========================================
-						if(ingame.joinNum == 19) {
-							ingame.MyStandardStart = 1;
+						if(ingame.joinNum == 19) { // 반복문 안에 넣어야 됌 while( ~~~~ )
 							ingame.joinNum = 0;
+							ingame.MyStandardStart = 1;
 							ingame.closePane();
 							ingame.BarPane.setVisible(false);
 							ingame.BPMyStandardPanel();
@@ -780,15 +780,24 @@ public class GameThread implements Runnable{
 							
 							ingame.writer.println("BPCloseRoom/c;");
 							
+							ingame.OtherUserId = "";
+							ingame.OtherUserName = "";
+							ingame.OtherUserLevel = 0;
+							ingame.OtherUserAlias = "";
+							ingame.OtherUserAvatar = 0;
+							
 							ingame.ExitGameNum = 0;
 							ingame.TimeOverNum = 0;
 							ingame.BPGameStartNum = 0;
 							ingame.MyStandardStart = 0;
 							ingame.RedScoreNum = 0;
 							ingame.BlueScoreNum = 0;
+							
 							ingame.joinNum = 17;
 							
-							ingame.BarPane.setVisible(true);	
+							ingame.BarPane.setVisible(true);
+							
+							continue;
 						}
 						//-------------------------------------------------------------------------------------
 						if(ingame.joinNum == 20) {
@@ -837,6 +846,7 @@ public class GameThread implements Runnable{
 							
 							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10 && ingame.TimeOverNum == 0) {
 								if(ingame.ExitGameNum == 1) {
+									ingame.writer.println("BPExiteRoom/c;"+ingame.OtherUserId);
 									break;
 								}
 								
@@ -871,6 +881,12 @@ public class GameThread implements Runnable{
 								e.printStackTrace();
 							}
 							
+							ingame.OtherUserId = "";
+							ingame.OtherUserName = "";
+							ingame.OtherUserLevel = 0;
+							ingame.OtherUserAlias = "";
+							ingame.OtherUserAvatar = 0;
+							
 							ingame.ExitGameNum = 0;
 							ingame.TimeOverNum = 0;
 							ingame.BPGameStartNum = 0;
@@ -879,7 +895,7 @@ public class GameThread implements Runnable{
 							ingame.BlueScoreNum = 0;
 							ingame.joinNum = 17;
 							
-							ingame.BarPane.setVisible(true);	
+							ingame.BarPane.setVisible(true);
 						}
 						//================================================================
 						String BPexM = "BPexite/c;"+ingame.InformationName;

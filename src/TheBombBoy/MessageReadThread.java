@@ -163,6 +163,19 @@ public class MessageReadThread implements Runnable{
 						ingame.RedScoreNum = BPS;
 						ingame.BPRedScore.setText("Score : "+ingame.RedScoreNum);
 					}
+					break;
+					
+				case "BPEXR":
+					ingame.OtherUserId = "";
+					ingame.OtherUserName = "";
+					ingame.OtherUserLevel = 0;
+					ingame.OtherUserAlias = "";
+					ingame.OtherUserAvatar = 0;
+					
+					ingame.User2Name.setText("Name : "+ingame.OtherUserName);
+					ingame.User2Level.setText("Level : "+ingame.OtherUserLevel);
+					ingame.User2Alias.setText("Alias : "+ingame.OtherUserAlias);
+					ingame.OtherAvatar.setVisible(false);
 					
 					break;
 					

@@ -239,6 +239,11 @@ public class GameServerEngine extends Thread{
 					BPCreateRoom();
 					break;
 					
+				case "BPExiteRoom":
+					String otus = messageCut[1];
+					BPExiteRoom(otus);
+					break;
+					
 				case "QuiteGame":
 					QuiteNum = 1;
 					break;
@@ -369,6 +374,15 @@ public class GameServerEngine extends Thread{
 			if(gse.Id.equals(ouser)) {
 				BPSC.append(score+"/c;"+RorB);
 				gse.writeMessage(BPSC.toString());
+			}
+		}
+	}
+	
+	void BPExiteRoom(String otus) {
+		StringBuffer BPEXR = new StringBuffer("BPEXR/c;");
+		for(GameServerEngine gse : GS.GSEList) {
+			if(gse.Id.equals(otus)) {
+				gse.writeMessage(BPEXR.toString());
 			}
 		}
 	}
