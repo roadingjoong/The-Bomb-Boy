@@ -262,6 +262,8 @@ public class InGame extends JFrame {
 	JLabel BPBlueScore;
 	int BlueScoreNum = 0;
 	
+	int ExitMyRoomOtherUser = 0;
+	
 	//-----------------------------------
 	
 	Socket s = null;

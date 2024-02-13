@@ -697,73 +697,88 @@ public class GameThread implements Runnable{
 							ingame.User1Level.setText("Level : "+ingame.InformationLevel);
 							ingame.User1Alias.setText("Alias : "+ingame.InformationAlias);
 							
-							while(ingame.joinMyRoomOtherUser == 0) {
-								if(ingame.ExitGameNum == 1) {
-									break;
+							while(ingame.joinNum == 0) { // 방 만든 후 반복 / 상대가 방을 나갈 상황 대비
+								
+								while(ingame.joinMyRoomOtherUser == 0) {
+									if(ingame.ExitGameNum == 1) {
+										break;
+									}
+									try {
+										Thread.sleep(100);
+									} catch (InterruptedException e) {
+										e.printStackTrace();
+									}
 								}
-								try {
-									Thread.sleep(100);
-								} catch (InterruptedException e) {
-									e.printStackTrace();
+								
+								if(ingame.joinMyRoomOtherUser == 1) {
+									ingame.joinMyRoomOtherUser = 0;
+									ingame.User2Name.setText("Name : "+ingame.OtherUserName);
+									ingame.User2Level.setText("Level : "+ingame.OtherUserLevel);
+									ingame.User2Alias.setText("Alias : "+ingame.OtherUserAlias);
+									
+									ingame.writer.println("BPwelcom/c;"+ingame.OtherUserId);
 								}
+								
+								if(ingame.OtherUserAvatar == 1) {
+									ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar1()));
+								}else if(ingame.OtherUserAvatar == 2) {
+									ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar2()));
+								}else if(ingame.OtherUserAvatar == 3) {
+									ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar3()));
+								}else if(ingame.OtherUserAvatar == 4) {
+									ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar4()));
+								}else if(ingame.OtherUserAvatar == 5) {
+									ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar5()));
+								}
+								ingame.OtherAvatar.setLocation(600, 110);
+								ingame.OtherAvatar.setVisible(true);
+								
+								while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10 && ingame.TimeOverNum == 0) {
+									if(ingame.ExitGameNum == 1) {
+										break;
+									}
+									
+									if(ingame.NewBPBombNum == 1) {
+										ingame.BPGameStartButton.setIcon(new ImageIcon(ingame.BPgsb.MakeStartButton1()));
+										ingame.NewBPBombNum = 0;
+										ingame.BPBomb.setLocation(625, 400);
+										ingame.BPBomb.setVisible(true);
+										ingame.writer.println("NewBPBomb/c;"
+										+ingame.BPBomb.getLocation().x+"/c;"+ingame.BPBomb.getLocation().y
+										+"/c;"+ingame.OtherUserId);
+										ingame.BPGameStartButton.setVisible(false);
+									}
+									
+									if(ingame.AvatarMove != 0) {
+										ingame.writer.println("User1move/c;"+ingame.UserAvatar.getLocation().x+"/c;"
+										+ingame.UserAvatar.getLocation().y+"/c;"+ingame.OtherUserId+"/c;"+ingame.AvatarMove);
+									}
+									
+									if(ingame.touchBombNum == 1) {
+										ingame.writer.println("BPBombMove/c;"+ingame.BPBomb.getLocation().x+
+												"/c;"+ingame.BPBomb.getLocation().y+
+												"/c;"+ingame.OtherUserId+"/c;"+ingame.randomNum+"/c;"+ingame.BPturnNum);
+									}
+									
+									if(ingame.ExitMyRoomOtherUser == 1) {
+										break;
+									}
+									
+									try {
+										Thread.sleep(1);
+									} catch (InterruptedException e) {
+										e.printStackTrace();
+									}
+								}
+								
+								if(ingame.ExitMyRoomOtherUser == 1) {
+									ingame.ExitMyRoomOtherUser = 0;
+									continue;
+								}
+								
 							}
 							
-							if(ingame.joinMyRoomOtherUser == 1) {
-								ingame.joinMyRoomOtherUser = 0;
-								ingame.User2Name.setText("Name : "+ingame.OtherUserName);
-								ingame.User2Level.setText("Level : "+ingame.OtherUserLevel);
-								ingame.User2Alias.setText("Alias : "+ingame.OtherUserAlias);
-								
-								ingame.writer.println("BPwelcom/c;"+ingame.OtherUserId);
-							}
-							
-							if(ingame.OtherUserAvatar == 1) {
-								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar1()));
-							}else if(ingame.OtherUserAvatar == 2) {
-								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar2()));
-							}else if(ingame.OtherUserAvatar == 3) {
-								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar3()));
-							}else if(ingame.OtherUserAvatar == 4) {
-								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar4()));
-							}else if(ingame.OtherUserAvatar == 5) {
-								ingame.OtherAvatar.setIcon(new ImageIcon(ingame.mav.makeAvatar5()));
-							}
-							ingame.OtherAvatar.setLocation(600, 110);
-							ingame.OtherAvatar.setVisible(true);
-							
-							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10 && ingame.TimeOverNum == 0) {
-								if(ingame.ExitGameNum == 1) {
-									break;
-								}
-								
-								if(ingame.NewBPBombNum == 1) {
-									ingame.BPGameStartButton.setIcon(new ImageIcon(ingame.BPgsb.MakeStartButton1()));
-									ingame.NewBPBombNum = 0;
-									ingame.BPBomb.setLocation(625, 400);
-									ingame.BPBomb.setVisible(true);
-									ingame.writer.println("NewBPBomb/c;"
-									+ingame.BPBomb.getLocation().x+"/c;"+ingame.BPBomb.getLocation().y
-									+"/c;"+ingame.OtherUserId);
-									ingame.BPGameStartButton.setVisible(false);
-								}
-								
-								if(ingame.AvatarMove != 0) {
-									ingame.writer.println("User1move/c;"+ingame.UserAvatar.getLocation().x+"/c;"
-									+ingame.UserAvatar.getLocation().y+"/c;"+ingame.OtherUserId+"/c;"+ingame.AvatarMove);
-								}
-								
-								if(ingame.touchBombNum == 1) {
-									ingame.writer.println("BPBombMove/c;"+ingame.BPBomb.getLocation().x+
-											"/c;"+ingame.BPBomb.getLocation().y+
-											"/c;"+ingame.OtherUserId+"/c;"+ingame.randomNum+"/c;"+ingame.BPturnNum);
-								}
-								
-								try {
-									Thread.sleep(1);
-								} catch (InterruptedException e) {
-									e.printStackTrace();
-								}
-							}
+							// -- 게임 정상 종료 후 --
 							
 							if(ingame.RedScoreNum < ingame.BlueScoreNum) {
 								ingame.closePane();
@@ -797,7 +812,6 @@ public class GameThread implements Runnable{
 							
 							ingame.BarPane.setVisible(true);
 							
-							continue;
 						}
 						//-------------------------------------------------------------------------------------
 						if(ingame.joinNum == 20) {

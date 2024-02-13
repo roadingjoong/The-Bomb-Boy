@@ -172,6 +172,9 @@ public class MessageReadThread implements Runnable{
 					ingame.OtherUserAlias = "";
 					ingame.OtherUserAvatar = 0;
 					
+					ingame.joinMyRoomOtherUser = 0;
+					ingame.ExitMyRoomOtherUser = 1;
+					
 					ingame.User2Name.setText("Name : "+ingame.OtherUserName);
 					ingame.User2Level.setText("Level : "+ingame.OtherUserLevel);
 					ingame.User2Alias.setText("Alias : "+ingame.OtherUserAlias);
