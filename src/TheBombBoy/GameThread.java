@@ -685,7 +685,7 @@ public class GameThread implements Runnable{
 							}
 						}
 						//========================================
-						if(ingame.joinNum == 19) { // 반복문 안에 넣어야 됌 while( ~~~~ )
+						if(ingame.joinNum == 19) { // ****** 방장 ******
 							ingame.joinNum = 0;
 							ingame.MyStandardStart = 1;
 							ingame.closePane();
@@ -791,7 +791,7 @@ public class GameThread implements Runnable{
 								e.printStackTrace();
 							}
 							
-							ingame.writer.println("BPCloseRoom/c;");
+							ingame.writer.println("BPCloseRoom/c;"+ingame.OtherUserId);
 							
 							ingame.OtherUserId = "";
 							ingame.OtherUserName = "";
@@ -812,7 +812,7 @@ public class GameThread implements Runnable{
 							
 						}
 						//-------------------------------------------------------------------------------------
-						if(ingame.joinNum == 20) {
+						if(ingame.joinNum == 20) { // ***** 입장자 *****
 							ingame.JoinStandardStart = 1;
 							ingame.joinNum = 0;
 							ingame.closePane();
@@ -856,7 +856,7 @@ public class GameThread implements Runnable{
 							ingame.OtherAvatar.setLocation(600, 490);
 							ingame.OtherAvatar.setVisible(true);
 							
-							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10 && ingame.TimeOverNum == 0) {
+							while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10 && ingame.TimeOverNum == 0 && ingame.CloseRoomNum == 0) {
 								if(ingame.ExitGameNum == 1) {
 									ingame.writer.println("BPExiteRoom/c;"+ingame.OtherUserId);
 									break;
@@ -899,6 +899,7 @@ public class GameThread implements Runnable{
 							ingame.OtherUserAlias = "";
 							ingame.OtherUserAvatar = 0;
 							
+							ingame.CloseRoomNum = 0;
 							ingame.ExitGameNum = 0;
 							ingame.TimeOverNum = 0;
 							ingame.BPGameStartNum = 0;

@@ -264,6 +264,8 @@ public class InGame extends JFrame {
 	
 	int ExitMyRoomOtherUser = 0;
 	
+	int CloseRoomNum = 0;
+	
 	//-----------------------------------
 	
 	Socket s = null;

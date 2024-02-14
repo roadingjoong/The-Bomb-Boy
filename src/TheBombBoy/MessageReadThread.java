@@ -182,6 +182,10 @@ public class MessageReadThread implements Runnable{
 					
 					break;
 					
+				case "BPClose":
+					ingame.CloseRoomNum = 1;
+					break;
+					
 				case "ChSu" :
 					ingame.InformationId = messageCut[1];
 					ingame.InformationPw = messageCut[2];

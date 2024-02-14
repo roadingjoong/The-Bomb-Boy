@@ -237,6 +237,9 @@ public class GameServerEngine extends Thread{
 					GS.RoomList.remove(MyRoomName+"/c;");
 					MyRoomName = "";
 					BPCreateRoom();
+					
+					String oun = messageCut[1];
+					BPCloseRoom(oun);
 					break;
 					
 				case "BPExiteRoom":
@@ -383,6 +386,15 @@ public class GameServerEngine extends Thread{
 		for(GameServerEngine gse : GS.GSEList) {
 			if(gse.Id.equals(otus)) {
 				gse.writeMessage(BPEXR.toString());
+			}
+		}
+	}
+	
+	void BPCloseRoom(String oun) {
+		StringBuffer BPClose = new StringBuffer("BPClose/c;");
+		for(GameServerEngine gse : GS.GSEList) {
+			if(gse.Id.equals(oun)) {
+				gse.writeMessage(BPClose.toString());
 			}
 		}
 	}
