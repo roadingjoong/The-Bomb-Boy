@@ -733,10 +733,8 @@ public class GameThread implements Runnable{
 								ingame.OtherAvatar.setLocation(600, 110);
 								ingame.OtherAvatar.setVisible(true);
 								
-								while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10 && ingame.TimeOverNum == 0) {
-									if(ingame.ExitGameNum == 1) {
-										break;
-									}
+								while(ingame.RedScoreNum != 10 && ingame.BlueScoreNum != 10 && ingame.TimeOverNum == 0 &&
+										ingame.ExitGameNum == 0 && ingame.ExitMyRoomOtherUser == 0) {
 									
 									if(ingame.NewBPBombNum == 1) {
 										ingame.BPGameStartButton.setIcon(new ImageIcon(ingame.BPgsb.MakeStartButton1()));
@@ -760,15 +758,15 @@ public class GameThread implements Runnable{
 												"/c;"+ingame.OtherUserId+"/c;"+ingame.randomNum+"/c;"+ingame.BPturnNum);
 									}
 									
-									if(ingame.ExitMyRoomOtherUser == 1) {
-										break;
-									}
-									
 									try {
 										Thread.sleep(1);
 									} catch (InterruptedException e) {
 										e.printStackTrace();
 									}
+								}
+								
+								if(ingame.RedScoreNum == 10 || ingame.BlueScoreNum == 10 || ingame.TimeOverNum == 1 || ingame.ExitGameNum == 1) {
+									break;
 								}
 								
 								if(ingame.ExitMyRoomOtherUser == 1) {
