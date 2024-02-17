@@ -781,17 +781,26 @@ public class GameThread implements Runnable{
 							if(ingame.RedScoreNum < ingame.BlueScoreNum) {
 								ingame.closePane();
 								ingame.StageFailePanel();
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
 							}else if(ingame.RedScoreNum > ingame.BlueScoreNum) {
 								ingame.closePane();
 								ingame.StageClearPanel();
-							}
-							try {
-								Thread.sleep(1000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
 							}
 							
-							ingame.writer.println("BPCloseRoom/c;"+ingame.OtherUserId);
+							if(!ingame.OtherUserId.equals("")) {
+								ingame.writer.println("BPCloseRoom/c;"+ingame.OtherUserId);
+							}else {
+								ingame.writer.println("BPCloseRoom/c;NoOtherUser");
+							}
 							
 							ingame.OtherUserId = "";
 							ingame.OtherUserName = "";
@@ -805,12 +814,11 @@ public class GameThread implements Runnable{
 							ingame.MyStandardStart = 0;
 							ingame.RedScoreNum = 0;
 							ingame.BlueScoreNum = 0;
-							
 							ingame.joinNum = 17;
 							
 							ingame.BarPane.setVisible(true);
-							
 						}
+						
 						//-------------------------------------------------------------------------------------
 						if(ingame.joinNum == 20) { // ***** 입장자 *****
 							ingame.JoinStandardStart = 1;
@@ -883,14 +891,19 @@ public class GameThread implements Runnable{
 							if( ingame.BlueScoreNum > ingame.RedScoreNum ) {
 								ingame.closePane();
 								ingame.StageClearPanel();
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
 							}else if(ingame.BlueScoreNum < ingame.RedScoreNum) {
 								ingame.closePane();
 								ingame.StageFailePanel();
-							}
-							try {
-								Thread.sleep(1000);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
 							}
 							
 							ingame.OtherUserId = "";
@@ -910,10 +923,14 @@ public class GameThread implements Runnable{
 							
 							ingame.BarPane.setVisible(true);
 						}
+						
 						//================================================================
+						
 						String BPexM = "BPexite/c;"+ingame.InformationName;
 						ingame.writer.println(BPexM);
+						
 						continue;
+						
 					}
 					else if(ingame.joinNum == 3) {
 						ingame.joinNum = 0;

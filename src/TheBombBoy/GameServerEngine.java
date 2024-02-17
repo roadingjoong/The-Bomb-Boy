@@ -239,7 +239,11 @@ public class GameServerEngine extends Thread{
 					BPCreateRoom();
 					
 					String oun = messageCut[1];
-					BPCloseRoom(oun);
+					
+					if(!oun.equals("NoOtherUser")) {
+						BPCloseRoom(oun);
+					}
+					
 					break;
 					
 				case "BPExiteRoom":
