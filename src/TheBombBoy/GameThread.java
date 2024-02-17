@@ -665,6 +665,7 @@ public class GameThread implements Runnable{
 									ingame.BPCgroundNum = 0;
 									if(ingame.MakeRoomName.getText().length() > 1) {
 										if(ingame.StandardNum == 1) {
+											ingame.MyRoomName = ingame.MakeRoomName.getText();
 											ingame.joinNum = 19;
 										}else if(ingame.SurvivalNum == 1) {
 											System.out.println("서바이벌 모드 선택");
@@ -691,7 +692,7 @@ public class GameThread implements Runnable{
 							ingame.closePane();
 							ingame.BarPane.setVisible(false);
 							ingame.BPMyStandardPanel();
-							ingame.writer.println("BPCRoom/c;"+ingame.MakeRoomName.getText());
+							ingame.writer.println("BPCRoom/c;"+ingame.MyRoomName);
 							ingame.UserAvatar.setLocation(600, 490);
 							ingame.User1Name.setText("Name : "+ingame.InformationName);
 							ingame.User1Level.setText("Level : "+ingame.InformationLevel);
@@ -717,6 +718,8 @@ public class GameThread implements Runnable{
 									ingame.User2Alias.setText("Alias : "+ingame.OtherUserAlias);
 									
 									ingame.writer.println("BPwelcom/c;"+ingame.OtherUserId);
+									
+									ingame.writer.println("BPCloseRoom/c;NoOtherUser");
 								}
 								
 								if(ingame.OtherUserAvatar == 1) {
@@ -770,6 +773,7 @@ public class GameThread implements Runnable{
 								}
 								
 								if(ingame.ExitMyRoomOtherUser == 1) {
+									ingame.writer.println("BPCRoom/c;"+ingame.MyRoomName);
 									ingame.ExitMyRoomOtherUser = 0;
 									continue;
 								}
@@ -808,6 +812,7 @@ public class GameThread implements Runnable{
 							ingame.OtherUserAlias = "";
 							ingame.OtherUserAvatar = 0;
 							
+							ingame.MyRoomName = "";
 							ingame.ExitGameNum = 0;
 							ingame.TimeOverNum = 0;
 							ingame.BPGameStartNum = 0;

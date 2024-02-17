@@ -218,6 +218,7 @@ public class InGame extends JFrame {
 	
 	int BPCgroundNum = 0;
 	int MyStandardStart = 0;
+	String MyRoomName = "";
 	int JoinStandardStart = 0;
 	String joinRoomName = "";
 	
