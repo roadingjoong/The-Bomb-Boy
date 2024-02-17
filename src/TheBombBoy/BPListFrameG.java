@@ -1,6 +1,7 @@
 package TheBombBoy;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -71,8 +72,10 @@ public class BPListFrameG {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, 50, 50);
 		
+		Font IconFont = new Font("Arial", Font.BOLD, 13);
+		g.setFont(IconFont);
 		g.setColor(Color.CYAN);
-		g.drawString("Search", 5, 30);
+		g.drawString("Search", 3, 30);
 		
 		return SearchIcon;
 	}
