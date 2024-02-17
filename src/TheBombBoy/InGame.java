@@ -148,6 +148,8 @@ public class InGame extends JFrame {
 	GoldCoin3G gc3g = new GoldCoin3G();
 	GoldBox1G gb1g = new GoldBox1G();
 	
+	BPListFrameG bplfg = new BPListFrameG();
+	
 	BPGameStartButtonG BPgsb = new BPGameStartButtonG();
 	
 	String InformationId;
@@ -1760,33 +1762,34 @@ public class InGame extends JFrame {
 		BPRoomSearch.setLocation(450, 200);
 		BPRoomSearch.setBackground(Color.BLACK);
 		BPRoomSearch.setForeground(Color.CYAN);
+		BPRoomSearch.setBorder(BorderFactory.createLineBorder(Color.CYAN));
 		BPRoomSearch.setFont(BPFont1);
 		BombPassLobbyPane.add(BPRoomSearch);
 		JLabel BPSearchIcon = new JLabel();
 		BPSearchIcon.setSize(50,50);
 		BPSearchIcon.setLocation(400, 200);
-		BPSearchIcon.setOpaque(true);
+		BPSearchIcon.setIcon(new ImageIcon(bplfg.newSearchIcon()));
 		BombPassLobbyPane.add(BPSearchIcon);
 		
 		JLabel BPListFrame1 = new JLabel();
 		BPListFrame1.setSize(50, 300);
 		BPListFrame1.setLocation(350, 200);
-		BPListFrame1.setOpaque(true);
+		BPListFrame1.setIcon(new ImageIcon(bplfg.newFrame1()));
 		BombPassLobbyPane.add(BPListFrame1);
 		JLabel BPListFrame2 = new JLabel();
 		BPListFrame2.setSize(50, 300);
 		BPListFrame2.setLocation(900, 200);
-		BPListFrame2.setOpaque(true);
+		BPListFrame2.setIcon(new ImageIcon(bplfg.newFrame2()));
 		BombPassLobbyPane.add(BPListFrame2);
 		JLabel BPListFrame3 = new JLabel();
 		BPListFrame3.setSize(600, 50);
 		BPListFrame3.setLocation(350, 150);
-		BPListFrame3.setOpaque(true);
+		BPListFrame3.setIcon(new ImageIcon(bplfg.newFrame3()));
 		BombPassLobbyPane.add(BPListFrame3);
 		JLabel BPListFrame4 = new JLabel();
 		BPListFrame4.setSize(600, 50);
 		BPListFrame4.setLocation(350, 500);
-		BPListFrame4.setOpaque(true);
+		BPListFrame4.setIcon(new ImageIcon(bplfg.newFrame4()));
 		BombPassLobbyPane.add(BPListFrame4);
 		
 		Font BPFont2 = new Font("Arial", Font.BOLD, 30);
