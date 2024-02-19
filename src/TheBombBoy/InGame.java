@@ -1947,6 +1947,12 @@ public class InGame extends JFrame {
 		
 		BombPassMyRoomPane.add(MakeRoomBox);
 		
+		JButton MRBackButton = new JButton("BACK");
+		MRBackButton.setSize(100,50);
+		MRBackButton.setLocation(600,600);
+		MRBackButton.setFont(MakeRoomFont);
+		BombPassMyRoomPane.add(MRBackButton);
+		
 		QuitGameButtonM();
 		BombPassMyRoomPane.add(QuitGameButton);
 		
@@ -1983,6 +1989,13 @@ public class InGame extends JFrame {
 				}else {
 					SurvivalNum = 0;
 				}
+			}
+		});
+		
+		MRBackButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				joinNum = 17;
 			}
 		});
 	}
