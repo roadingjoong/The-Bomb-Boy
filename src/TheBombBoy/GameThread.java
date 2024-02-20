@@ -669,7 +669,8 @@ public class GameThread implements Runnable{
 											ingame.joinNum = 19;
 										}else if(ingame.SurvivalNum == 1) {
 											System.out.println("서바이벌 모드 선택");
-											ingame.joinNum = 17;
+											ingame.MyRoomName = ingame.MakeRoomName.getText();
+											ingame.joinNum = 19;
 										}else {
 											System.out.println("모드를 선택해주세요.");
 											ingame.joinNum = 17;

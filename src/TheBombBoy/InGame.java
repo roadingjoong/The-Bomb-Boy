@@ -202,6 +202,8 @@ public class InGame extends JFrame {
 	int Stage1Boss_y;
 	int Stage1Boss_dead;
 	
+	JLabel BPObstacle = new JLabel();
+	
 	JLabel ExitGameButton;
 	int ExitGameNum = 0;
 	
@@ -2084,10 +2086,21 @@ public class InGame extends JFrame {
 		BPBlueScore.setVerticalAlignment(JLabel.CENTER);
 	}
 	
+	void BPObstacleM() {
+		BPObstacle = new JLabel();
+		BPObstacle.setSize(200, 50);
+		BPObstacle.setLocation(400, 330);
+		BPObstacle.setOpaque(true);
+		BPObstacle.setVisible(true);
+	}
+	
 	void BPMyStandardPanel() {
 		BPMyStandardPane = new JPanel();
 		BPMyStandardPane.setBackground(Color.LIGHT_GRAY);
 		BPMyStandardPane.setLayout(null);
+		
+		BPObstacleM();
+		BPMyStandardPane.add(BPObstacle);
 		
 		UserAvatarM();
 		BPMyStandardPane.add(UserAvatar);
@@ -2179,6 +2192,9 @@ public class InGame extends JFrame {
 		BPJoinStandardPane = new JPanel();
 		BPJoinStandardPane.setBackground(Color.LIGHT_GRAY);
 		BPJoinStandardPane.setLayout(null);
+		
+		BPObstacleM();
+		BPJoinStandardPane.add(BPObstacle);
 		
 		UserAvatarM();
 		BPJoinStandardPane.add(UserAvatar);
