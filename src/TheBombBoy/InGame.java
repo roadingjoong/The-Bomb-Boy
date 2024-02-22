@@ -83,11 +83,6 @@ public class InGame extends JFrame {
 	
 	JLabel GameTitleText;
 	
-	JRadioButton StandardB;
-	int StandardNum = 0;
-	JRadioButton SurvivalB;
-	int SurvivalNum = 0;
-	
 	JButton QuitGameButton;
 	int QuitGameNum = 0;
 	
@@ -1919,27 +1914,6 @@ public class InGame extends JFrame {
 		MakeRoomName.setHorizontalAlignment(JTextField.CENTER);
 		MakeRoomBox.add(MakeRoomName);
 		
-		ButtonGroup selectMode = new ButtonGroup();
-		StandardB = new JRadioButton("Standard");
-		StandardB.setSize(200,50);
-		StandardB.setLocation(50, 125);
-		StandardB.setForeground(Color.CYAN);
-		StandardB.setVerticalAlignment(JRadioButton.CENTER);
-		StandardB.setHorizontalAlignment(JRadioButton.CENTER);
-		StandardB.setFont(MakeRoomFont);
-		
-		SurvivalB = new JRadioButton("Survival");
-		SurvivalB.setSize(200,50);
-		SurvivalB.setLocation(250, 125);
-		SurvivalB.setForeground(Color.CYAN);
-		SurvivalB.setVerticalAlignment(JRadioButton.CENTER);
-		SurvivalB.setHorizontalAlignment(JRadioButton.CENTER);
-		SurvivalB.setFont(MakeRoomFont);
-		selectMode.add(StandardB);
-		selectMode.add(SurvivalB);
-		MakeRoomBox.add(StandardB);
-		MakeRoomBox.add(SurvivalB);
-		
 		JButton RoomCreatButton = new JButton("Create");
 		RoomCreatButton.setSize(100, 60);
 		RoomCreatButton.setLocation(200, 200);
@@ -1969,28 +1943,6 @@ public class InGame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				BPCgroundNum = 1;
-			}
-		});
-		
-		StandardB.addItemListener(new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				if(e.getStateChange() == ItemEvent.SELECTED) {
-					StandardNum = 1;
-				}else {
-					StandardNum = 0;
-				}
-			}
-		});
-		
-		SurvivalB.addItemListener(new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				if(e.getStateChange() == ItemEvent.SELECTED) {
-					SurvivalNum = 1;
-				}else {
-					SurvivalNum = 0;
-				}
 			}
 		});
 		
@@ -2086,21 +2038,10 @@ public class InGame extends JFrame {
 		BPBlueScore.setVerticalAlignment(JLabel.CENTER);
 	}
 	
-	void BPObstacleM() {
-		BPObstacle = new JLabel();
-		BPObstacle.setSize(200, 50);
-		BPObstacle.setLocation(400, 330);
-		BPObstacle.setOpaque(true);
-		BPObstacle.setVisible(true);
-	}
-	
 	void BPMyStandardPanel() {
 		BPMyStandardPane = new JPanel();
 		BPMyStandardPane.setBackground(Color.LIGHT_GRAY);
 		BPMyStandardPane.setLayout(null);
-		
-		BPObstacleM();
-		BPMyStandardPane.add(BPObstacle);
 		
 		UserAvatarM();
 		BPMyStandardPane.add(UserAvatar);
@@ -2192,9 +2133,6 @@ public class InGame extends JFrame {
 		BPJoinStandardPane = new JPanel();
 		BPJoinStandardPane.setBackground(Color.LIGHT_GRAY);
 		BPJoinStandardPane.setLayout(null);
-		
-		BPObstacleM();
-		BPJoinStandardPane.add(BPObstacle);
 		
 		UserAvatarM();
 		BPJoinStandardPane.add(UserAvatar);

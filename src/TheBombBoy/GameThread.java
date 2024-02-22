@@ -664,17 +664,8 @@ public class GameThread implements Runnable{
 								if(ingame.BPCgroundNum == 1) {
 									ingame.BPCgroundNum = 0;
 									if(ingame.MakeRoomName.getText().length() > 1) {
-										if(ingame.StandardNum == 1) {
-											ingame.MyRoomName = ingame.MakeRoomName.getText();
-											ingame.joinNum = 19;
-										}else if(ingame.SurvivalNum == 1) {
-											System.out.println("서바이벌 모드 선택");
-											ingame.MyRoomName = ingame.MakeRoomName.getText();
-											ingame.joinNum = 19;
-										}else {
-											System.out.println("모드를 선택해주세요.");
-											ingame.joinNum = 17;
-										}
+										ingame.MyRoomName = ingame.MakeRoomName.getText();
+										ingame.joinNum = 19;
 									}
 								}
 							}
