@@ -80,6 +80,7 @@ public class InGame extends JFrame {
 	JPanel BombPassMyRoomPane = new JPanel();
 	JPanel BPMyStandardPane = new JPanel();
 	JPanel BPJoinStandardPane = new JPanel();
+	JPanel BPTrainingPane = new JPanel();
 	
 	JLabel GameTitleText;
 	
@@ -287,6 +288,7 @@ public class InGame extends JFrame {
 		this.setLocationRelativeTo(null);
 		Gameframe = this;
 		
+		BPTrainingPanel();
 		BPJoinStandardPanel();
 		BPMyStandardPanel();
 		BombPassMyRoomPanel();
@@ -405,6 +407,7 @@ public class InGame extends JFrame {
 		BombPassMyRoomPane.setVisible(false);
 		BPMyStandardPane.setVisible(false);
 		BPJoinStandardPane.setVisible(false);
+		BPTrainingPane.setVisible(false);
 	}
 	
 	void DarkPanel() {
@@ -1581,8 +1584,6 @@ public class InGame extends JFrame {
 		
 	}
 	
-	
-	
 	void Stage1MEDIUMPanel() {
 		
 		Stage1SkyM();
@@ -1630,7 +1631,6 @@ public class InGame extends JFrame {
 		
 		closePane();
 		Stage1MEDIUMPane.setVisible(true);
-		
 	}
 	
 	void Stage1HARDPanel() {
@@ -2217,8 +2217,30 @@ public class InGame extends JFrame {
 		BPJoinStandardPane.setVisible(true);
 	}
 	
-	void MyPagePanel() {
+	void BPTrainingPanel() {
+		BPTrainingPane = new JPanel();
+		BPTrainingPane.setBackground(Color.LIGHT_GRAY);
+		BPTrainingPane.setLayout(null);
 		
+		SpaceFrameM();
+		BPTrainingPane.add(SpaceFrame1);
+		BPTrainingPane.add(SpaceFrame2);
+		BPTrainingPane.add(SpaceFrame3);
+		BPTrainingPane.add(SpaceFrame4);
+		BPTrainingPane.add(GroundLine);
+		
+		UserAvatarM();
+		BPTrainingPane.add(UserAvatar);
+		
+		BPBombM();
+		BPTrainingPane.add(BPBomb);
+		
+		add(BPTrainingPane);
+		closePane();
+		BPTrainingPane.setVisible(true);
+	}
+	
+	void MyPagePanel() {
 		MyPagePane = new JPanel();
 		MyPagePane.setBackground(Color.DARK_GRAY);
 		MyPagePane.setLayout(null);

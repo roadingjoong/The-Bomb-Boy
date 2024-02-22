@@ -921,6 +921,20 @@ public class GameThread implements Runnable{
 							ingame.BarPane.setVisible(true);
 						}
 						
+						if(ingame.joinNum == 21) {
+							ingame.joinNum = 0;
+							ingame.closePane();
+							ingame.BPTrainingPanel();
+							
+							while(true) {
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}
+						}
+						
 						//================================================================
 						
 						String BPexM = "BPexite/c;"+ingame.InformationName;
@@ -931,7 +945,6 @@ public class GameThread implements Runnable{
 					}
 					else if(ingame.joinNum == 3) {
 						ingame.joinNum = 0;
-						
 						ingame.closePane();
 						ingame.MyPagePanel();
 						ingame.MyPageButton.setForeground(Color.RED);

@@ -243,7 +243,6 @@ public class GameServerEngine extends Thread{
 					if(!oun.equals("NoOtherUser")) {
 						BPCloseRoom(oun);
 					}
-					
 					break;
 					
 				case "BPExiteRoom":
