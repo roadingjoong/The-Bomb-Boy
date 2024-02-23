@@ -267,6 +267,8 @@ public class InGame extends JFrame {
 	
 	int CloseRoomNum = 0;
 	
+	int BPTrainingNum = 0;
+	
 	//-----------------------------------
 	
 	Socket s = null;
@@ -1205,7 +1207,7 @@ public class InGame extends JFrame {
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_LEFT) {
 					AvatarMove = 4;
-					if(MyStandardStart == 1 || JoinStandardStart == 1) {
+					if(MyStandardStart == 1 || JoinStandardStart == 1 || BPTrainingNum == 1) {
 						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 						}else {
@@ -1225,7 +1227,7 @@ public class InGame extends JFrame {
 					
 				}else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
 					AvatarMove = 3;
-					if(MyStandardStart == 1 || JoinStandardStart == 1) {
+					if(MyStandardStart == 1 || JoinStandardStart == 1 || BPTrainingNum == 1) {
 						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 						}else {
@@ -1245,7 +1247,7 @@ public class InGame extends JFrame {
 					
 				}else if(e.getKeyCode() == KeyEvent.VK_UP) {
 					AvatarMove = 2;
-					if(MyStandardStart == 1) {
+					if(MyStandardStart == 1 || BPTrainingNum == 1) {
 						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 						}else {
@@ -1275,7 +1277,7 @@ public class InGame extends JFrame {
 					
 				}else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
 					AvatarMove = 1;
-					if(MyStandardStart == 1) {
+					if(MyStandardStart == 1 || BPTrainingNum == 1) {
 						if(BPGameStartNum == 0) {
 							UserAvatar.setLocation(UserAvatar.getLocation().x, UserAvatar.getLocation().y);
 						}else {
@@ -2222,18 +2224,18 @@ public class InGame extends JFrame {
 		BPTrainingPane.setBackground(Color.LIGHT_GRAY);
 		BPTrainingPane.setLayout(null);
 		
+		UserAvatarM();
+		BPTrainingPane.add(UserAvatar);
+		
+		BPBombM();
+		BPTrainingPane.add(BPBomb);
+		
 		SpaceFrameM();
 		BPTrainingPane.add(SpaceFrame1);
 		BPTrainingPane.add(SpaceFrame2);
 		BPTrainingPane.add(SpaceFrame3);
 		BPTrainingPane.add(SpaceFrame4);
 		BPTrainingPane.add(GroundLine);
-		
-		UserAvatarM();
-		BPTrainingPane.add(UserAvatar);
-		
-		BPBombM();
-		BPTrainingPane.add(BPBomb);
 		
 		add(BPTrainingPane);
 		closePane();

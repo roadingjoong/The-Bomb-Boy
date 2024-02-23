@@ -921,18 +921,31 @@ public class GameThread implements Runnable{
 							ingame.BarPane.setVisible(true);
 						}
 						
+						//----*****&&&&&******
+						
 						if(ingame.joinNum == 21) {
 							ingame.joinNum = 0;
+							ingame.BPTrainingNum = 1;
 							ingame.closePane();
 							ingame.BPTrainingPanel();
+							ingame.BarPane.setVisible(false);
+							ingame.UserAvatar.setLocation(600, 490);
+							ingame.BPGameStartNum = 1;
+							ingame.BPBomb.setLocation(625, 400);
+							ingame.BPBomb.setVisible(true);
 							
-							while(true) {
+							while(ingame.joinNum == 0) {
 								try {
 									Thread.sleep(1000);
 								} catch (InterruptedException e) {
 									e.printStackTrace();
 								}
 							}
+							
+							ingame.BPGameStartNum = 0;
+							ingame.BPTrainingNum = 0;
+							ingame.joinNum = 17;
+							ingame.BarPane.setVisible(true);
 						}
 						
 						//================================================================

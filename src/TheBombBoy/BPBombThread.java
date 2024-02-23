@@ -17,7 +17,8 @@ public class BPBombThread implements Runnable {
 	@Override
 	public void run() {
 		while(Thread_ToF) {
-			if(ingame.BPMyStandardPane.isVisible()==false && ingame.BPJoinStandardPane.isVisible()==false) {
+			if(ingame.BPMyStandardPane.isVisible()==false && ingame.BPJoinStandardPane.isVisible()==false &&
+					ingame.BPTrainingPane.isVisible()==false) {
 				Thread_ToF = false;
 				return;
 			}
@@ -26,7 +27,7 @@ public class BPBombThread implements Runnable {
 				ingame.randomNum = random.nextInt(2)+1;
 				ingame.touchBombNum = 1;
 				
-				if(ingame.MyStandardStart == 1) {
+				if(ingame.MyStandardStart == 1 || ingame.BPTrainingNum == 1) {
 					ingame.BPturnNum = 1;
 				}else if(ingame.JoinStandardStart == 1) {
 					ingame.BPturnNum = 2;
