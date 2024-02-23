@@ -2226,6 +2226,10 @@ public class InGame extends JFrame {
 		TrainingBot.setSize(100, 110);
 		TrainingBot.setLocation(600, 110);
 		TrainingBot.setIcon(new ImageIcon(tbg.makeBot()));
+		
+		TrainingBotThread TrainingBotT = new TrainingBotThread(this);
+		Thread tbott = new Thread(TrainingBotT);
+		tbott.start();
 	}
 	
 	void BPTrainingPanel() {
