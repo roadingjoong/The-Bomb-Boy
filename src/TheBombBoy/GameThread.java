@@ -934,9 +934,9 @@ public class GameThread implements Runnable{
 							ingame.BPBomb.setLocation(625, 400);
 							ingame.BPBomb.setVisible(true);
 							
-							while(ingame.joinNum == 0) {
+							while(ingame.ExitGameNum == 0) {
 								try {
-									Thread.sleep(1000);
+									Thread.sleep(100);
 								} catch (InterruptedException e) {
 									e.printStackTrace();
 								}
@@ -944,6 +944,7 @@ public class GameThread implements Runnable{
 							
 							ingame.BPGameStartNum = 0;
 							ingame.BPTrainingNum = 0;
+							ingame.ExitGameNum = 0;
 							ingame.joinNum = 17;
 							ingame.BarPane.setVisible(true);
 						}

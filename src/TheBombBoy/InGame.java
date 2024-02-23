@@ -1512,7 +1512,7 @@ public class InGame extends JFrame {
 		ExitGameButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(BPGameStartNum == 0) {
+				if(BPGameStartNum == 0 || BPTrainingNum == 1) {
 					ExitGameNum = 1;
 				}
 			}
@@ -2252,6 +2252,9 @@ public class InGame extends JFrame {
 		BPTrainingPane.add(SpaceFrame3);
 		BPTrainingPane.add(SpaceFrame4);
 		BPTrainingPane.add(GroundLine);
+		
+		ExitGameButtonM();
+		BPTrainingPane.add(ExitGameButton);
 		
 		add(BPTrainingPane);
 		closePane();
