@@ -198,8 +198,6 @@ public class InGame extends JFrame {
 	int Stage1Boss_y;
 	int Stage1Boss_dead;
 	
-	JLabel BPObstacle = new JLabel();
-	
 	JLabel ExitGameButton;
 	int ExitGameNum = 0;
 	
@@ -268,6 +266,8 @@ public class InGame extends JFrame {
 	int CloseRoomNum = 0;
 	
 	int BPTrainingNum = 0;
+	
+	JLabel TrainingBot = new JLabel();
 	
 	//-----------------------------------
 	
@@ -2219,6 +2219,13 @@ public class InGame extends JFrame {
 		BPJoinStandardPane.setVisible(true);
 	}
 	
+	void TrainingBotM() {
+		TrainingBot = new JLabel();
+		TrainingBot.setSize(100, 110);
+		TrainingBot.setLocation(600, 110);
+		TrainingBot.setOpaque(true);
+	}
+	
 	void BPTrainingPanel() {
 		BPTrainingPane = new JPanel();
 		BPTrainingPane.setBackground(Color.LIGHT_GRAY);
@@ -2226,6 +2233,9 @@ public class InGame extends JFrame {
 		
 		UserAvatarM();
 		BPTrainingPane.add(UserAvatar);
+		
+		TrainingBotM();
+		BPTrainingPane.add(TrainingBot);
 		
 		BPBombM();
 		BPTrainingPane.add(BPBomb);
