@@ -148,6 +148,8 @@ public class InGame extends JFrame {
 	
 	BPGameStartButtonG BPgsb = new BPGameStartButtonG();
 	
+	TrainingBotG tbg = new TrainingBotG();
+	
 	String InformationId;
 	String InformationPw;
 	String InformationName;
@@ -2223,7 +2225,7 @@ public class InGame extends JFrame {
 		TrainingBot = new JLabel();
 		TrainingBot.setSize(100, 110);
 		TrainingBot.setLocation(600, 110);
-		TrainingBot.setOpaque(true);
+		TrainingBot.setIcon(new ImageIcon(tbg.makeBot()));
 	}
 	
 	void BPTrainingPanel() {
