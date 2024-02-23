@@ -23,13 +23,16 @@ public class BPBombThread implements Runnable {
 				return;
 			}
 			
-			if(ingame.BPBomb.getBounds().intersects(ingame.UserAvatar.getBounds())) {
+			if(ingame.BPBomb.getBounds().intersects(ingame.UserAvatar.getBounds()) ||
+					ingame.BPBomb.getBounds().intersects(ingame.TrainingBot.getBounds())) {
 				ingame.randomNum = random.nextInt(2)+1;
 				ingame.touchBombNum = 1;
 				
-				if(ingame.MyStandardStart == 1 || ingame.BPTrainingNum == 1) {
+				if(ingame.MyStandardStart == 1 || (ingame.BPTrainingNum == 1 
+						&& ingame.BPBomb.getBounds().intersects(ingame.UserAvatar.getBounds()))) {
 					ingame.BPturnNum = 1;
-				}else if(ingame.JoinStandardStart == 1) {
+				}else if(ingame.JoinStandardStart == 1 || (ingame.BPTrainingNum == 1 
+						&& ingame.BPBomb.getBounds().intersects(ingame.TrainingBot.getBounds()))) {
 					ingame.BPturnNum = 2;
 				}
 			}
