@@ -1878,6 +1878,25 @@ public class InGame extends JFrame {
 			}
 		});
 		
+		BPRoomSearch.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					
+					String searchRoom = BPRoomSearch.getText();
+					
+					for(int i = 0; i <= BPRoomList.getModel().getSize(); i++) {
+						if(BPRoomList.getModel().getElementAt(i).equals(searchRoom)) {
+							joinNum = 20;
+							joinRoomName = (String)BPRoomList.getModel().getElementAt(i);
+							break;
+						}
+					}
+					
+				}
+			}
+		});
+		
 		MessageReadThread MRT = new MessageReadThread(this);
 		Thread MessageRead = new Thread(MRT);
 		MessageRead.start();
@@ -2406,18 +2425,14 @@ public class InGame extends JFrame {
 		MyPageNameChangeButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				joinNum = 6;
-				
 			}
 		});
 		
 		MyPagePwChangeButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				joinNum = 7;
-				
 			}
 		});
 		

@@ -1171,13 +1171,10 @@ public class GameThread implements Runnable{
 							if(ingame.LogoutNum == 1) {
 								break;
 							}
-														
 							continue;
 							
 						}
-						
 						continue;
-						
 					}
 					else if(ingame.joinNum == 4) {
 						ingame.joinNum = 0;
