@@ -74,6 +74,8 @@ public class InGame extends JFrame {
 	JPanel Stage1MEDIUMPane = new JPanel();
 	JPanel Stage1HARDPane = new JPanel();
 	
+	JPanel Stage2Pane = new JPanel();
+	
 	JPanel StageClearPane = new JPanel();
 	JPanel StageFailePane = new JPanel();
 	
@@ -300,6 +302,9 @@ public class InGame extends JFrame {
 		Stage1HARDPanel();
 		Stage1MEDIUMPanel();
 		Stage1EASYPanel();
+		
+		Stage2Panel();
+		
 		StageRoadingPanel();
 		StageClearPanel();
 		StageFailePanel();
@@ -405,6 +410,7 @@ public class InGame extends JFrame {
 		Stage1EASYPane.setVisible(false);
 		Stage1MEDIUMPane.setVisible(false);
 		Stage1HARDPane.setVisible(false);
+		Stage2Pane.setVisible(false);
 		StageClearPane.setVisible(false);
 		StageFailePane.setVisible(false);
 		
@@ -1690,6 +1696,16 @@ public class InGame extends JFrame {
 		closePane();
 		Stage1HARDPane.setVisible(true);
 		
+	}
+	
+	void Stage2Panel() {
+		Stage2Pane = new JPanel();
+		Stage2Pane.setBackground(Color.GRAY);
+		Stage2Pane.setLayout(null);
+		
+		add(Stage2Pane);
+		closePane();
+		Stage2Pane.setVisible(true);
 	}
 	
 	void StageClearPanel() {

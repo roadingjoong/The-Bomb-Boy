@@ -566,6 +566,15 @@ public class GameThread implements Runnable{
 							
 							ingame.joinNum = 0;
 							ingame.closePane();
+							ingame.Stage2Panel();
+							
+							while(ingame.joinNum == 0) {
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}
 							
 							ingame.joinNum = 2;
 							continue;
