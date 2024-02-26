@@ -14,14 +14,16 @@ public class UserBombThread implements Runnable{
 		
 		while(Thread_ToF) {
 			
-			if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0) {
+			if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 &&
+					ingame.easy2start == 0) {
 				Thread_ToF = false;
 				return;
 			}
 			
 			while(ingame.BombTime == 0) {
 				
-				if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0) {
+				if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 &&
+						ingame.easy2start == 0) {
 					Thread_ToF = false;
 					return;
 				}
@@ -42,7 +44,8 @@ public class UserBombThread implements Runnable{
 				e.printStackTrace();
 			}
 			
-			if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0) {
+			if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 &&
+					ingame.easy2start == 0) {
 				Thread_ToF = false;
 				return;
 			}
@@ -56,7 +59,8 @@ public class UserBombThread implements Runnable{
 				e.printStackTrace();
 			}
 			
-			if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0) {
+			if(ingame.easy1start == 0 && ingame.medium1start == 0 && ingame.hard1start == 0 &&
+					ingame.easy2start == 0) {
 				Thread_ToF = false;
 				return;
 			}

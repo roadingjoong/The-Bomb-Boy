@@ -1708,6 +1708,9 @@ public class InGame extends JFrame {
 		UserAvatarM();
 		Stage2Pane.add(UserAvatar);
 		
+		UserBombM();
+		Stage2Pane.add(UserBomb);
+		
 		add(Stage2Pane);
 		closePane();
 		Stage2Pane.setVisible(true);
