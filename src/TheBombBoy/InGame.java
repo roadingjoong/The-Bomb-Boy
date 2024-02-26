@@ -181,9 +181,11 @@ public class InGame extends JFrame {
 	JLabel Villain3_bullet = new JLabel();
 	JLabel Stage1Boss = new JLabel();
 	
-	int medium1start;
 	int easy1start;
+	int medium1start;
 	int hard1start;
+	
+	int easy2start;
 	
 	JLabel GoldCoin = new JLabel();
 	int SaveVillain1_x;
@@ -1702,6 +1704,9 @@ public class InGame extends JFrame {
 		Stage2Pane = new JPanel();
 		Stage2Pane.setBackground(Color.GRAY);
 		Stage2Pane.setLayout(null);
+		
+		UserAvatarM();
+		Stage2Pane.add(UserAvatar);
 		
 		add(Stage2Pane);
 		closePane();

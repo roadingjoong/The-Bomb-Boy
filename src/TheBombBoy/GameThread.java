@@ -565,6 +565,7 @@ public class GameThread implements Runnable{
 						}else if(ingame.joinNum == 11) {
 							
 							ingame.joinNum = 0;
+							ingame.easy2start = 1;
 							ingame.closePane();
 							ingame.Stage2Panel();
 							
@@ -576,6 +577,7 @@ public class GameThread implements Runnable{
 								}
 							}
 							
+							ingame.easy2start = 0;
 							ingame.joinNum = 2;
 							continue;
 							
