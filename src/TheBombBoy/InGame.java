@@ -181,6 +181,8 @@ public class InGame extends JFrame {
 	JLabel Villain3_bullet = new JLabel();
 	JLabel Stage1Boss = new JLabel();
 	
+	JLabel Villain4 = new JLabel();
+	
 	int easy1start;
 	int medium1start;
 	int hard1start;
@@ -1700,6 +1702,15 @@ public class InGame extends JFrame {
 		
 	}
 	
+	void Villain4M() {
+		
+		Villain4 = new JLabel();
+		Villain4.setSize(100,110);
+		Villain4.setLocation(700,300);
+		Villain4.setOpaque(true);
+		
+	}
+	
 	void Stage2Panel() {
 		Stage2Pane = new JPanel();
 		Stage2Pane.setBackground(Color.GRAY);
@@ -1710,6 +1721,9 @@ public class InGame extends JFrame {
 		
 		UserBombM();
 		Stage2Pane.add(UserBomb);
+		
+		Villain4M();
+		Stage2Pane.add(Villain4);
 		
 		add(Stage2Pane);
 		closePane();
