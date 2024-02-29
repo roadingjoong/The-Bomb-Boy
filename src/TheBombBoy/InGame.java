@@ -141,6 +141,8 @@ public class InGame extends JFrame {
 	Villain3_bulletG v3bg = new Villain3_bulletG();
 	Stage1BossG s1b = new Stage1BossG();
 	
+	Villain4G vl4g = new Villain4G();
+	
 	GoldCoinG gcg = new GoldCoinG();
 	GoldCoin2G gc2g = new GoldCoin2G();
 	GoldCoin3G gc3g = new GoldCoin3G();
@@ -1707,7 +1709,7 @@ public class InGame extends JFrame {
 		Villain4 = new JLabel();
 		Villain4.setSize(100,110);
 		Villain4.setLocation(700,300);
-		Villain4.setOpaque(true);
+		Villain4.setIcon(new ImageIcon(vl4g.makeVillain4()));
 		
 	}
 	
