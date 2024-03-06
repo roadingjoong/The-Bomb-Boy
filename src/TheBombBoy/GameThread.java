@@ -108,7 +108,6 @@ public class GameThread implements Runnable{
 							if(ingame.QuitGameNum == 1) {
 								break;
 							}
-							
 						
 							if(ingame.signNum == 2) { // 로그인 화면으로 돌아가기
 								ingame.signNum = 0;
@@ -362,7 +361,6 @@ public class GameThread implements Runnable{
 								ingame.easy1start = 0;
 								
 								ingame.writer.println("UpLe/c;"+ingame.InformationLevel+"/c;"+ingame.InformationId);
-								
 								
 								if(ingame.InformationStage <= 1 ) {
 									ingame.writer.println("UpSt/c;"+ingame.InformationStage+"/c;"+ingame.InformationId);

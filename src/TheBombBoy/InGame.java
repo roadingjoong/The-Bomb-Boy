@@ -782,7 +782,6 @@ public class InGame extends JFrame {
 	}
 	
 	void StartGamePanel() {
-		
 		StartGamePane = new JPanel();
 		StartGamePane.setBackground(Color.DARK_GRAY);
 		StartGamePane.setLayout(null);
@@ -1202,7 +1201,6 @@ public class InGame extends JFrame {
 	}
 	
 	void UserAvatarM() {
-		
 		UserAvatar = new JLabel();
 		UserAvatar.setSize(100, 110);
 		
@@ -1331,7 +1329,6 @@ public class InGame extends JFrame {
 		});
 		setFocusable(true);
 		requestFocus();
-		
 	}
 		
 	void UserBombM() {
@@ -1647,6 +1644,7 @@ public class InGame extends JFrame {
 		
 		closePane();
 		Stage1MEDIUMPane.setVisible(true);
+		
 	}
 	
 	void Stage1HARDPanel() {
@@ -1705,12 +1703,13 @@ public class InGame extends JFrame {
 	}
 	
 	void Villain4M() {
-		
 		Villain4 = new JLabel();
 		Villain4.setSize(100,110);
-		Villain4.setLocation(700,300);
+		Villain4.setLocation(700,500);
 		Villain4.setIcon(new ImageIcon(vl4g.makeVillain4()));
-		
+		Villain4Thread Villain4T = new Villain4Thread(this);
+		Thread v4t = new Thread(Villain4T);
+		v4t.start();
 	}
 	
 	void Stage2Panel() {
@@ -1733,7 +1732,6 @@ public class InGame extends JFrame {
 	}
 	
 	void StageClearPanel() {
-		
 		StageClearPane = new JPanel();
 		StageClearPane.setBackground(Color.BLACK);
 		StageClearPane.setLayout(null);
@@ -1752,7 +1750,6 @@ public class InGame extends JFrame {
 		
 		closePane();
 		StageClearPane.setVisible(true);
-		
 	}
 	
 	void StageFailePanel() {
